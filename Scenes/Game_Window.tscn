@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/UI/Top UI v 2.png" type="Texture" id=1]
+[ext_resource path="res://Resources/UI/Bottom UI v 2.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Background/Texture-164.jpg" type="Texture" id=3]
+[ext_resource path="res://Resources/Scripts/Grid.gd" type="Script" id=4]
+
+[node name="Game_Window" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+margin_left = -1.0
+margin_top = -2.0
+margin_right = 577.0
+margin_bottom = 1020.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopUI" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomUI" type="TextureRect" parent="."]
+margin_top = 928.0
+margin_right = 576.0
+margin_bottom = 1020.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource( 4 )
+width = 8
+height = 10
+x_start = 64
+y_start = 800
+offset = 64
