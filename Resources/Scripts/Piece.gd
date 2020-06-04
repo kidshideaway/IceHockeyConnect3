@@ -12,8 +12,6 @@ func _ready():
 func move(target):
 	Move_Tween.interpolate_property(self, "position", position, target, .3, Tween.TRANS_SINE, Tween.EASE_OUT);
 	Move_Tween.start();
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

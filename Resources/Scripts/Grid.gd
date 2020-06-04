@@ -29,8 +29,7 @@ var controlling =false;
 func _ready():
 	randomize();
 	all_pieces = make_2d_array();
-	spawn_pieces();
-	print(all_pieces); 
+	spawn_pieces(); 
 
 func make_2d_array():
 	var array = [];
@@ -56,7 +55,6 @@ func spawn_pieces():
 			add_child(piece);
 			piece.position = grid_to_pixel(i,j);
 			all_pieces[i][j] = piece;
-	
 
 func grid_to_pixel(column, row):
 	var new_x = x_start + offset * column;
@@ -72,7 +70,6 @@ func match_at(i, j, color):
 		if all_pieces[i][j-1] != null && all_pieces[i][j-2] != null:
 			if all_pieces[i][j-1].color == color && all_pieces[i][j-2]. color == color:
 				return true;
-	
 
 func pixel_to_grid(pixel_x, pixel_y):
 	var new_x = round((pixel_x - x_start) / offset);
@@ -90,10 +87,9 @@ func is_in_grid_single(grid_position):
 		if grid_position.y >= 0 && grid_position.y < height:
 			return true;
 	return false;
-		
+
 
 func touch_input(): 
-	
 	if Input.is_action_just_pressed("ui_touch"):
 		if is_in_grid_single(pixel_to_grid( (get_global_mouse_position().x), (get_global_mouse_position().y) )): 
 			first_touch = pixel_to_grid( (get_global_mouse_position().x), (get_global_mouse_position().y) ); 
@@ -105,20 +101,58 @@ func touch_input():
 			controlling = false;
 			final_touch = pixel_to_grid( (get_global_mouse_position().x), (get_global_mouse_position().y) ); 
 			touch_difference(first_touch, final_touch);
-			
+
 
 func swap_pieces(column, row, direction):
+	var matchcheck = 0;
+	print("Function: Swap pieces:");
+	var b_column = column + direction.x;
+	var b_row = row + direction.y;
+	print("Function: Swap pieces: Set new position variables for consistency.");
 	var first_piece = all_pieces[column][row];
-	var other_piece = all_pieces[column + direction.x][row + direction.y]
-	if first_piece != null && other_piece !=null:
-		all_pieces[column][row] = other_piece;
-		all_pieces[column + direction.x][row + direction.y] = first_piece;
-		#first_piece.position = grid_to_pixel(column+direction.x,row+direction.y);
-		first_piece.move(grid_to_pixel(column+direction.x,row+direction.y));
-		#other_piece.position = grid_to_pixel(column,row);
-		other_piece.move(grid_to_pixel(column,row));
-		find_matches();
+	var other_piece = all_pieces[b_column][b_row]
+	print("Function: Swap pieces: Set new position in array.");
+	print("Function: Swap pieces: Match Found: ", matchcheck); 
 	
+	if first_piece != null && other_piece !=null:
+		print("Function: Swap pieces: Verified pieces are not null.");
+		all_pieces[b_column][b_row] = first_piece; 
+		all_pieces[column][row] = other_piece; 
+		print("Function: Swap pieces: Swap the pieces in the array ");
+		first_piece.move(grid_to_pixel(column+direction.x,row+direction.y)); 
+		other_piece.move(grid_to_pixel(column,row));
+		print("Function: Swap pieces: Physically move the pieces on the screen.");
+		matchcheck = find_matches();  
+		print("Function: Swap pieces: Match Found: ", matchcheck);  
+		get_parent().get_node("UndoDriver_Timer").start();
+		undo_move(column, row, direction); 
+		print("Function: Swap pieces: Timer (Undo Driver) Ended."); 
+
+
+func undo_move(column, row, direction):
+	print("Function: Undo Move: New Timer to Pause"); 
+	var t = Timer.new();
+	t.set_wait_time(.5);
+	t.set_one_shot(true);
+	self.add_child(t);
+	t.start(); 
+	print("Function: Undo Move: Timer Start"); 
+	yield(t, "timeout");
+	t.queue_free();
+	print("Function: Undo Move: Timer Stopped"); 	
+	print("Function: Undo Move: Match not found, begin undo."); 
+	var b_column = column + direction.x; 
+	var b_row = row + direction.y;
+	var first_piece = all_pieces[column][row];
+	var other_piece = all_pieces[b_column][b_row];
+	all_pieces[column][row] = other_piece;
+	all_pieces[b_column][b_row] = first_piece;  
+	print("Function: Undo Move: Swap the pieces in the array "); 
+	other_piece.move(grid_to_pixel(column,row));  
+	first_piece.move(grid_to_pixel(b_column,b_row));  
+	print("Function: Undo Move: Physically move the pieces on the screen.");	
+	print("Function: Undo Move: Undo Completed."); 
+
 func touch_difference(grid_1, grid_2):
 	var difference = grid_2 - grid_1;
 	if abs(difference.x) > abs(difference.y):
@@ -134,8 +168,9 @@ func touch_difference(grid_1, grid_2):
 
 func _process(delta):
 	touch_input();
-	
+
 func find_matches():
+	var matchcheck = 0;
 	for i in width:
 		for j in height:
 			if all_pieces[i][j] != null:
@@ -149,7 +184,9 @@ func find_matches():
 							all_pieces[i + 1][j].dim();
 							all_pieces[i][j].matched = true;
 							all_pieces[i][j].dim();
-							get_parent().get_node("Destroy_Timer").start();
+							get_parent().get_node("Destroy_Timer").start();							
+							matchcheck = 1;		
+							print("Match found.");
 				if j > 0 && j < height -1:
 					if all_pieces[i][j - 1] != null && all_pieces[i][j + 1] != null:
 						if all_pieces[i][j - 1].color == current_color && all_pieces[i][j + 1].color == current_color:
@@ -160,6 +197,9 @@ func find_matches():
 							all_pieces[i][j].matched = true;
 							all_pieces[i][j].dim();
 							get_parent().get_node("Destroy_Timer").start();
+							matchcheck = 1;
+							print("Match found.");
+	return(matchcheck);
 
 func destroy_matched():
 	for i in width:
@@ -170,15 +210,8 @@ func destroy_matched():
 					all_pieces[i][j] = null;
 	get_parent().get_node("Collapse_Timer").start();
 	get_parent().get_node("Fill_Timer").start();
+	get_parent().get_node("MatchCheck_Timer").start();
 
-func _on_Destroy_Timer_timeout():
-	destroy_matched(); 
-
-
-func _on_Collapse_Timer_timeout():
-	collapse_columns(); 	
-	pass # Replace with function body.
-	
 func collapse_columns():
 	for i in width:
 		for j in height:
@@ -206,7 +239,18 @@ func fill_columns():
 				piece.position = grid_to_pixel(i,j);
 				all_pieces[i][j] = piece;
 
+func _on_Destroy_Timer_timeout():
+	destroy_matched(); 
+
+func _on_Collapse_Timer_timeout():
+	collapse_columns(); 	
 
 func _on_Fill_Timer_timeout():
-	fill_columns();
-	pass # Replace with function body.
+	fill_columns(); 
+
+func _on_MatchCheck_Timer_timeout():
+	var matchcheck = find_matches();	 
+
+func _on_UndoDriver_Timer_timeout():
+	print("Function: Undo Driver Timer started. "); 
+	print("Function: Undo Driver Timer ended. ");

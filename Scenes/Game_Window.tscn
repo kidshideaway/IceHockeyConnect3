@@ -55,6 +55,16 @@ one_shot = true
 [node name="Fill_Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="MatchCheck_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="UndoDriver_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 [connection signal="timeout" from="Destroy_Timer" to="Grid" method="_on_Destroy_Timer_timeout"]
 [connection signal="timeout" from="Collapse_Timer" to="Grid" method="_on_Collapse_Timer_timeout"]
 [connection signal="timeout" from="Fill_Timer" to="Grid" method="_on_Fill_Timer_timeout"]
+[connection signal="timeout" from="MatchCheck_Timer" to="Grid" method="_on_MatchCheck_Timer_timeout"]
+[connection signal="timeout" from="UndoDriver_Timer" to="Grid" method="_on_UndoDriver_Timer_timeout"]
