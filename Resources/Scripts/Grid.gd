@@ -38,12 +38,10 @@ func make_2d_array():
 		for j in height:
 			array[i].append(null);
 	return array;
-		
-	
+
 func spawn_pieces():
 	for i in width:
 		for j in height:
-			# choose a random number and store it
 			var rand = floor(rand_range(0,possible_pieces.size()));
 			var piece = possible_pieces[rand].instance();
 			var loops = 0;
@@ -51,7 +49,6 @@ func spawn_pieces():
 				rand = floor(rand_range(0, possible_pieces.size()));
 				loops += 1;
 				piece = possible_pieces[rand].instance();
-			# instance that piece from the array 
 			add_child(piece);
 			piece.position = grid_to_pixel(i,j);
 			all_pieces[i][j] = piece;
@@ -88,7 +85,6 @@ func is_in_grid_single(grid_position):
 			return true;
 	return false;
 
-
 func touch_input(): 
 	if Input.is_action_just_pressed("ui_touch"):
 		if is_in_grid_single(pixel_to_grid( (get_global_mouse_position().x), (get_global_mouse_position().y) )): 
@@ -97,61 +93,44 @@ func touch_input():
 			
 	if Input.is_action_just_released("ui_touch"):		
 		if is_in_grid_single( pixel_to_grid( (get_global_mouse_position().x), (get_global_mouse_position().y) )) && controlling == true:
-			print ("swipe");
 			controlling = false;
 			final_touch = pixel_to_grid( (get_global_mouse_position().x), (get_global_mouse_position().y) ); 
 			touch_difference(first_touch, final_touch);
 
 
 func swap_pieces(column, row, direction):
-	var matchcheck = 0;
-	print("Function: Swap pieces:");
+	var matchcheck = 0; 
 	var b_column = column + direction.x;
-	var b_row = row + direction.y;
-	print("Function: Swap pieces: Set new position variables for consistency.");
+	var b_row = row + direction.y; 
 	var first_piece = all_pieces[column][row];
-	var other_piece = all_pieces[b_column][b_row]
-	print("Function: Swap pieces: Set new position in array.");
-	print("Function: Swap pieces: Match Found: ", matchcheck); 
+	var other_piece = all_pieces[b_column][b_row] 
 	
-	if first_piece != null && other_piece !=null:
-		print("Function: Swap pieces: Verified pieces are not null.");
+	if first_piece != null && other_piece !=null: 
 		all_pieces[b_column][b_row] = first_piece; 
-		all_pieces[column][row] = other_piece; 
-		print("Function: Swap pieces: Swap the pieces in the array ");
+		all_pieces[column][row] = other_piece;  
 		first_piece.move(grid_to_pixel(column+direction.x,row+direction.y)); 
-		other_piece.move(grid_to_pixel(column,row));
-		print("Function: Swap pieces: Physically move the pieces on the screen.");
-		matchcheck = find_matches();  
-		print("Function: Swap pieces: Match Found: ", matchcheck);  
-		get_parent().get_node("UndoDriver_Timer").start();
-		undo_move(column, row, direction); 
-		print("Function: Swap pieces: Timer (Undo Driver) Ended."); 
+		other_piece.move(grid_to_pixel(column,row)); 
+		matchcheck = find_matches();   
+		if(matchcheck != 1):
+			get_parent().get_node("UndoDriver_Timer").start();
+			undo_move(column, row, direction);  
 
-
-func undo_move(column, row, direction):
-	print("Function: Undo Move: New Timer to Pause"); 
+func undo_move(column, row, direction): 
 	var t = Timer.new();
 	t.set_wait_time(.5);
 	t.set_one_shot(true);
 	self.add_child(t);
-	t.start(); 
-	print("Function: Undo Move: Timer Start"); 
+	t.start();  
 	yield(t, "timeout");
-	t.queue_free();
-	print("Function: Undo Move: Timer Stopped"); 	
-	print("Function: Undo Move: Match not found, begin undo."); 
+	t.queue_free();  
 	var b_column = column + direction.x; 
 	var b_row = row + direction.y;
 	var first_piece = all_pieces[column][row];
 	var other_piece = all_pieces[b_column][b_row];
 	all_pieces[column][row] = other_piece;
-	all_pieces[b_column][b_row] = first_piece;  
-	print("Function: Undo Move: Swap the pieces in the array "); 
+	all_pieces[b_column][b_row] = first_piece;    
 	other_piece.move(grid_to_pixel(column,row));  
-	first_piece.move(grid_to_pixel(b_column,b_row));  
-	print("Function: Undo Move: Physically move the pieces on the screen.");	
-	print("Function: Undo Move: Undo Completed."); 
+	first_piece.move(grid_to_pixel(b_column,b_row));   	 
 
 func touch_difference(grid_1, grid_2):
 	var difference = grid_2 - grid_1;
@@ -185,8 +164,7 @@ func find_matches():
 							all_pieces[i][j].matched = true;
 							all_pieces[i][j].dim();
 							get_parent().get_node("Destroy_Timer").start();							
-							matchcheck = 1;		
-							print("Match found.");
+							matchcheck = 1;  
 				if j > 0 && j < height -1:
 					if all_pieces[i][j - 1] != null && all_pieces[i][j + 1] != null:
 						if all_pieces[i][j - 1].color == current_color && all_pieces[i][j + 1].color == current_color:
@@ -197,8 +175,7 @@ func find_matches():
 							all_pieces[i][j].matched = true;
 							all_pieces[i][j].dim();
 							get_parent().get_node("Destroy_Timer").start();
-							matchcheck = 1;
-							print("Match found.");
+							matchcheck = 1; 
 	return(matchcheck);
 
 func destroy_matched():
@@ -251,6 +228,6 @@ func _on_Fill_Timer_timeout():
 func _on_MatchCheck_Timer_timeout():
 	var matchcheck = find_matches();	 
 
-func _on_UndoDriver_Timer_timeout():
-	print("Function: Undo Driver Timer started. "); 
-	print("Function: Undo Driver Timer ended. ");
+func _on_UndoDriver_Timer_timeout(): 
+	#print("Function: Undo Driver Timer. ");
+	pass;
