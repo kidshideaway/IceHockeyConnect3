@@ -23,7 +23,7 @@ var all_pieces = [];
 # Touch variables
 var first_touch = Vector2(0,0);
 var final_touch = Vector2(0,0);
-var controlling =false;
+var controlling = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -97,7 +97,6 @@ func touch_input():
 			final_touch = pixel_to_grid( (get_global_mouse_position().x), (get_global_mouse_position().y) ); 
 			touch_difference(first_touch, final_touch);
 
-
 func swap_pieces(column, row, direction):
 	var matchcheck = 0; 
 	var b_column = column + direction.x;
@@ -130,7 +129,7 @@ func undo_move(column, row, direction):
 	all_pieces[column][row] = other_piece;
 	all_pieces[b_column][b_row] = first_piece;    
 	other_piece.move(grid_to_pixel(column,row));  
-	first_piece.move(grid_to_pixel(b_column,b_row));   	 
+	first_piece.move(grid_to_pixel(b_column,b_row));   
 
 func touch_difference(grid_1, grid_2):
 	var difference = grid_2 - grid_1;

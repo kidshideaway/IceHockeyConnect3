@@ -4,7 +4,6 @@ export (String) var color;
 var Move_Tween; 
 var matched = false;
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Move_Tween = get_node("Move_Tween");
