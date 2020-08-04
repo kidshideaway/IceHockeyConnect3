@@ -1,0 +1,40 @@
+id,Team Name, Division, Conference, Status, YY, LocationCity, LocationState, LocationCountry
+0, Team Name, Metropolitan, Eastern, Expansion, YY, City, State, USA 
+1, Team Name, Atlantic, Eastern, Expansion, YY, City, State, USA  
+2, Team Name, Central, Western, Expansion, YY, City, State, USA    
+3, Team Name, Pacific, Western, Expansion, YY, City, State, USA 
+4, Team Name, Central, Western, Expansion, YY, City, State, USA    
+5, Team Name, Pacific, Western, Expansion, YY, City, State, USA 
+6, San Jose Sharks, Pacific, Western, Regular, YY, San Jose, California, USA
+7, Vancouver Canucks, Pacific, Western, Regular, YY, Vancouver, British Columbia, CA 
+8, Vegas Golden Knights, Pacific, Western, Regular, YY, Las Vegas, Nevada, USA
+9, Seattle, Pacific, Western, Expansion, YY, Seattle, Washington, USA
+10, Los Angeles Kings, Pacific, Western, Regular, YY, Los Angeles, California, USA
+11, Edmonton Oilers, Pacific, Western, Regular, YY, Edmonton, Alberta, CA 
+12, Calgary Flames, Pacific, Western, Regular, YY, Calgary, Alberta, CA
+13, Arizona Coyotes, Pacific, Western, Regular, YY, Phoenix, Arizona, USA
+14, Anaheim Ducks, Pacific, Western, Regular, YY, Anaheim, California, USA  
+16, Colorado Avalanche, Central, Western, Regular, YY, Denver, Colorado, USA 
+17, Chicago Blackhawks, Central, Western, Regular, YY, Chicago, Illinois, USA 
+18, Dallas Stars, Central, Western, Regular, YY, Dallas, Texas, USA 
+19, Minnesota Wild, Central, Western, Regular, YY, Saint Paul, Minnesota, USA 
+20, Nashville Predators, Central, Western, Regular, YY, Nashville, Tennessee, USA 
+21, St. Louis Blues, Central, Western, Regular, YY, St. Louis, Missouri, USA 
+22, Winnipeg Jets, Central, Western, Regular, YY, Winnipeg, Manitoba, CA 
+23, Boston Bruins, Atlantic, Eastern, Regular, YY, Boston, Massachusetts, USA 
+24, Buffalo Sabres, Atlantic, Eastern, Regular, YY, Buffalo, New York, USA 
+25, Detroit Red Wings, Atlantic, Eastern, Regular, YY, Detroit, Michigan, USA 
+26, Florida Panthers, Atlantic, Eastern, Regular, YY, Miami, Florida, USA 
+27, Montréal Canadiens, Atlantic, Eastern, Regular, YY, Montréal, Québec, CA 
+28, Ottawa Senators, Atlantic, Eastern, Regular, YY, Ottawa, Ontario, CA 
+29, Tampa Bay Lightning, Atlantic, Eastern, Regular, YY, Tampa, Florida, USA 
+30, Toronto Maple Leafs, Atlantic, Eastern, Regular, YY, Toronto, Ontario, CA 
+31, Carolina Hurricanes, Metropolitan, Eastern, Regular, YY, Raleigh, North Carolina, USA 
+32, Columbus Blue Jackets, Metropolitan, Eastern, Regular, YY, Columbus, Ohio, USA 
+33, New Jersey Devils, Metropolitan, Eastern, Regular, YY, Newark, New Jersey, USA 
+34, New York Islanders, Metropolitan, Eastern, Regular, YY, New York, New York, USA 
+35, New York Rangers, Metropolitan, Eastern, Regular, YY, New York, New York, USA 
+36, Philadelphia Flyers, Metropolitan, Eastern, Regular, YY, Philadelphia, Pennsylvania, USA 
+37, Pittsburgh Penguins, Metropolitan, Eastern, Regular, YY, Pittsburgh, Pennsylvania, USA 
+38, Washington Capitals, Metropolitan, Eastern, Regular, YY, Washington, D.C., USA 
+ 

@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="IceHockeyConnect3"
-run/main_scene="res://Scenes/Game_Window.tscn"
+run/main_scene="res://Resources/Scenes/Game_Window.tscn"
 config/icon="res://icon.png"
 
 [display]
