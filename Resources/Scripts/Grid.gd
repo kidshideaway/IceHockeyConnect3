@@ -6,15 +6,18 @@ export (int) var height;
 export (int) var x_start;
 export (int) var y_start;
 export (int) var offset;
+export (int) var score;
+export (int) var value;
+export (int) var bonus;
 
 # variables for pieces
 var possible_pieces = [
-	preload("res://Scenes/Reg_Blue_Piece.tscn"),
-	preload("res://Scenes/Reg_Green_Piece.tscn"),
-	preload("res://Scenes/Reg_Orange_Piece.tscn"),
-	preload("res://Scenes/Reg_Yellow_Piece.tscn"),
-	preload("res://Scenes/Reg_Pink_Piece.tscn"),
-	preload("res://Scenes/Reg_Chartuse_Piece.tscn")
+	preload("res://Resources/Scenes/Reg_Blue_Piece.tscn"),
+	preload("res://Resources/Scenes/Reg_Green_Piece.tscn"),
+	preload("res://Resources/Scenes/Reg_Orange_Piece.tscn"),
+	preload("res://Resources/Scenes/Reg_Yellow_Piece.tscn"),
+	preload("res://Resources/Scenes/Reg_Pink_Piece.tscn"),
+	preload("res://Resources/Scenes/Reg_Chartuse_Piece.tscn")
 ];
 
 #Two dimensional array to hold coordinates x,y plane
@@ -26,7 +29,7 @@ var final_touch = Vector2(0,0);
 var controlling = false;
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready(): 
 	randomize();
 	all_pieces = make_2d_array();
 	spawn_pieces(); 
@@ -113,6 +116,7 @@ func swap_pieces(column, row, direction):
 		if(matchcheck != 1):
 			get_parent().get_node("UndoDriver_Timer").start();
 			undo_move(column, row, direction);  
+		
 
 func undo_move(column, row, direction): 
 	var t = Timer.new();
@@ -178,15 +182,21 @@ func find_matches():
 	return(matchcheck);
 
 func destroy_matched():
+	var num_pieces_destroyed = 0;
+	var position_of_match = 0;
 	for i in width:
 		for j in height:
 			if all_pieces[i][j] != null:
 				if all_pieces[i][j].matched:
 					all_pieces[i][j].queue_free(); 
 					all_pieces[i][j] = null;
+					num_pieces_destroyed = num_pieces_destroyed + 1; 
+					position_of_match = grid_to_pixel(i, j)
 	get_parent().get_node("Collapse_Timer").start();
 	get_parent().get_node("Fill_Timer").start();
 	get_parent().get_node("MatchCheck_Timer").start();
+	score = update_score(num_pieces_destroyed, score, position_of_match);
+	pass;
 
 func collapse_columns():
 	for i in width:
@@ -215,8 +225,44 @@ func fill_columns():
 				piece.position = grid_to_pixel(i,j);
 				all_pieces[i][j] = piece;
 
-func _on_Destroy_Timer_timeout():
+func update_score(pcs_matched, _score, position_of_match): 
+	var BONUS = 0; 
+	#default value for matches
+	value = 100;
+	bonus = 0; 
+	BONUS = get_node("/root/Game_Window/Grid/100pts_AnimatedSprite");
+	print(BONUS);
+	
+	#control to increment bonus based on number of piece matched.
+	if(pcs_matched == 4):
+		value = 200; 
+		BONUS = get_node("/root/Game_Window/Grid/200pts_AnimatedSprite");
+		print(BONUS);
+	if(pcs_matched == 5):
+		value = 300; 
+		BONUS = get_node("/root/Game_Window/Grid/300pts_AnimatedSprite");
+		print(BONUS);
+	if(pcs_matched == 6):
+		value = 400; 
+		BONUS = get_node("/root/Game_Window/Grid/400pts_AnimatedSprite");
+		print(BONUS);
+	if(pcs_matched == 7):
+		value = 500; 
+		BONUS = get_node("/root/Game_Window/Grid/500pts_AnimatedSprite");	
+		print(BONUS); 
+		
+	_score = _score + value + bonus;
+	get_parent().get_node("BottomUI/Bottom_Center_RTL").set_text(String(_score)); 
+	BONUS.set_frame(1);
+	BONUS.set_position(Vector2(position_of_match)); 
+	BONUS.play();  
+	
+	return(_score);
+
+func _on_Destroy_Timer_timeout(): 
 	destroy_matched(); 
+	pass;
+	
 
 func _on_Collapse_Timer_timeout():
 	collapse_columns(); 	

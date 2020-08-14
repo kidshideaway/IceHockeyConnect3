@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=130 format=2]
 
 [ext_resource path="res://Resources/Scripts/Grid.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Scripts/Game_Window.gd" type="Script" id=2]
@@ -6,6 +6,124 @@
 [ext_resource path="res://Resources/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Resources/Background/Texture-164.jpg" type="Texture" id=5]
 [ext_resource path="res://Resources/UI/Top UI v 2.png" type="Texture" id=6]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_003.png" type="Texture" id=7]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_002.png" type="Texture" id=8]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_006.png" type="Texture" id=9]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_004.png" type="Texture" id=10]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_007.png" type="Texture" id=11]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_006.png" type="Texture" id=12]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_005.png" type="Texture" id=13]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_008.png" type="Texture" id=14]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_009.png" type="Texture" id=15]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_012.png" type="Texture" id=16]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_013.png" type="Texture" id=17]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_011.png" type="Texture" id=18]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_010.png" type="Texture" id=19]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_014.png" type="Texture" id=20]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_015.png" type="Texture" id=21]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_016.png" type="Texture" id=22]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_017.png" type="Texture" id=23]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_018.png" type="Texture" id=24]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_019.png" type="Texture" id=25]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_021.png" type="Texture" id=26]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_020.png" type="Texture" id=27]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_022.png" type="Texture" id=28]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_023.png" type="Texture" id=29]
+[ext_resource path="res://Resources/Scenes/Timer.gd" type="Script" id=30]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_021.png" type="Texture" id=31]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_020.png" type="Texture" id=32]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_022.png" type="Texture" id=33]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_002.png" type="Texture" id=34]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_001.png" type="Texture" id=35]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_001.png" type="Texture" id=36]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_002.png" type="Texture" id=37]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_004.png" type="Texture" id=38]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_003.png" type="Texture" id=39]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_015.png" type="Texture" id=40]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_009.png" type="Texture" id=41]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_014.png" type="Texture" id=42]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_009.png" type="Texture" id=43]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_010.png" type="Texture" id=44]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_012.png" type="Texture" id=45]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_005.png" type="Texture" id=46]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_004.png" type="Texture" id=47]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_003.png" type="Texture" id=48]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_005.png" type="Texture" id=49]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_006.png" type="Texture" id=50]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_019.png" type="Texture" id=51]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_020.png" type="Texture" id=52]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_016.png" type="Texture" id=53]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_017.png" type="Texture" id=54]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_005.png" type="Texture" id=55]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_006.png" type="Texture" id=56]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_007.png" type="Texture" id=57]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_008.png" type="Texture" id=58]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_010.png" type="Texture" id=59]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_011.png" type="Texture" id=60]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_012.png" type="Texture" id=61]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_013.png" type="Texture" id=62]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_014.png" type="Texture" id=63]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_016.png" type="Texture" id=64]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_015.png" type="Texture" id=65]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_001.png" type="Texture" id=66]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_002.png" type="Texture" id=67]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_001.png" type="Texture" id=68]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_001.png" type="Texture" id=69]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_012.png" type="Texture" id=70]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_011.png" type="Texture" id=71]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_013.png" type="Texture" id=72]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_007.png" type="Texture" id=73]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_008.png" type="Texture" id=74]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_009.png" type="Texture" id=75]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_010.png" type="Texture" id=76]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_015.png" type="Texture" id=77]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_014.png" type="Texture" id=78]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_016.png" type="Texture" id=79]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_017.png" type="Texture" id=80]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_019.png" type="Texture" id=81]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_018.png" type="Texture" id=82]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_003.png" type="Texture" id=83]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_004.png" type="Texture" id=84]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_005.png" type="Texture" id=85]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_007.png" type="Texture" id=86]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_008.png" type="Texture" id=87]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_010.png" type="Texture" id=88]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_006.png" type="Texture" id=89]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_013.png" type="Texture" id=90]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_011.png" type="Texture" id=91]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_018.png" type="Texture" id=92]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_021.png" type="Texture" id=93]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_022.png" type="Texture" id=94]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_003.png" type="Texture" id=95]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_004.png" type="Texture" id=96]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_007.png" type="Texture" id=97]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_008.png" type="Texture" id=98]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_017.png" type="Texture" id=99]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_018.png" type="Texture" id=100]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_020.png" type="Texture" id=101]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_019.png" type="Texture" id=102]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_021.png" type="Texture" id=103]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_002.png" type="Texture" id=104]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_022.png" type="Texture" id=105]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_009.png" type="Texture" id=106]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_011.png" type="Texture" id=107]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_013.png" type="Texture" id=108]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_012.png" type="Texture" id=109]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_014.png" type="Texture" id=110]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_016.png" type="Texture" id=111]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_015.png" type="Texture" id=112]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_017.png" type="Texture" id=113]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_019.png" type="Texture" id=114]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_020.png" type="Texture" id=115]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_018.png" type="Texture" id=116]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_021.png" type="Texture" id=117]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_022.png" type="Texture" id=118]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_023.png" type="Texture" id=119]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_024.png" type="Texture" id=120]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_025.png" type="Texture" id=121]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_026.png" type="Texture" id=122]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_027.png" type="Texture" id=123]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_028.png" type="Texture" id=124]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -31,6 +149,34 @@ outline_color = Color( 0.937255, 0.580392, 0.956863, 1 )
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ null, ExtResource( 35 ), ExtResource( 8 ), ExtResource( 39 ), ExtResource( 10 ), ExtResource( 46 ), ExtResource( 9 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 72 ), ExtResource( 78 ), ExtResource( 77 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 82 ), ExtResource( 81 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 33 ), null, null, null ],
+"loop": false,
+"name": "200_score",
+"speed": 14.0
+}, {
+"frames": [ null, ExtResource( 66 ), ExtResource( 34 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 41 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 65 ), ExtResource( 64 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 102 ), ExtResource( 101 ), ExtResource( 103 ), ExtResource( 105 ), null, null ],
+"loop": false,
+"name": "400_score",
+"speed": 14.0
+}, {
+"frames": [ null, ExtResource( 36 ), ExtResource( 37 ), ExtResource( 7 ), ExtResource( 38 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 33 ), null, null, null, null ],
+"loop": false,
+"name": "100_score",
+"speed": 14.0
+}, {
+"frames": [ null, ExtResource( 69 ), ExtResource( 67 ), ExtResource( 48 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 91 ), ExtResource( 45 ), ExtResource( 90 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 92 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 93 ), ExtResource( 94 ), null, null ],
+"loop": false,
+"name": "300_score",
+"speed": 14.0
+}, {
+"frames": [ null, ExtResource( 68 ), ExtResource( 104 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 89 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 106 ), ExtResource( 88 ), ExtResource( 107 ), ExtResource( 109 ), ExtResource( 108 ), ExtResource( 110 ), ExtResource( 112 ), ExtResource( 111 ), ExtResource( 113 ), ExtResource( 116 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), null, null ],
+"loop": false,
+"name": "500_score",
+"speed": 14.0
+} ]
+
 [node name="Game_Window" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -39,7 +185,7 @@ margin_right = 916.0
 margin_bottom = 912.0
 texture = ExtResource( 5 )
 expand = true
-stretch_mode = 4
+stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -93,11 +239,10 @@ text = "right"
 scroll_active = false
 
 [node name="BottomUI" type="TextureRect" parent="."]
-visible = false
-margin_left = 183.185
-margin_top = 901.848
-margin_right = 759.185
-margin_bottom = 993.848
+margin_left = 10.0
+margin_top = 800.0
+margin_right = 593.0
+margin_bottom = 892.0
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -115,6 +260,9 @@ visible_characters = 10
 tab_size = 24
 text = "0000000000"
 scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Grid" type="Node2D" parent="."]
 position = Vector2( 10, 10 )
@@ -124,6 +272,36 @@ height = 10
 x_start = 64
 y_start = 650
 offset = 64
+
+[node name="100pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
+position = Vector2( 246.902, 692.846 )
+z_index = 1000
+frames = SubResource( 5 )
+animation = "100_score"
+
+[node name="200pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
+position = Vector2( 246.902, 692.846 )
+z_index = 1000
+frames = SubResource( 5 )
+animation = "200_score"
+
+[node name="300pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
+position = Vector2( 246.902, 692.846 )
+z_index = 1000
+frames = SubResource( 5 )
+animation = "300_score"
+
+[node name="400pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
+position = Vector2( 246.902, 692.846 )
+z_index = 1000
+frames = SubResource( 5 )
+animation = "400_score"
+
+[node name="500pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
+position = Vector2( 246.902, 692.846 )
+z_index = 1000
+frames = SubResource( 5 )
+animation = "500_score"
 
 [node name="Destroy_Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -144,6 +322,9 @@ one_shot = true
 [node name="UndoDriver_Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Timer" type="Node2D" parent="."]
+script = ExtResource( 30 )
 [connection signal="timeout" from="Destroy_Timer" to="Grid" method="_on_Destroy_Timer_timeout"]
 [connection signal="timeout" from="Collapse_Timer" to="Grid" method="_on_Collapse_Timer_timeout"]
 [connection signal="timeout" from="Fill_Timer" to="Grid" method="_on_Fill_Timer_timeout"]
