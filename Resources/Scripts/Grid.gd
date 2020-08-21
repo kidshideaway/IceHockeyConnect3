@@ -262,7 +262,6 @@ func update_score(pcs_matched, _score, position_of_match):
 func _on_Destroy_Timer_timeout(): 
 	destroy_matched(); 
 	pass;
-	
 
 func _on_Collapse_Timer_timeout():
 	collapse_columns(); 	
