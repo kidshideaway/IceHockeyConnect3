@@ -17,7 +17,11 @@ var possible_pieces = [
 	preload("res://Resources/Scenes/Reg_Orange_Piece.tscn"),
 	preload("res://Resources/Scenes/Reg_Yellow_Piece.tscn"),
 	preload("res://Resources/Scenes/Reg_Pink_Piece.tscn"),
-	preload("res://Resources/Scenes/Reg_Chartuse_Piece.tscn")
+	preload("res://Resources/Scenes/Reg_Purple_Piece.tscn"),
+	preload("res://Resources/Scenes/Reg_LitePink_Piece.tscn"),
+	preload("res://Resources/Scenes/Reg_Rainbow_Piece.tscn"),
+	preload("res://Resources/Scenes/Reg_LiteOrange_Piece.tscn"),
+	preload("res://Resources/Scenes/Reg_LiteGreen_Piece.tscn")
 ];
 
 #Two dimensional array to hold coordinates x,y plane

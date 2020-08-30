@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://Resources/Scripts/Grid.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Scripts/Game_Window.gd" type="Script" id=2]
@@ -124,32 +124,72 @@
 [ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_026.png" type="Texture" id=122]
 [ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_027.png" type="Texture" id=123]
 [ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_028.png" type="Texture" id=124]
+[ext_resource path="res://Resources/Scenes/LevelSpecsNode.gd" type="Script" id=125]
+[ext_resource path="res://Resources/UI/silver_coin.png" type="Texture" id=126]
+[ext_resource path="res://Resources/UI/copper_coin.png" type="Texture" id=127]
+[ext_resource path="res://Resources/UI/silver_coin_frame_002.png" type="Texture" id=128]
+[ext_resource path="res://Resources/UI/silver_coin_frame_001.png" type="Texture" id=129]
 
-[sub_resource type="DynamicFont" id=1]
-size = 40
-use_mipmaps = true
-font_data = ExtResource( 4 )
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
+size = 25
+font_data = SubResource( 1 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 129 ), ExtResource( 126 ), ExtResource( 128 ), ExtResource( 126 ), ExtResource( 129 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=4]
 use_mipmaps = true
 extra_spacing_top = 2
 extra_spacing_bottom = 2
 extra_spacing_space = 1
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 size = 40
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+font_data = SubResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+use_mipmaps = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 25
+font_data = SubResource( 9 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 127 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=12]
 size = 46
 outline_color = Color( 0.937255, 0.580392, 0.956863, 1 )
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ null, ExtResource( 35 ), ExtResource( 8 ), ExtResource( 39 ), ExtResource( 10 ), ExtResource( 46 ), ExtResource( 9 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 72 ), ExtResource( 78 ), ExtResource( 77 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 82 ), ExtResource( 81 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 33 ), null, null, null ],
 "loop": false,
@@ -180,11 +220,14 @@ animations = [ {
 [node name="Game_Window" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="LevelSpecsNode" type="Node" parent="."]
+script = ExtResource( 125 )
+
 [node name="Background" type="TextureRect" parent="."]
-margin_left = -4.32825
-margin_top = -5.88794
-margin_right = 911.672
-margin_bottom = 906.112
+margin_left = -178.525
+margin_top = -69.2928
+margin_right = 737.475
+margin_bottom = 842.707
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 3
@@ -193,52 +236,364 @@ __meta__ = {
 }
 
 [node name="TopUI" type="TextureRect" parent="."]
-visible = false
-margin_left = 151.577
-margin_top = -188.515
-margin_right = 727.577
-margin_bottom = 3.48529
+margin_left = 3.0
+margin_top = 8.5451
+margin_right = 589.847
+margin_bottom = 200.545
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Left_Top_RTL" type="RichTextLabel" parent="TopUI"]
-margin_left = 27.035
-margin_top = 18.4825
-margin_right = 181.035
-margin_bottom = 79.4825
-custom_fonts/normal_font = SubResource( 1 )
-visible_characters = 5
-tab_size = 24
-text = "left"
-scroll_active = false
+[node name="Colum_Left" type="VBoxContainer" parent="TopUI"]
+margin_left = 17.4614
+margin_top = 10.3181
+margin_right = 198.461
+margin_bottom = 195.318
+rect_min_size = Vector2( 180, 185 )
+
+[node name="VBoxContainer_ScoreBoard_Left" type="VBoxContainer" parent="TopUI/Colum_Left"]
+margin_right = 181.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 181, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Middle_Top_RTL" type="RichTextLabel" parent="TopUI"]
-margin_left = 242.701
-margin_top = 47.9917
-margin_right = 354.701
-margin_bottom = 114.992
+[node name="RTL_SilverLabel" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left"]
+margin_right = 181.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 145, 30 )
 custom_fonts/normal_font = SubResource( 2 )
-visible_characters = 4
-text = "yes"
+visible_characters = 12
+tab_size = 12
+text = "SILVER"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Right_Top_RTL" type="RichTextLabel" parent="TopUI"]
-margin_left = 407.431
-margin_top = 16.2984
-margin_right = 560.431
-margin_bottom = 74.2984
-custom_fonts/normal_font = SubResource( 3 )
-visible_characters = 5
-text = "right"
+[node name="HBC_Silver" type="HBoxContainer" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left"]
+margin_top = 34.0
+margin_right = 181.0
+margin_bottom = 94.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver"]
+position = Vector2( 20.0226, 28.0312 )
+frames = SubResource( 3 )
+
+[node name="RTL_SilverCoins_Digit_Thousands" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver"]
+margin_right = 30.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+rect_clip_content = false
+custom_fonts/normal_font = SubResource( 2 )
+visible_characters = 1
+tab_size = 1
+text = "0"
 scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_SilverCoins_Digit_Hundreds" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver"]
+margin_left = 34.0
+margin_right = 64.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+custom_fonts/normal_font = SubResource( 2 )
+visible_characters = 1
+tab_size = 1
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_SilverCoins_Digit_Tens" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver"]
+margin_left = 68.0
+margin_right = 98.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+custom_fonts/normal_font = SubResource( 2 )
+visible_characters = 1
+tab_size = 1
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_SilverCoins_Digit_Ones" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver"]
+margin_left = 102.0
+margin_right = 132.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+custom_fonts/normal_font = SubResource( 2 )
+visible_characters = 1
+tab_size = 1
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Middle_Top_RTL" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left"]
+margin_top = 98.0
+margin_right = 181.0
+margin_bottom = 98.0
+custom_fonts/normal_font = SubResource( 4 )
+tab_size = 6
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer_ScoreBoard_R2_Left" type="VBoxContainer" parent="TopUI/Colum_Left"]
+margin_top = 102.0
+margin_right = 181.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 70, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colum_Middle" type="VBoxContainer" parent="TopUI"]
+margin_left = 199.219
+margin_top = 9.52441
+margin_right = 389.219
+margin_bottom = 194.524
+rect_min_size = Vector2( 190, 185 )
+
+[node name="VBoxContainer_ScoreBoard_Middle" type="VBoxContainer" parent="TopUI/Colum_Middle"]
+margin_right = 190.0
+margin_bottom = 55.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle"]
+margin_right = 190.0
+margin_bottom = 55.0
+
+[node name="TIMER_Digit_Minutes_Tens" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
+margin_right = 35.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 35, 55 )
+custom_fonts/normal_font = SubResource( 6 )
+visible_characters = 4
+text = "0
+"
+scroll_active = false
+
+[node name="TIMER_Digit_Minutes_Ones" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
+margin_left = 39.0
+margin_right = 74.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 35, 55 )
+custom_fonts/normal_font = SubResource( 8 )
+visible_characters = 6
+tab_size = 6
+text = "0
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TIMER_Digit_Seconds_Tens" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
+margin_left = 78.0
+margin_right = 113.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 35, 55 )
+custom_fonts/normal_font = SubResource( 6 )
+visible_characters = 1
+tab_size = 1
+text = "0"
+scroll_active = false
+
+[node name="TIMER_Digit_Seconds_Ones" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
+margin_left = 117.0
+margin_right = 152.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 35, 55 )
+custom_fonts/normal_font = SubResource( 8 )
+tab_size = 6
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer_ScoreBoard_R2_Middle" type="VBoxContainer" parent="TopUI/Colum_Middle"]
+margin_top = 59.0
+margin_right = 190.0
+margin_bottom = 157.0
+rect_min_size = Vector2( 70, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_LABEL_ShotsOnGoal" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_R2_Middle"]
+margin_right = 190.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 30 )
+custom_fonts/normal_font = SubResource( 5 )
+tab_size = 6
+text = "Shots ON GOAL"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GOAL_LABEL_LEFT" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_R2_Middle"]
+margin_top = 34.0
+margin_right = 190.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 50, 30 )
+custom_fonts/normal_font = SubResource( 5 )
+visible_characters = 6
+tab_size = 6
+text = "GOAL"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GOAL_LABEL_RIGHT" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_R2_Middle"]
+margin_top = 68.0
+margin_right = 190.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 75, 30 )
+custom_fonts/normal_font = SubResource( 5 )
+tab_size = 6
+text = "GOAL"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colum_Right" type="VBoxContainer" parent="TopUI"]
+margin_left = 390.501
+margin_top = 11.9055
+margin_right = 575.501
+margin_bottom = 191.906
+rect_min_size = Vector2( 185, 180 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer_ScoreBoard_Right" type="VBoxContainer" parent="TopUI/Colum_Right"]
+margin_right = 185.0
+margin_bottom = 94.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_CopperLabel" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right"]
+margin_right = 185.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 145, 30 )
+custom_fonts/normal_font = SubResource( 10 )
+visible_characters = 12
+tab_size = 12
+text = "COPPER"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBC_Copper" type="HBoxContainer" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right"]
+margin_top = 34.0
+margin_right = 185.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 135, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_CopperCoins_Digit_Thousands" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right/HBC_Copper"]
+margin_right = 30.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+custom_fonts/normal_font = SubResource( 2 )
+visible_characters = 1
+tab_size = 1
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_CopperCoins_Digit_Hundreds" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right/HBC_Copper"]
+margin_left = 34.0
+margin_right = 64.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+custom_fonts/normal_font = SubResource( 2 )
+visible_characters = 1
+tab_size = 1
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_CopperCoins_Digit_Tens" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right/HBC_Copper"]
+margin_left = 68.0
+margin_right = 98.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+custom_fonts/normal_font = SubResource( 2 )
+visible_characters = 1
+tab_size = 1
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_CopperCoins_Digit_Ones" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right/HBC_Copper"]
+margin_left = 102.0
+margin_right = 132.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 30, 60 )
+custom_fonts/normal_font = SubResource( 2 )
+visible_characters = 1
+tab_size = 1
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right/HBC_Copper"]
+position = Vector2( 163.747, 26.9173 )
+frames = SubResource( 11 )
+
+[node name="VBoxContainer_ScoreBoard_R2_Right" type="VBoxContainer" parent="TopUI/Colum_Right"]
+margin_top = 98.0
+margin_right = 185.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 70, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_Label_Penalty" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_R2_Right"]
+margin_right = 185.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 70, 30 )
+custom_fonts/normal_font = SubResource( 5 )
+tab_size = 6
+text = "Penalty"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BottomUI" type="TextureRect" parent="."]
 margin_left = 10.0
@@ -257,7 +612,7 @@ margin_right = 481.0
 margin_bottom = 80.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 12 )
 visible_characters = 10
 tab_size = 24
 text = "0000000000"
@@ -269,8 +624,8 @@ __meta__ = {
 [node name="Grid" type="Node2D" parent="."]
 position = Vector2( 10, 10 )
 script = ExtResource( 1 )
-width = 8
-height = 10
+width = 6
+height = 6
 x_start = 64
 y_start = 650
 offset = 64
@@ -278,31 +633,31 @@ offset = 64
 [node name="100pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 5 )
+frames = SubResource( 13 )
 animation = "100_score"
 
 [node name="200pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 5 )
+frames = SubResource( 13 )
 animation = "200_score"
 
 [node name="300pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 5 )
+frames = SubResource( 13 )
 animation = "300_score"
 
 [node name="400pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 5 )
+frames = SubResource( 13 )
 animation = "400_score"
 
 [node name="500pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 5 )
+frames = SubResource( 13 )
 animation = "500_score"
 
 [node name="Destroy_Timer" type="Timer" parent="."]
