@@ -31,6 +31,7 @@ var all_pieces = [];
 var first_touch = Vector2(0,0);
 var final_touch = Vector2(0,0);
 var controlling = false;
+var max_num_pieces_per_level = 4;
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
@@ -49,11 +50,11 @@ func make_2d_array():
 func spawn_pieces():
 	for i in width:
 		for j in height:
-			var rand = floor(rand_range(0,possible_pieces.size()));
+			var rand = floor(rand_range(0,max_num_pieces_per_level));
 			var piece = possible_pieces[rand].instance();
 			var loops = 0;
 			while ( match_at(i,j, piece.color) && loops < 100):
-				rand = floor(rand_range(0, possible_pieces.size()));
+				rand = floor(rand_range(0, max_num_pieces_per_level));
 				loops += 1;
 				piece = possible_pieces[rand].instance();
 			add_child(piece);
@@ -217,11 +218,11 @@ func fill_columns():
 	for i in width:
 		for j in height:
 			if all_pieces[i][j] == null:
-				var rand = floor(rand_range(0,possible_pieces.size()));
+				var rand = floor(rand_range(0,max_num_pieces_per_level));
 				var piece = possible_pieces[rand].instance();
 				var loops = 0;
 				while ( match_at(i,j, piece.color) && loops < 100):
-					rand = floor(rand_range(0, possible_pieces.size()));
+					rand = floor(rand_range(0, max_num_pieces_per_level));
 					loops += 1;
 					piece = possible_pieces[rand].instance();
 				# instance that piece from the array 
@@ -279,3 +280,7 @@ func _on_MatchCheck_Timer_timeout():
 func _on_UndoDriver_Timer_timeout(): 
 	#print("Function: Undo Driver Timer. ");
 	pass;
+	
+
+func _on_TextureButton_pressed():
+	pass # Replace with function body.	

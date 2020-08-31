@@ -1,8 +1,8 @@
-[gd_scene load_steps=143 format=2]
+[gd_scene load_steps=152 format=2]
 
 [ext_resource path="res://Resources/Scripts/Grid.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Scripts/Game_Window.gd" type="Script" id=2]
-[ext_resource path="res://Resources/UI/Bottom UI v 2.png" type="Texture" id=3]
+[ext_resource path="res://Resources/UI/Bottom UI v 4.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Resources/Background/Texture-164.jpg" type="Texture" id=5]
 [ext_resource path="res://Resources/UI/Top UI v 2.png" type="Texture" id=6]
@@ -129,15 +129,48 @@
 [ext_resource path="res://Resources/UI/copper_coin.png" type="Texture" id=127]
 [ext_resource path="res://Resources/UI/silver_coin_frame_002.png" type="Texture" id=128]
 [ext_resource path="res://Resources/UI/silver_coin_frame_001.png" type="Texture" id=129]
+[ext_resource path="res://Resources/UI/Bottom UI v 3.png" type="Texture" id=130]
+[ext_resource path="res://Resources/UI/Bottom UI v 3_02.png" type="Texture" id=131]
+[ext_resource path="res://Resources/UI/Bottom UI v 3_04.png" type="Texture" id=132]
+[ext_resource path="res://Resources/UI/Bottom UI v 3_05.png" type="Texture" id=133]
+[ext_resource path="res://Resources/UI/Bottom UI v 3_06.png" type="Texture" id=134]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
 
 [sub_resource type="DynamicFont" id=2]
+resource_name = "25pt_font_sample"
 size = 25
 font_data = SubResource( 1 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="DynamicFontData" id=3]
+resource_name = "40pt_font_sample"
+font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+use_mipmaps = true
+extra_spacing_top = 2
+extra_spacing_bottom = 2
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=10]
+use_mipmaps = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFontData" id=16]
+font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
+
+[sub_resource type="DynamicFont" id=17]
+resource_name = "35pt_font_sample"
+size = 35
+font_data = SubResource( 16 )
+
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 129 ), ExtResource( 126 ), ExtResource( 128 ), ExtResource( 126 ), ExtResource( 129 ) ],
 "loop": true,
@@ -145,37 +178,26 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=4]
-use_mipmaps = true
-extra_spacing_top = 2
-extra_spacing_bottom = 2
-extra_spacing_space = 1
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 40
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFontData" id=7]
+[sub_resource type="DynamicFontData" id=8]
 font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 size = 40
-font_data = SubResource( 7 )
+font_data = SubResource( 8 )
 
-[sub_resource type="DynamicFont" id=5]
-use_mipmaps = true
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFontData" id=9]
+[sub_resource type="DynamicFontData" id=11]
 font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=12]
 size = 25
-font_data = SubResource( 9 )
+font_data = SubResource( 11 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ ExtResource( 127 ) ],
 "loop": true,
@@ -183,13 +205,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=14]
 size = 46
 outline_color = Color( 0.937255, 0.580392, 0.956863, 1 )
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=15]
 animations = [ {
 "frames": [ null, ExtResource( 35 ), ExtResource( 8 ), ExtResource( 39 ), ExtResource( 10 ), ExtResource( 46 ), ExtResource( 9 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 72 ), ExtResource( 78 ), ExtResource( 77 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 82 ), ExtResource( 81 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 33 ), null, null, null ],
 "loop": false,
@@ -225,9 +247,9 @@ script = ExtResource( 125 )
 
 [node name="Background" type="TextureRect" parent="."]
 margin_left = -178.525
-margin_top = -69.2928
+margin_top = -68.4019
 margin_right = 737.475
-margin_bottom = 842.707
+margin_bottom = 843.598
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 3
@@ -246,11 +268,14 @@ __meta__ = {
 }
 
 [node name="Colum_Left" type="VBoxContainer" parent="TopUI"]
-margin_left = 17.4614
-margin_top = 10.3181
-margin_right = 198.461
-margin_bottom = 195.318
-rect_min_size = Vector2( 180, 185 )
+margin_left = 61.4364
+margin_top = 17.0
+margin_right = 242.436
+margin_bottom = 202.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer_ScoreBoard_Left" type="VBoxContainer" parent="TopUI/Colum_Left"]
 margin_right = 181.0
@@ -281,16 +306,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver"]
-position = Vector2( 20.0226, 28.0312 )
-frames = SubResource( 3 )
-
 [node name="RTL_SilverCoins_Digit_Thousands" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver"]
 margin_right = 30.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 30, 60 )
 rect_clip_content = false
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 1
 tab_size = 1
 text = "0"
@@ -304,7 +325,7 @@ margin_left = 34.0
 margin_right = 64.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 30, 60 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 1
 tab_size = 1
 text = "0"
@@ -318,7 +339,7 @@ margin_left = 68.0
 margin_right = 98.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 30, 60 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 1
 tab_size = 1
 text = "0"
@@ -332,7 +353,7 @@ margin_left = 102.0
 margin_right = 132.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 30, 60 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 1
 tab_size = 1
 text = "0"
@@ -345,7 +366,7 @@ __meta__ = {
 margin_top = 98.0
 margin_right = 181.0
 margin_bottom = 98.0
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
 tab_size = 6
 scroll_active = false
 __meta__ = {
@@ -355,18 +376,59 @@ __meta__ = {
 [node name="VBoxContainer_ScoreBoard_R2_Left" type="VBoxContainer" parent="TopUI/Colum_Left"]
 margin_top = 102.0
 margin_right = 181.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 70, 30 )
+margin_bottom = 181.0
+rect_min_size = Vector2( 100, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_Label_Penalty2" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_R2_Left"]
+margin_right = 181.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 100, 30 )
+custom_fonts/normal_font = SubResource( 10 )
+tab_size = 6
+text = "Penalty
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_ShotsOnGoal_Left" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_R2_Left"]
+margin_top = 34.0
+margin_right = 181.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 45, 45 )
+custom_fonts/normal_font = SubResource( 17 )
+visible_characters = 2
+tab_size = 2
+text = "0"
+scroll_active = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="TopUI/Colum_Left"]
+position = Vector2( -21.4043, 58.9131 )
+scale = Vector2( 0.665912, 0.621368 )
+frames = SubResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopUI"]
+margin_left = 199.219
+margin_top = 9.52441
+margin_right = 219.219
+margin_bottom = 84.5244
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Colum_Middle" type="VBoxContainer" parent="TopUI"]
-margin_left = 199.219
-margin_top = 9.52441
-margin_right = 389.219
-margin_bottom = 194.524
+margin_left = 218.025
+margin_top = 14.1733
+margin_right = 408.025
+margin_bottom = 199.173
 rect_min_size = Vector2( 190, 185 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer_ScoreBoard_Middle" type="VBoxContainer" parent="TopUI/Colum_Middle"]
 margin_right = 190.0
@@ -383,7 +445,7 @@ margin_bottom = 55.0
 margin_right = 35.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 35, 55 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 7 )
 visible_characters = 4
 text = "0
 "
@@ -394,7 +456,7 @@ margin_left = 39.0
 margin_right = 74.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 35, 55 )
-custom_fonts/normal_font = SubResource( 8 )
+custom_fonts/normal_font = SubResource( 9 )
 visible_characters = 6
 tab_size = 6
 text = "0
@@ -409,7 +471,7 @@ margin_left = 78.0
 margin_right = 113.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 35, 55 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 7 )
 visible_characters = 1
 tab_size = 1
 text = "0"
@@ -420,7 +482,7 @@ margin_left = 117.0
 margin_right = 152.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 35, 55 )
-custom_fonts/normal_font = SubResource( 8 )
+custom_fonts/normal_font = SubResource( 9 )
 tab_size = 6
 text = "0"
 scroll_active = false
@@ -431,56 +493,74 @@ __meta__ = {
 [node name="VBoxContainer_ScoreBoard_R2_Middle" type="VBoxContainer" parent="TopUI/Colum_Middle"]
 margin_top = 59.0
 margin_right = 190.0
-margin_bottom = 157.0
-rect_min_size = Vector2( 70, 30 )
+margin_bottom = 147.0
+rect_min_size = Vector2( 180, 30 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RTL_LABEL_ShotsOnGoal" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_R2_Middle"]
+[node name="GOAL_LABEL_RIGHT3" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_R2_Middle"]
 margin_right = 190.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 150, 30 )
-custom_fonts/normal_font = SubResource( 5 )
+margin_bottom = 25.0
+rect_min_size = Vector2( 75, 25 )
+custom_fonts/normal_font = SubResource( 10 )
 tab_size = 6
-text = "Shots ON GOAL"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GOAL_LABEL_LEFT" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_R2_Middle"]
-margin_top = 34.0
+[node name="GOAL_LABEL_RIGHT2" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_R2_Middle"]
+margin_top = 29.0
 margin_right = 190.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 50, 30 )
-custom_fonts/normal_font = SubResource( 5 )
-visible_characters = 6
+margin_bottom = 54.0
+rect_min_size = Vector2( 75, 25 )
+custom_fonts/normal_font = SubResource( 10 )
 tab_size = 6
-text = "GOAL"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GOAL_LABEL_RIGHT" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_R2_Middle"]
-margin_top = 68.0
+margin_top = 58.0
 margin_right = 190.0
-margin_bottom = 98.0
+margin_bottom = 88.0
 rect_min_size = Vector2( 75, 30 )
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 10 )
 tab_size = 6
-text = "GOAL"
+text = "GOAL              GOAL"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer_ScoreBoard_R2_Middle2" type="VBoxContainer" parent="TopUI/Colum_Middle"]
+margin_top = 151.0
+margin_right = 190.0
+margin_bottom = 181.0
+rect_min_size = Vector2( 70, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_LABEL_ShotsOnGoal" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_R2_Middle2"]
+margin_right = 190.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 150, 30 )
+custom_fonts/normal_font = SubResource( 10 )
+tab_size = 6
+text = " Shots on Goal"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Colum_Right" type="VBoxContainer" parent="TopUI"]
-margin_left = 390.501
-margin_top = 11.9055
-margin_right = 575.501
-margin_bottom = 191.906
+margin_left = 400.301
+margin_top = 14.5782
+margin_right = 585.301
+margin_bottom = 194.579
 rect_min_size = Vector2( 185, 180 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -497,7 +577,7 @@ __meta__ = {
 margin_right = 185.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 145, 30 )
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 12 )
 visible_characters = 12
 tab_size = 12
 text = "COPPER"
@@ -519,7 +599,7 @@ __meta__ = {
 margin_right = 30.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 30, 60 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 1
 tab_size = 1
 text = "0"
@@ -533,7 +613,7 @@ margin_left = 34.0
 margin_right = 64.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 30, 60 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 1
 tab_size = 1
 text = "0"
@@ -547,7 +627,7 @@ margin_left = 68.0
 margin_right = 98.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 30, 60 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 1
 tab_size = 1
 text = "0"
@@ -561,7 +641,7 @@ margin_left = 102.0
 margin_right = 132.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 30, 60 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 1
 tab_size = 1
 text = "0"
@@ -571,13 +651,14 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right/HBC_Copper"]
-position = Vector2( 163.747, 26.9173 )
-frames = SubResource( 11 )
+position = Vector2( 152.611, 28.6991 )
+scale = Vector2( 0.621367, 0.643639 )
+frames = SubResource( 13 )
 
 [node name="VBoxContainer_ScoreBoard_R2_Right" type="VBoxContainer" parent="TopUI/Colum_Right"]
 margin_top = 98.0
 margin_right = 185.0
-margin_bottom = 128.0
+margin_bottom = 177.0
 rect_min_size = Vector2( 70, 30 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -586,8 +667,8 @@ __meta__ = {
 [node name="RTL_Label_Penalty" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_R2_Right"]
 margin_right = 185.0
 margin_bottom = 30.0
-rect_min_size = Vector2( 70, 30 )
-custom_fonts/normal_font = SubResource( 5 )
+rect_min_size = Vector2( 100, 30 )
+custom_fonts/normal_font = SubResource( 10 )
 tab_size = 6
 text = "Penalty"
 scroll_active = false
@@ -595,10 +676,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RTL_ShotsOnGoal_Left2" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_R2_Right"]
+margin_top = 34.0
+margin_right = 185.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 45, 45 )
+custom_fonts/normal_font = SubResource( 17 )
+tab_size = 2
+scroll_active = false
+
 [node name="BottomUI" type="TextureRect" parent="."]
-margin_left = 10.0
+margin_left = 4.66064
 margin_top = 800.0
-margin_right = 593.0
+margin_right = 587.661
 margin_bottom = 892.0
 texture = ExtResource( 3 )
 __meta__ = {
@@ -606,16 +696,45 @@ __meta__ = {
 }
 
 [node name="Bottom_Center_RTL" type="RichTextLabel" parent="BottomUI"]
-margin_left = 129.0
-margin_top = 8.0
-margin_right = 481.0
-margin_bottom = 80.0
+margin_left = 16.6489
+margin_top = 3.56763
+margin_right = 346.649
+margin_bottom = 83.5676
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/normal_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 14 )
 visible_characters = 10
 tab_size = 24
 text = "0000000000"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 386.865
+margin_top = 800.0
+margin_right = 731.865
+margin_bottom = 892.0
+texture_normal = ExtResource( 130 )
+texture_pressed = ExtResource( 131 )
+texture_hover = ExtResource( 132 )
+texture_disabled = ExtResource( 133 )
+texture_focused = ExtResource( 134 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom_Center_RTL" type="RichTextLabel" parent="TextureButton"]
+margin_left = 16.4163
+margin_top = 5.76727
+margin_right = 166.416
+margin_bottom = 77.7673
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/normal_font = SubResource( 14 )
+tab_size = 24
+text = "NEW"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -633,31 +752,31 @@ offset = 64
 [node name="100pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 13 )
+frames = SubResource( 15 )
 animation = "100_score"
 
 [node name="200pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 13 )
+frames = SubResource( 15 )
 animation = "200_score"
 
 [node name="300pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 13 )
+frames = SubResource( 15 )
 animation = "300_score"
 
 [node name="400pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 13 )
+frames = SubResource( 15 )
 animation = "400_score"
 
 [node name="500pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 13 )
+frames = SubResource( 15 )
 animation = "500_score"
 
 [node name="Destroy_Timer" type="Timer" parent="."]
@@ -682,6 +801,7 @@ one_shot = true
 
 [node name="Timer" type="Node2D" parent="."]
 script = ExtResource( 30 )
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="timeout" from="Destroy_Timer" to="Grid" method="_on_Destroy_Timer_timeout"]
 [connection signal="timeout" from="Collapse_Timer" to="Grid" method="_on_Collapse_Timer_timeout"]
 [connection signal="timeout" from="Fill_Timer" to="Grid" method="_on_Fill_Timer_timeout"]
