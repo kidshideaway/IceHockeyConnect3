@@ -9,9 +9,8 @@ var LevelSpecs_matrix = []
 func _ready(): 
 	var delim = ","
 	var newLineDelim = "\n"
-		
-	## open and read files  
 	
+	## open and read files  
 	print(file_LevelSpecs)
 	LevelSpecs  = loadDB_(file_LevelSpecs)
 	var LevelSpecs_Lines  = LevelSpecs .split(newLineDelim, true, 0)
@@ -22,7 +21,7 @@ func _ready():
 		var LevelSpecs_EntryCount = LevelSpecs_Array.size()
 		for n in range(LevelSpecs_EntryCount):
 			#id,level,width,height,goal,points,minutes,turns,color,type,reward,amount
-			print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
+			#print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
 			LevelSpecs_matrix[l].append(LevelSpecs_Array[n])
 	saveDB_(LevelSpecs, file_LevelSpecs)
 	  

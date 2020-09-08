@@ -1,14 +1,17 @@
 extends Node2D
 
 # Grid Variables
-export (int) var width;
-export (int) var height;
+export (int) var width =4;
+export (int) var height =4;
 export (int) var x_start;
 export (int) var y_start;
 export (int) var offset;
 export (int) var score;
 export (int) var value;
 export (int) var bonus;
+export (int) var active_level;
+export (int) var id;
+export (int) var level = 1;
 
 # variables for pieces
 var possible_pieces = [
@@ -33,11 +36,68 @@ var final_touch = Vector2(0,0);
 var controlling = false;
 var max_num_pieces_per_level = 4;
 
+# variables for tracking score, cash, and other player based values.
+var silvercoins_dig_thousands = 0;
+var silvercoins_dig_hundreds = 0;
+var silvercoins_dig_tens = 0;
+var silvercoins_dig_ones = 0;
+var coppercoins_dig_thousands = 0;
+var coppercoins_dig_hundreds = 0;
+var coppercoins_dig_tens = 0;
+var coppercoins_dig_ones = 0;
+var timer_dig_min_tens = 0;
+var timer_dig_min_ones = 0;
+var timer_dig_sec_tens = 0;
+var timer_dig_sec_ones = 0;
+var shots_on_goals = 0;
+
+# the database fields
+var goal;
+var points;
+var minutes;
+var turns;
+var color;
+var type;
+var reward;
+var amount;
+
+# the active goals per level (3 sets)
+var points_1;
+var minutes_1;
+var turns_1;
+var color_1;
+var type_1;
+var reward_1;
+var amount_1;
+##
+var points_2;
+var minutes_2;
+var turns_2;
+var color_2;
+var type_2;
+var reward_2;
+var amount_2;
+###
+var points_3;
+var minutes_3;
+var turns_3;
+var color_3;
+var type_3;
+var reward_3;
+var amount_3;
+
+
+
+#Language Labels <-- load from language database in future
+#####
+#####
+
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
 	randomize();
+	_read_level_specs();
 	all_pieces = make_2d_array();
-	spawn_pieces(); 
+	spawn_pieces(); 	
 
 func make_2d_array():
 	var array = [];
@@ -66,7 +126,7 @@ func grid_to_pixel(column, row):
 	var new_y = y_start + -offset * row;
 	return Vector2(new_x, new_y);
 
-func match_at(i, j, color):
+func match_at(i, j, color): 
 	if i > 1:
 		if all_pieces[i-1][j] != null && all_pieces[i-2][j] != null:
 			if all_pieces[i-1][j].color == color && all_pieces[i-2][j]. color == color:
@@ -203,6 +263,12 @@ func destroy_matched():
 	score = update_score(num_pieces_destroyed, score, position_of_match);
 	pass;
 
+func clear_2d_array(): 
+	for i in width: 
+		for j in height:
+			all_pieces[i][j].queue_free()
+	pass;
+
 func collapse_columns():
 	for i in width:
 		for j in height:
@@ -261,8 +327,42 @@ func update_score(pcs_matched, _score, position_of_match):
 	BONUS.set_frame(1);
 	BONUS.set_position(Vector2(position_of_match)); 
 	BONUS.play();  
-	
 	return(_score);
+
+func scoreboard_update():
+	if points_1 
+	if points_2 
+	if points_3 
+	if minutes_1 
+	if minutes_2 
+	if minutes_3 
+	if turns_1 
+	if turns_2 
+	if turns_3 
+	if color_1 
+	if color_2 
+	if color_3 
+	if type_1 
+	if type_2 
+	if type_3 
+	if reward_1 
+	if reward_2 
+	if reward_3 
+	if amount_1 
+	if amount_2 
+	if amount_3 
+	
+	pass;
+
+
+func delete_pieces_on_grid():
+	clear_2d_array();
+	pass;
+	
+func repopulate_pieces_on_grid():
+	all_pieces = make_2d_array();
+	spawn_pieces();
+	pass;
 
 func _on_Destroy_Timer_timeout(): 
 	destroy_matched(); 
@@ -270,9 +370,11 @@ func _on_Destroy_Timer_timeout():
 
 func _on_Collapse_Timer_timeout():
 	collapse_columns(); 	
+	pass;
 
 func _on_Fill_Timer_timeout():
 	fill_columns(); 
+	pass;
 
 func _on_MatchCheck_Timer_timeout():
 	var matchcheck = find_matches();	 
@@ -281,6 +383,84 @@ func _on_UndoDriver_Timer_timeout():
 	#print("Function: Undo Driver Timer. ");
 	pass;
 	
-
 func _on_TextureButton_pressed():
+	delete_pieces_on_grid();
+	repopulate_pieces_on_grid();
 	pass # Replace with function body.	
+	
+func _read_level_specs():
+	var PARENT = get_parent();
+	var NODE = PARENT.get_node("LevelSpecsNode");
+	var LevelSpecs_LineEntryCount = NODE.LevelSpecs_matrix.size()
+	for l in range(LevelSpecs_LineEntryCount):
+		var LevelSpecs_Array = NODE.LevelSpecs_matrix[l];
+		var LevelSpecs_EntryCount = LevelSpecs_Array.size()
+		var test_level = level;
+		if LevelSpecs_EntryCount > 2:
+			test_level = LevelSpecs_Array[1];
+			test_level = int(test_level);
+		print(test_level);
+		for n in range(LevelSpecs_EntryCount):
+			print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
+			if n > 0:
+				if test_level == level:
+					match n:
+						0:
+							id = int(LevelSpecs_Array[n]);
+						1:
+							var temp_level= LevelSpecs_Array[n];
+						2:	
+							width = int(LevelSpecs_Array[n]);
+						3:
+							height= int(LevelSpecs_Array[n]);
+						4:
+							goal= int(LevelSpecs_Array[n]);
+						5:
+							if goal == 1:
+								points_1 = int(LevelSpecs_Array[n]);
+							if goal == 2:
+								points_2 = int(LevelSpecs_Array[n]);
+							if goal == 3:
+								points_3 = int(LevelSpecs_Array[n]);
+						6: 
+							if goal == 1:
+								minutes_1 = int(LevelSpecs_Array[n]);
+							if goal == 2:
+								minutes_2 = int(LevelSpecs_Array[n]);
+							if goal == 3:
+								minutes_3 = int(LevelSpecs_Array[n]);							
+						7:
+							if goal == 1:
+								turns_1 = int(LevelSpecs_Array[n]);
+							if goal == 2:
+								turns_2 = int(LevelSpecs_Array[n]);
+							if goal == 3:
+								turns_3 = int(LevelSpecs_Array[n]); 
+						8:
+							if goal == 1:
+								color_1 = int(LevelSpecs_Array[n]);
+							if goal == 2:
+								color_2 = int(LevelSpecs_Array[n]);
+							if goal == 3:
+								color_3 = int(LevelSpecs_Array[n]); 
+						9:
+							if goal == 1:
+								type_1 = int(LevelSpecs_Array[n]);
+							if goal == 2:
+								type_2 = int(LevelSpecs_Array[n]);
+							if goal == 3:
+								type_3 = int(LevelSpecs_Array[n]); 
+						10:
+							if goal == 1:
+								reward_1 = int(LevelSpecs_Array[n]);
+							if goal == 2:
+								reward_2 = int(LevelSpecs_Array[n]);
+							if goal == 3:
+								reward_3 = int(LevelSpecs_Array[n]); 
+						11:
+							if goal == 1:
+								amount_1 = int(LevelSpecs_Array[n]);
+							if goal == 2:
+								amount_2 = int(LevelSpecs_Array[n]);
+							if goal == 3:
+								amount_3 = int(LevelSpecs_Array[n]); 
