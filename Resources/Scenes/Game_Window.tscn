@@ -181,8 +181,10 @@ animations = [ {
 script = ExtResource( 2 )
 
 [node name="Background" type="TextureRect" parent="."]
-margin_right = 916.0
-margin_bottom = 912.0
+margin_left = -4.32825
+margin_top = -5.88794
+margin_right = 911.672
+margin_bottom = 906.112
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 3
