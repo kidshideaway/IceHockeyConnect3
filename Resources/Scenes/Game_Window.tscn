@@ -1,8 +1,8 @@
-[gd_scene load_steps=149 format=2]
+[gd_scene load_steps=130 format=2]
 
 [ext_resource path="res://Resources/Scripts/Grid.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Scripts/Game_Window.gd" type="Script" id=2]
-[ext_resource path="res://Resources/UI/Bottom UI v 4.png" type="Texture" id=3]
+[ext_resource path="res://Resources/UI/Bottom UI v 2.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Resources/Background/Texture-164.jpg" type="Texture" id=5]
 [ext_resource path="res://Resources/UI/Top UI v 2.png" type="Texture" id=6]
@@ -124,29 +124,10 @@
 [ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_026.png" type="Texture" id=122]
 [ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_027.png" type="Texture" id=123]
 [ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_028.png" type="Texture" id=124]
-[ext_resource path="res://Resources/Scripts/LevelSpecsNode.gd" type="Script" id=125]
-[ext_resource path="res://Resources/UI/silver_coin.png" type="Texture" id=126]
-[ext_resource path="res://Resources/UI/copper_coin.png" type="Texture" id=127]
-[ext_resource path="res://Resources/UI/silver_coin_frame_002.png" type="Texture" id=128]
-[ext_resource path="res://Resources/UI/silver_coin_frame_001.png" type="Texture" id=129]
-[ext_resource path="res://Resources/UI/Bottom UI v 3.png" type="Texture" id=130]
-[ext_resource path="res://Resources/UI/Bottom UI v 3_02.png" type="Texture" id=131]
-[ext_resource path="res://Resources/UI/Bottom UI v 3_04.png" type="Texture" id=132]
 
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-resource_name = "25pt_font_sample"
-size = 25
-font_data = SubResource( 1 )
-
-[sub_resource type="DynamicFontData" id=3]
-resource_name = "40pt_font_sample"
-font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
-
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 40
+<<<<<<< HEAD
 font_data = SubResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -170,10 +151,20 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=9]
-size = 40
+=======
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
+[sub_resource type="DynamicFont" id=2]
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
+size = 40
+use_mipmaps = true
+extra_spacing_top = 2
+extra_spacing_bottom = 2
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+<<<<<<< HEAD
 [sub_resource type="DynamicFontData" id=10]
 font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
 
@@ -197,12 +188,24 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=15]
+=======
+[sub_resource type="DynamicFont" id=3]
+size = 40
+use_mipmaps = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 size = 46
 outline_color = Color( 0.937255, 0.580392, 0.956863, 1 )
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
+<<<<<<< HEAD
 [sub_resource type="SpriteFrames" id=16]
+=======
+[sub_resource type="SpriteFrames" id=5]
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 animations = [ {
 "frames": [ null, ExtResource( 35 ), ExtResource( 8 ), ExtResource( 39 ), ExtResource( 10 ), ExtResource( 46 ), ExtResource( 9 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 72 ), ExtResource( 78 ), ExtResource( 77 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 82 ), ExtResource( 81 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 33 ), null, null, null ],
 "loop": false,
@@ -233,14 +236,18 @@ animations = [ {
 [node name="Game_Window" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="LevelSpecsNode" type="Node" parent="."]
-script = ExtResource( 125 )
-
 [node name="Background" type="TextureRect" parent="."]
+<<<<<<< HEAD
 margin_left = -43.6832
 margin_top = -21.6625
 margin_right = 872.317
 margin_bottom = 890.337
+=======
+margin_left = -4.32825
+margin_top = -5.88794
+margin_right = 911.672
+margin_bottom = 906.112
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 3
@@ -249,15 +256,17 @@ __meta__ = {
 }
 
 [node name="TopUI" type="TextureRect" parent="."]
-margin_left = 3.0
-margin_top = 8.5451
-margin_right = 589.847
-margin_bottom = 200.545
+visible = false
+margin_left = 151.577
+margin_top = -188.515
+margin_right = 727.577
+margin_bottom = 3.48529
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+<<<<<<< HEAD
 [node name="Colum_Left" type="VBoxContainer" parent="TopUI"]
 margin_left = 61.4364
 margin_top = 17.0
@@ -432,10 +441,23 @@ __meta__ = {
 [node name="VBoxContainer_ScoreBoard_Middle" type="VBoxContainer" parent="TopUI/Colum_Middle"]
 margin_right = 190.0
 margin_bottom = 55.0
+=======
+[node name="Left_Top_RTL" type="RichTextLabel" parent="TopUI"]
+margin_left = 27.035
+margin_top = 18.4825
+margin_right = 181.035
+margin_bottom = 79.4825
+custom_fonts/normal_font = SubResource( 1 )
+visible_characters = 5
+tab_size = 24
+text = "left"
+scroll_active = false
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+<<<<<<< HEAD
 [node name="HBoxContainer" type="HBoxContainer" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle"]
 margin_right = 190.0
 margin_bottom = 55.0
@@ -670,11 +692,22 @@ rect_min_size = Vector2( 100, 30 )
 custom_fonts/normal_font = SubResource( 5 )
 tab_size = 6
 text = "Penalty"
+=======
+[node name="Middle_Top_RTL" type="RichTextLabel" parent="TopUI"]
+margin_left = 242.701
+margin_top = 47.9917
+margin_right = 354.701
+margin_bottom = 114.992
+custom_fonts/normal_font = SubResource( 2 )
+visible_characters = 4
+text = "yes"
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+<<<<<<< HEAD
 [node name="RTL_ShotsOnGoal_Right2" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_R2_Right"]
 margin_top = 34.0
 margin_right = 185.0
@@ -683,12 +716,22 @@ rect_min_size = Vector2( 45, 43 )
 custom_fonts/normal_font = SubResource( 7 )
 tab_size = 2
 text = "0"
+=======
+[node name="Right_Top_RTL" type="RichTextLabel" parent="TopUI"]
+margin_left = 407.431
+margin_top = 16.2984
+margin_right = 560.431
+margin_bottom = 74.2984
+custom_fonts/normal_font = SubResource( 3 )
+visible_characters = 5
+text = "right"
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 scroll_active = false
 
 [node name="BottomUI" type="TextureRect" parent="."]
-margin_left = 4.66064
+margin_left = 10.0
 margin_top = 800.0
-margin_right = 587.661
+margin_right = 593.0
 margin_bottom = 892.0
 texture = ExtResource( 3 )
 __meta__ = {
@@ -696,13 +739,17 @@ __meta__ = {
 }
 
 [node name="Bottom_Center_RTL" type="RichTextLabel" parent="BottomUI"]
-margin_left = 16.6489
-margin_top = 3.56763
-margin_right = 346.649
-margin_bottom = 83.5676
+margin_left = 129.0
+margin_top = 8.0
+margin_right = 481.0
+margin_bottom = 80.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
+<<<<<<< HEAD
 custom_fonts/normal_font = SubResource( 15 )
+=======
+custom_fonts/normal_font = SubResource( 4 )
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 visible_characters = 10
 tab_size = 24
 text = "0000000000"
@@ -711,6 +758,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+<<<<<<< HEAD
 [node name="TextureButton_New" type="TextureButton" parent="."]
 margin_left = 386.865
 margin_top = 800.0
@@ -739,11 +787,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+=======
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 [node name="Grid" type="Node2D" parent="."]
 position = Vector2( 10, 10 )
 script = ExtResource( 1 )
-width = 6
-height = 6
+width = 8
+height = 10
 x_start = 64
 y_start = 650
 offset = 64
@@ -751,31 +801,51 @@ offset = 64
 [node name="100pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
+<<<<<<< HEAD
 frames = SubResource( 16 )
+=======
+frames = SubResource( 5 )
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 animation = "100_score"
 
 [node name="200pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
+<<<<<<< HEAD
 frames = SubResource( 16 )
+=======
+frames = SubResource( 5 )
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 animation = "200_score"
 
 [node name="300pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
+<<<<<<< HEAD
 frames = SubResource( 16 )
+=======
+frames = SubResource( 5 )
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 animation = "300_score"
 
 [node name="400pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
+<<<<<<< HEAD
 frames = SubResource( 16 )
+=======
+frames = SubResource( 5 )
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 animation = "400_score"
 
 [node name="500pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
+<<<<<<< HEAD
 frames = SubResource( 16 )
+=======
+frames = SubResource( 5 )
+>>>>>>> 00fa4d1abeb6c41d874cef976e1f35a52d57a42a
 animation = "500_score"
 
 [node name="Destroy_Timer" type="Timer" parent="."]
@@ -800,7 +870,6 @@ one_shot = true
 
 [node name="Timer" type="Node2D" parent="."]
 script = ExtResource( 30 )
-[connection signal="pressed" from="TextureButton_New" to="." method="_on_TextureButton_pressed"]
 [connection signal="timeout" from="Destroy_Timer" to="Grid" method="_on_Destroy_Timer_timeout"]
 [connection signal="timeout" from="Collapse_Timer" to="Grid" method="_on_Collapse_Timer_timeout"]
 [connection signal="timeout" from="Fill_Timer" to="Grid" method="_on_Fill_Timer_timeout"]
