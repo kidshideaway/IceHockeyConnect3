@@ -149,19 +149,19 @@ font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
 size = 40
 font_data = SubResource( 3 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFontData" id=7]
+[sub_resource type="DynamicFontData" id=6]
 font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 resource_name = "35pt_font_sample"
 size = 35
-font_data = SubResource( 7 )
+font_data = SubResource( 6 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 129 ), ExtResource( 126 ), ExtResource( 128 ), ExtResource( 126 ), ExtResource( 129 ) ],
 "loop": true,
@@ -169,26 +169,26 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 size = 40
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFontData" id=11]
+[sub_resource type="DynamicFontData" id=10]
 font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 size = 40
-font_data = SubResource( 11 )
+font_data = SubResource( 10 )
 
-[sub_resource type="DynamicFontData" id=13]
+[sub_resource type="DynamicFontData" id=12]
 font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=13]
 size = 25
-font_data = SubResource( 13 )
+font_data = SubResource( 12 )
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=14]
 animations = [ {
 "frames": [ ExtResource( 127 ) ],
 "loop": true,
@@ -196,13 +196,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=15]
 size = 46
 outline_color = Color( 0.937255, 0.580392, 0.956863, 1 )
 use_mipmaps = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="SpriteFrames" id=17]
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
 "frames": [ null, ExtResource( 35 ), ExtResource( 8 ), ExtResource( 39 ), ExtResource( 10 ), ExtResource( 46 ), ExtResource( 9 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 72 ), ExtResource( 78 ), ExtResource( 77 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 82 ), ExtResource( 81 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 33 ), null, null, null ],
 "loop": false,
@@ -237,10 +237,10 @@ script = ExtResource( 2 )
 script = ExtResource( 125 )
 
 [node name="Background" type="TextureRect" parent="."]
-margin_left = -178.525
-margin_top = -68.4019
-margin_right = 737.475
-margin_bottom = 843.598
+margin_left = -43.6832
+margin_top = -21.6625
+margin_right = 872.317
+margin_bottom = 890.337
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 3
@@ -269,7 +269,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer_ScoreBoard_Left" type="VBoxContainer" parent="TopUI/Colum_Left"]
-margin_right = 181.0
+margin_right = 180.0
 margin_bottom = 94.0
 rect_min_size = Vector2( 75, 75 )
 __meta__ = {
@@ -277,7 +277,7 @@ __meta__ = {
 }
 
 [node name="RTL_SilverLabel" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left"]
-margin_right = 181.0
+margin_right = 180.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 145, 30 )
 custom_fonts/normal_font = SubResource( 2 )
@@ -291,7 +291,7 @@ __meta__ = {
 
 [node name="HBC_Silver" type="HBoxContainer" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left"]
 margin_top = 34.0
-margin_right = 181.0
+margin_right = 180.0
 margin_bottom = 94.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -355,7 +355,7 @@ __meta__ = {
 
 [node name="VBoxContainer_ScoreBoard_R2_Left" type="VBoxContainer" parent="TopUI/Colum_Left"]
 margin_top = 98.0
-margin_right = 181.0
+margin_right = 180.0
 margin_bottom = 176.0
 rect_min_size = Vector2( 100, 30 )
 __meta__ = {
@@ -363,10 +363,10 @@ __meta__ = {
 }
 
 [node name="RTL_Label_Penalty2" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_R2_Left"]
-margin_right = 181.0
+margin_right = 180.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 145, 26 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 5 )
 tab_size = 6
 text = "Penalty
 "
@@ -377,7 +377,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_R2_Left"]
 margin_top = 30.0
-margin_right = 181.0
+margin_right = 180.0
 margin_bottom = 78.0
 rect_min_size = Vector2( 145, 45 )
 
@@ -399,7 +399,7 @@ margin_left = 107.0
 margin_right = 155.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 48, 48 )
-custom_fonts/normal_font = SubResource( 8 )
+custom_fonts/normal_font = SubResource( 7 )
 visible_characters = 2
 tab_size = 2
 text = "0"
@@ -408,7 +408,7 @@ scroll_active = false
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TopUI/Colum_Left"]
 position = Vector2( -21.4043, 58.9131 )
 scale = Vector2( 0.665912, 0.621368 )
-frames = SubResource( 9 )
+frames = SubResource( 8 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TopUI"]
 margin_left = 199.219
@@ -444,7 +444,7 @@ margin_bottom = 55.0
 margin_right = 35.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 35, 55 )
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 9 )
 visible_characters = 4
 text = "0
 "
@@ -455,7 +455,7 @@ margin_left = 39.0
 margin_right = 74.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 35, 55 )
-custom_fonts/normal_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 11 )
 visible_characters = 6
 tab_size = 6
 text = "0
@@ -470,7 +470,7 @@ margin_left = 78.0
 margin_right = 113.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 35, 55 )
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 9 )
 visible_characters = 1
 tab_size = 1
 text = "0"
@@ -481,7 +481,7 @@ margin_left = 117.0
 margin_right = 152.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 35, 55 )
-custom_fonts/normal_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 11 )
 tab_size = 6
 text = "0"
 scroll_active = false
@@ -502,7 +502,7 @@ __meta__ = {
 margin_right = 190.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 75, 25 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 5 )
 tab_size = 6
 scroll_active = false
 __meta__ = {
@@ -514,7 +514,7 @@ margin_top = 29.0
 margin_right = 190.0
 margin_bottom = 54.0
 rect_min_size = Vector2( 75, 25 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 5 )
 tab_size = 6
 scroll_active = false
 __meta__ = {
@@ -526,7 +526,7 @@ margin_top = 58.0
 margin_right = 190.0
 margin_bottom = 88.0
 rect_min_size = Vector2( 75, 30 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 5 )
 tab_size = 6
 text = "GOAL              GOAL"
 scroll_active = false
@@ -547,7 +547,7 @@ __meta__ = {
 margin_right = 190.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 150, 30 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 5 )
 tab_size = 6
 text = " Shots on Goal"
 scroll_active = false
@@ -576,7 +576,7 @@ __meta__ = {
 margin_right = 185.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 145, 30 )
-custom_fonts/normal_font = SubResource( 14 )
+custom_fonts/normal_font = SubResource( 13 )
 visible_characters = 12
 tab_size = 12
 text = "COPPER"
@@ -652,7 +652,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right/HBC_Copper"]
 position = Vector2( 152.611, 28.6991 )
 scale = Vector2( 0.621367, 0.643639 )
-frames = SubResource( 15 )
+frames = SubResource( 14 )
 
 [node name="VBoxContainer_ScoreBoard_R2_Right" type="VBoxContainer" parent="TopUI/Colum_Right"]
 margin_top = 98.0
@@ -667,7 +667,7 @@ __meta__ = {
 margin_right = 185.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 100, 30 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 5 )
 tab_size = 6
 text = "Penalty"
 scroll_active = false
@@ -680,7 +680,7 @@ margin_top = 34.0
 margin_right = 185.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 45, 43 )
-custom_fonts/normal_font = SubResource( 8 )
+custom_fonts/normal_font = SubResource( 7 )
 tab_size = 2
 text = "0"
 scroll_active = false
@@ -702,7 +702,7 @@ margin_right = 346.649
 margin_bottom = 83.5676
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/normal_font = SubResource( 16 )
+custom_fonts/normal_font = SubResource( 15 )
 visible_characters = 10
 tab_size = 24
 text = "0000000000"
@@ -731,7 +731,7 @@ margin_right = 166.416
 margin_bottom = 77.7673
 size_flags_horizontal = 7
 size_flags_vertical = 7
-custom_fonts/normal_font = SubResource( 16 )
+custom_fonts/normal_font = SubResource( 15 )
 tab_size = 24
 text = "NEW"
 scroll_active = false
@@ -751,31 +751,31 @@ offset = 64
 [node name="100pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 17 )
+frames = SubResource( 16 )
 animation = "100_score"
 
 [node name="200pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 17 )
+frames = SubResource( 16 )
 animation = "200_score"
 
 [node name="300pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 17 )
+frames = SubResource( 16 )
 animation = "300_score"
 
 [node name="400pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 17 )
+frames = SubResource( 16 )
 animation = "400_score"
 
 [node name="500pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
 position = Vector2( 246.902, 692.846 )
 z_index = 1000
-frames = SubResource( 17 )
+frames = SubResource( 16 )
 animation = "500_score"
 
 [node name="Destroy_Timer" type="Timer" parent="."]
