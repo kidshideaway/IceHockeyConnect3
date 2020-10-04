@@ -1,23 +1,22 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Resources/Scripts/ScoreGUI.gd" type="Script" id=2]
-[ext_resource path="res://Resources/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=4]
-
+[ext_resource path="res://Resources/Scripts/ScoreGUI.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
-font_data = ExtResource( 4 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
-font_data = ExtResource( 4 )
+font_data = ExtResource( 2 )
 
 [node name="ScoreGUI" type="Control"]
 margin_left = 100.0
 margin_top = 75.0
 margin_right = 475.0
 margin_bottom = 675.0
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

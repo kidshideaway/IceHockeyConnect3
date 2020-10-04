@@ -27,6 +27,9 @@ var possible_pieces = [
 	preload("res://Resources/Scenes/Reg_LiteGreen_Piece.tscn")
 ];
 
+# Database of Level Specifications
+var LEVELSPECNODE = load("res://Resources/Scripts/LevelSpecsNode.gd");
+
 #Two dimensional array to hold coordinates x,y plane
 var all_pieces = [];
 
@@ -85,8 +88,6 @@ var color_3;
 var type_3;
 var reward_3;
 var amount_3;
-
-
 
 #Language Labels <-- load from language database in future
 #####
@@ -181,7 +182,6 @@ func swap_pieces(column, row, direction):
 		if(matchcheck != 1):
 			get_parent().get_node("UndoDriver_Timer").start();
 			undo_move(column, row, direction);  
-		
 
 func undo_move(column, row, direction): 
 	var t = Timer.new();
@@ -325,33 +325,12 @@ func update_score(pcs_matched, _score, position_of_match):
 	_score = _score + value + bonus;
 	get_parent().get_node("BottomUI/Bottom_Center_RTL").set_text(String(_score)); 
 	BONUS.set_frame(1);
-	BONUS.set_position(Vector2(position_of_match)); 
+	
+	BONUS.set_position(position_of_match); 
 	BONUS.play();  
 	return(_score);
 
 func scoreboard_update():
-	if points_1 
-	if points_2 
-	if points_3 
-	if minutes_1 
-	if minutes_2 
-	if minutes_3 
-	if turns_1 
-	if turns_2 
-	if turns_3 
-	if color_1 
-	if color_2 
-	if color_3 
-	if type_1 
-	if type_2 
-	if type_3 
-	if reward_1 
-	if reward_2 
-	if reward_3 
-	if amount_1 
-	if amount_2 
-	if amount_3 
-	
 	pass;
 
 
@@ -388,14 +367,21 @@ func _on_TextureButton_pressed():
 	repopulate_pieces_on_grid();
 	pass # Replace with function body.	
 	
-func _read_level_specs():
-	var PARENT = get_parent();
-	var NODE = PARENT.get_node("LevelSpecsNode");
-	var LevelSpecs_LineEntryCount = NODE.LevelSpecs_matrix.size()
+func _read_level_specs():	 
+	print("Calling to load database.");
+	LEVELSPECNODE.new();
+	print("Check database results."); 
+	
+	var LevelSpecs_matrix = LEVELSPECNODE.LevelSpecs_matrix;
+	
+	var LevelSpecs_LineEntryCount = LevelSpecs_matrix.size()
+	
+	print("LevelSpecs_LineEntryCount: " + LevelSpecs_LineEntryCount);
+	
 	for l in range(LevelSpecs_LineEntryCount):
-		var LevelSpecs_Array = NODE.LevelSpecs_matrix[l];
+		var LevelSpecs_Array = LEVELSPECNODE.LevelSpecs_matrix[l];
 		var LevelSpecs_EntryCount = LevelSpecs_Array.size()
-		var test_level = level;
+		var test_level = level;0
 		if LevelSpecs_EntryCount > 2:
 			test_level = LevelSpecs_Array[1];
 			test_level = int(test_level);

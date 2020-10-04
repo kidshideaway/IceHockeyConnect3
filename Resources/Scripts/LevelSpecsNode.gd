@@ -2,19 +2,31 @@ extends Node
 
 var path_SharedDBs = "res://Resources/SharedDB/" 
 var file_LevelSpecs = path_SharedDBs + "levelspecs.gd_csv"
-var LevelSpecs  
+var LevelSpecs = 0;
 var LevelSpecs_matrix = [] 
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
+	pass;
+	
+func _new(): 
+	print("Loading level database from file.");
 	var delim = ","
 	var newLineDelim = "\n"
 	
 	## open and read files  
-	print(file_LevelSpecs)
+	print(path_SharedDBs);
+	print(file_LevelSpecs);
+	
 	LevelSpecs  = loadDB_(file_LevelSpecs)
-	var LevelSpecs_Lines  = LevelSpecs .split(newLineDelim, true, 0)
+	print(LevelSpecs);
+	
+	var LevelSpecs_Lines  = LevelSpecs.split(newLineDelim, true, 0)
+	print(LevelSpecs_Lines);
+		
 	var LevelSpecs_LineEntryCount = LevelSpecs_Lines.size()
+	print(LevelSpecs_LineEntryCount);
+	
 	for l in range(LevelSpecs_LineEntryCount):
 		LevelSpecs_matrix.append([])
 		var LevelSpecs_Array = LevelSpecs_Lines[l].split(delim, true, 0)
