@@ -1,42 +1,34 @@
 extends Node
+ 
 
+#####
 var path_SharedDBs = "res://Resources/SharedDB/" 
 var file_LevelSpecs = path_SharedDBs + "levelspecs.gd_csv"
-var LevelSpecs = 0;
+var LevelSpecs  
 var LevelSpecs_matrix = [] 
+#####
 
+onready var Global = get_node("/root/Global");  
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
-	pass;
-	
-func _new(): 
-	print("Loading level database from file.");
 	var delim = ","
 	var newLineDelim = "\n"
 	
 	## open and read files  
-	print(path_SharedDBs);
-	print(file_LevelSpecs);
-	
+	print(file_LevelSpecs)
 	LevelSpecs  = loadDB_(file_LevelSpecs)
-	print(LevelSpecs);
-	
-	var LevelSpecs_Lines  = LevelSpecs.split(newLineDelim, true, 0)
-	print(LevelSpecs_Lines);
-		
+	var LevelSpecs_Lines  = LevelSpecs .split(newLineDelim, true, 0)
 	var LevelSpecs_LineEntryCount = LevelSpecs_Lines.size()
-	print(LevelSpecs_LineEntryCount);
-	
 	for l in range(LevelSpecs_LineEntryCount):
 		LevelSpecs_matrix.append([])
 		var LevelSpecs_Array = LevelSpecs_Lines[l].split(delim, true, 0)
 		var LevelSpecs_EntryCount = LevelSpecs_Array.size()
 		for n in range(LevelSpecs_EntryCount):
 			#id,level,width,height,goal,points,minutes,turns,color,type,reward,amount
-			#print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
+			#print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry		
 			LevelSpecs_matrix[l].append(LevelSpecs_Array[n])
 	saveDB_(LevelSpecs, file_LevelSpecs)
-	  
+	
 	
 func loadDB_(fileName):
 	var content = loadFile( fileName) 

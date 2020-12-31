@@ -19,6 +19,17 @@ config/name="IceHockeyConnect3"
 run/main_scene="res://Resources/Scenes/Game_Window.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Resources/Scripts/global.gd"
+GameTimer="*res://Resources/Scripts/GameTimer.gd"
+GameMenu="*res://Resources/Scripts/GameMenu.gd"
+Grid="*res://Resources/Scripts/Grid.gd"
+LevelSpecsNode="*res://Resources/Scripts/LevelSpecsNode.gd"
+OptionsGUI="*res://Resources/Scripts/OptionsGUI.gd"
+Piece="*res://Resources/Scripts/Piece.gd"
+ScoreGUI="*res://Resources/Scripts/ScoreGUI.gd"
+
 [display]
 
 window/size/width=600

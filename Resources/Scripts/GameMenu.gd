@@ -27,7 +27,6 @@ func make_invisible():
 		if(check2 == 0):
 			print("GameMenu set to hide. ");
 
-
 func check_visiblity():
 	if self.visible:
 		return(1)

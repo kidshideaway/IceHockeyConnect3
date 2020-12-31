@@ -1,18 +1,5 @@
 extends Node2D
-
-# Grid Variables
-export (int) var width =4;
-export (int) var height =4;
-export (int) var x_start;
-export (int) var y_start;
-export (int) var offset;
-export (int) var score;
-export (int) var value;
-export (int) var bonus;
-export (int) var active_level;
-export (int) var id;
-export (int) var level = 1;
-
+ 
 # variables for pieces
 var possible_pieces = [
 	preload("res://Resources/Scenes/Reg_Blue_Piece.tscn"),
@@ -26,79 +13,36 @@ var possible_pieces = [
 	preload("res://Resources/Scenes/Reg_LiteOrange_Piece.tscn"),
 	preload("res://Resources/Scenes/Reg_LiteGreen_Piece.tscn")
 ];
-
-# Database of Level Specifications
-var LEVELSPECNODE = load("res://Resources/Scripts/LevelSpecsNode.gd");
-
+  
 #Two dimensional array to hold coordinates x,y plane
 var all_pieces = [];
 
+################### Grid Variables ########################## 
+export (int) var width =4;
+export (int) var height =4;
+export (int) var x_start;
+export (int) var y_start;
+export (int) var offset;
+export (int) var score;
+export (int) var value;
+export (int) var bonus;
+export (int) var active_level;
+export (int) var id;
+export (int) var level = 1;
+ 
 # Touch variables
 var first_touch = Vector2(0,0);
 var final_touch = Vector2(0,0);
 var controlling = false;
 var max_num_pieces_per_level = 4;
 
-# variables for tracking score, cash, and other player based values.
-var silvercoins_dig_thousands = 0;
-var silvercoins_dig_hundreds = 0;
-var silvercoins_dig_tens = 0;
-var silvercoins_dig_ones = 0;
-var coppercoins_dig_thousands = 0;
-var coppercoins_dig_hundreds = 0;
-var coppercoins_dig_tens = 0;
-var coppercoins_dig_ones = 0;
-var timer_dig_min_tens = 0;
-var timer_dig_min_ones = 0;
-var timer_dig_sec_tens = 0;
-var timer_dig_sec_ones = 0;
-var shots_on_goals = 0;
-
-# the database fields
-var goal;
-var points;
-var minutes;
-var turns;
-var color;
-var type;
-var reward;
-var amount;
-
-# the active goals per level (3 sets)
-var points_1;
-var minutes_1;
-var turns_1;
-var color_1;
-var type_1;
-var reward_1;
-var amount_1;
-##
-var points_2;
-var minutes_2;
-var turns_2;
-var color_2;
-var type_2;
-var reward_2;
-var amount_2;
-###
-var points_3;
-var minutes_3;
-var turns_3;
-var color_3;
-var type_3;
-var reward_3;
-var amount_3;
-
-#Language Labels <-- load from language database in future
-#####
-#####
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
 	randomize();
 	_read_level_specs();
 	all_pieces = make_2d_array();
-	spawn_pieces(); 	
+	spawn_pieces(); 
 
 func make_2d_array():
 	var array = [];
@@ -182,6 +126,7 @@ func swap_pieces(column, row, direction):
 		if(matchcheck != 1):
 			get_parent().get_node("UndoDriver_Timer").start();
 			undo_move(column, row, direction);  
+		
 
 func undo_move(column, row, direction): 
 	var t = Timer.new();
@@ -325,12 +270,11 @@ func update_score(pcs_matched, _score, position_of_match):
 	_score = _score + value + bonus;
 	get_parent().get_node("BottomUI/Bottom_Center_RTL").set_text(String(_score)); 
 	BONUS.set_frame(1);
-	
-	BONUS.set_position(position_of_match); 
+	BONUS.set_position(Vector2(position_of_match)); 
 	BONUS.play();  
 	return(_score);
 
-func scoreboard_update():
+func scoreboard_update(): 	
 	pass;
 
 
@@ -367,86 +311,92 @@ func _on_TextureButton_pressed():
 	repopulate_pieces_on_grid();
 	pass # Replace with function body.	
 	
-func _read_level_specs():	 
-	print("Calling to load database.");
-	LEVELSPECNODE.new();
-	print("Check database results."); 
-	
-	var LevelSpecs_matrix = LEVELSPECNODE.LevelSpecs_matrix;
-	
-	var LevelSpecs_LineEntryCount = LevelSpecs_matrix.size()
-	
-	print("LevelSpecs_LineEntryCount: " + LevelSpecs_LineEntryCount);
-	
+func _read_level_specs():
+	var PARENT = get_parent();
+	var NODE = PARENT.get_node("LevelSpecsNode");
+	var LevelSpecs_LineEntryCount = NODE.LevelSpecs_matrix.size()
+	print("LevelSpecs_LineEntryCount: ", LevelSpecs_LineEntryCount);	
 	for l in range(LevelSpecs_LineEntryCount):
-		var LevelSpecs_Array = LEVELSPECNODE.LevelSpecs_matrix[l];
-		var LevelSpecs_EntryCount = LevelSpecs_Array.size()
-		var test_level = level;0
+		print("l: ",l);
+		print("level: ",level);
+		 
+		var LevelSpecs_Array = NODE.LevelSpecs_matrix[l];
+		print("LevelSpecs_Array: ",LevelSpecs_Array);
+		 
+		var LevelSpecs_EntryCount = LevelSpecs_Array.size();
+		print("LevelSpecs_EntryCount: ",LevelSpecs_EntryCount);
+		 
+		var test_level = level;
+		print("test_level: ",test_level);
+		
 		if LevelSpecs_EntryCount > 2:
+			print("LevelSpecs_EntryCount: ",LevelSpecs_EntryCount); 
 			test_level = LevelSpecs_Array[1];
 			test_level = int(test_level);
-		print(test_level);
-		for n in range(LevelSpecs_EntryCount):
-			print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
-			if n > 0:
-				if test_level == level:
-					match n:
-						0:
-							id = int(LevelSpecs_Array[n]);
-						1:
-							var temp_level= LevelSpecs_Array[n];
-						2:	
-							width = int(LevelSpecs_Array[n]);
-						3:
-							height= int(LevelSpecs_Array[n]);
-						4:
-							goal= int(LevelSpecs_Array[n]);
-						5:
-							if goal == 1:
-								points_1 = int(LevelSpecs_Array[n]);
-							if goal == 2:
-								points_2 = int(LevelSpecs_Array[n]);
-							if goal == 3:
-								points_3 = int(LevelSpecs_Array[n]);
-						6: 
-							if goal == 1:
-								minutes_1 = int(LevelSpecs_Array[n]);
-							if goal == 2:
-								minutes_2 = int(LevelSpecs_Array[n]);
-							if goal == 3:
-								minutes_3 = int(LevelSpecs_Array[n]);							
-						7:
-							if goal == 1:
-								turns_1 = int(LevelSpecs_Array[n]);
-							if goal == 2:
-								turns_2 = int(LevelSpecs_Array[n]);
-							if goal == 3:
-								turns_3 = int(LevelSpecs_Array[n]); 
-						8:
-							if goal == 1:
-								color_1 = int(LevelSpecs_Array[n]);
-							if goal == 2:
-								color_2 = int(LevelSpecs_Array[n]);
-							if goal == 3:
-								color_3 = int(LevelSpecs_Array[n]); 
-						9:
-							if goal == 1:
-								type_1 = int(LevelSpecs_Array[n]);
-							if goal == 2:
-								type_2 = int(LevelSpecs_Array[n]);
-							if goal == 3:
-								type_3 = int(LevelSpecs_Array[n]); 
-						10:
-							if goal == 1:
-								reward_1 = int(LevelSpecs_Array[n]);
-							if goal == 2:
-								reward_2 = int(LevelSpecs_Array[n]);
-							if goal == 3:
-								reward_3 = int(LevelSpecs_Array[n]); 
-						11:
-							if goal == 1:
-								amount_1 = int(LevelSpecs_Array[n]);
-							if goal == 2:
-								amount_2 = int(LevelSpecs_Array[n]);
-							if goal == 3:
-								amount_3 = int(LevelSpecs_Array[n]); 
+			print("test_level: ",test_level);
+			
+		if test_level == level:
+			for n in range(LevelSpecs_EntryCount):
+				print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
+				if n > 0:
+					if test_level == level:
+						match n:
+							0:
+								id = int(LevelSpecs_Array[n]);
+							1:
+								var temp_level= int(LevelSpecs_Array[n]);
+							2:	
+								width = int(LevelSpecs_Array[n]);
+							3:
+								height= int(LevelSpecs_Array[n]);
+							4:
+								goal= int(LevelSpecs_Array[n]);
+							5:
+								if goal == 1:
+									points_1 = int(LevelSpecs_Array[n]);
+								if goal == 2:
+									points_2 = int(LevelSpecs_Array[n]);
+								if goal == 3:
+									points_3 = int(LevelSpecs_Array[n]);
+							6: 
+								if goal == 1:
+									minutes_1 = int(LevelSpecs_Array[n]);
+								if goal == 2:
+									minutes_2 = int(LevelSpecs_Array[n]);
+								if goal == 3:
+									minutes_3 = int(LevelSpecs_Array[n]);							
+							7:
+								if goal == 1:
+									turns_1 = int(LevelSpecs_Array[n]);
+								if goal == 2:
+									turns_2 = int(LevelSpecs_Array[n]);
+								if goal == 3:
+									turns_3 = int(LevelSpecs_Array[n]); 
+							8:
+								if goal == 1:
+									color_1 = int(LevelSpecs_Array[n]);
+								if goal == 2:
+									color_2 = int(LevelSpecs_Array[n]);
+								if goal == 3:
+									color_3 = int(LevelSpecs_Array[n]); 
+							9:
+								if goal == 1:
+									type_1 = int(LevelSpecs_Array[n]);
+								if goal == 2:
+									type_2 = int(LevelSpecs_Array[n]);
+								if goal == 3:
+									type_3 = int(LevelSpecs_Array[n]); 
+							10:
+								if goal == 1:
+									reward_1 = int(LevelSpecs_Array[n]);
+								if goal == 2:
+									reward_2 = int(LevelSpecs_Array[n]);
+								if goal == 3:
+									reward_3 = int(LevelSpecs_Array[n]); 
+							11:
+								if goal == 1:
+									amount_1 = int(LevelSpecs_Array[n]);
+								if goal == 2:
+									amount_2 = int(LevelSpecs_Array[n]);
+								if goal == 3:
+									amount_3 = int(LevelSpecs_Array[n]); 

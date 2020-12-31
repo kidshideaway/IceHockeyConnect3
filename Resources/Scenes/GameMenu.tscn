@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Resources/Scripts/GameMenu.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Background/Texture-164.jpg" type="Texture" id=2]
-[ext_resource path="res://Resources/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Resources/Background/blue_button_pressed_template.jpg" type="Texture" id=4]
+[ext_resource path="res://Resources/Background/Texture-164.jpg" type="Texture" id=1]
+[ext_resource path="res://Resources/Scripts/GameMenu.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Background/blue_button_pressed_template.jpg" type="Texture" id=3]
+[ext_resource path="res://Resources/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 46
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [node name="GameMenu" type="Control"]
 margin_left = 100.0
 margin_top = 75.0
 margin_right = 475.0
 margin_bottom = 675.0
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -26,7 +26,7 @@ __meta__ = {
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 margin_right = 375.0
 margin_bottom = 600.0
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,7 +58,7 @@ margin_top = 108.0
 margin_right = 325.0
 margin_bottom = 158.0
 rect_min_size = Vector2( 300, 50 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="VBoxContainer/PlayButton"]
 margin_left = 100.0
@@ -67,6 +67,7 @@ margin_bottom = 59.0
 grow_horizontal = 2
 custom_fonts/font = SubResource( 2 )
 text = "PLAY"
+percent_visible = 3.75
 max_lines_visible = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -77,7 +78,7 @@ margin_top = 177.0
 margin_right = 325.0
 margin_bottom = 227.0
 rect_min_size = Vector2( 300, 50 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="VBoxContainer/DraftButton"]
 margin_left = 88.589
@@ -96,7 +97,7 @@ margin_top = 246.0
 margin_right = 325.0
 margin_bottom = 296.0
 rect_min_size = Vector2( 300, 50 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="VBoxContainer/ScoresButton"]
 margin_left = 90.0
@@ -114,7 +115,7 @@ margin_top = 315.0
 margin_right = 325.0
 margin_bottom = 365.0
 rect_min_size = Vector2( 300, 50 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="VBoxContainer/SettingsButton"]
 margin_left = 60.0
@@ -132,7 +133,7 @@ margin_top = 384.0
 margin_right = 325.0
 margin_bottom = 434.0
 rect_min_size = Vector2( 300, 50 )
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="VBoxContainer/ExitGameButton"]
 margin_left = 100.0
