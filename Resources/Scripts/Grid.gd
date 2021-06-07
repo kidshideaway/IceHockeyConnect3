@@ -1,5 +1,7 @@
 extends Node2D
- 
+
+onready var Global = get_node("/root/Global");  
+
 # variables for pieces
 var possible_pieces = [
 	preload("res://Resources/Scenes/Reg_Blue_Piece.tscn"),
@@ -22,7 +24,7 @@ export (int) var width =4;
 export (int) var height =4;
 export (int) var x_start;
 export (int) var y_start;
-export (int) var offset;
+export (int) var offset =1;
 export (int) var score;
 export (int) var value;
 export (int) var bonus;
@@ -39,8 +41,43 @@ var max_num_pieces_per_level = 4;
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
+	print(active_level)
 	randomize();
 	_read_level_specs();
+	print("Goals: ") 
+	print(Global.LS_id) 
+	print("Size: ") 
+	print(Global.LS_width) 
+	print(Global.LS_height) 
+	print(Global.goal) # Prints n entry
+	print("Points: ") # Prints n entry
+	print(Global.points_1) # Prints n entry
+	print(Global.points_2) # Prints n entry
+	print(Global.points_3) # Prints n entry
+	print("Minutes: ") # Prints n entry
+	print(Global.minutes_1) # Prints n entry
+	print(Global.minutes_2) # Prints n entry
+	print(Global.minutes_3) # Prints n entry
+	print("Turns: ") # Prints n entry
+	print(Global.turns_1) # Prints n entry
+	print(Global.turns_2) # Prints n entry
+	print(Global.turns_3) # Prints n entry
+	print("Type: ") # Prints n entry
+	print(Global.type_1) # Prints n entry
+	print(Global.type_2) # Prints n entry
+	print(Global.type_3) # Prints n entry
+	print("Color: ") # Prints n entry
+	print(Global.color_1) # Prints n entry
+	print(Global.color_2) # Prints n entry
+	print(Global.color_3) # Prints n entry
+	print("Reward: ") # Prints n entry
+	print(Global.reward_1) # Prints n entry
+	print(Global.reward_2) # Prints n entry
+	print(Global.reward_3) # Prints n entry
+	print("Amount: ") # Prints n entry
+	print(Global.amount_1) # Prints n entry
+	print(Global.amount_2) # Prints n entry
+	print(Global.amount_3) # Prints n entry
 	all_pieces = make_2d_array();
 	spawn_pieces(); 
 
@@ -206,7 +243,8 @@ func destroy_matched():
 	get_parent().get_node("Fill_Timer").start();
 	get_parent().get_node("MatchCheck_Timer").start();
 	score = update_score(num_pieces_destroyed, score, position_of_match);
-	pass;
+	Global.shots_on_goal_player_1 = update_shots_on_goal_player_1(num_pieces_destroyed, Global.shots_on_goal_player_1);
+	pass;  
 
 func clear_2d_array(): 
 	for i in width: 
@@ -241,38 +279,115 @@ func fill_columns():
 				piece.position = grid_to_pixel(i,j);
 				all_pieces[i][j] = piece;
 
+# In progress started 5/23/2021 -- implementing level goals and completion routine. 
+func check_goal_progress(_score): 
+	var BONUS = 0; 
+	#default value for matches
+	value = 100;
+	bonus = 0; 
+	BONUS = get_node("/root/Game_Window/Grid/100pts_AnimatedSprite");
+	#print(BONUS);
+   
+	if Global.goal == 1:
+		Global.points_1
+		Global.minutes_1
+		Global.turns_1
+		Global.color_1
+		Global.type_1
+		Global.reward_1
+		Global.amount_1
+		if (Global.turns_1 <= Global.shots_on_goals):
+			value = Global.amount_3;
+		if (Global.points_1 <= Global.total_score):
+			value = Global.amount_1;
+	if Global.goal == 2:
+		Global.points_2
+		Global.minutes_2
+		Global.turns_2
+		Global.color_2
+		Global.type_2
+		Global.reward_2
+		Global.amount_2
+		if (Global.turns_2 <= Global.shots_on_goals):
+			value = Global.amount_3;
+		if (Global.points_2 <= Global.total_score):
+			value = Global.amount_2;
+	if Global.goal == 3:
+		Global.points_3
+		Global.minutes_3
+		Global.turns_3
+		Global.color_3
+		Global.type_3
+		Global.reward_3
+		Global.amount_3
+		if (Global.turns_3 <= Global.shots_on_goals):
+			value = Global.amount_3;
+		if (Global.points_3 <= Global.total_score):
+			value = Global.amount_3;
+			         
+			  
+	bonus = 0; 
+	if(value == 100): 
+		BONUS = get_node("/root/Game_Window/Grid/100pts_AnimatedSprite");  
+	if(value == 200): 
+		BONUS = get_node("/root/Game_Window/Grid/200pts_AnimatedSprite"); 
+	if(value == 300): 
+		BONUS = get_node("/root/Game_Window/Grid/300pts_AnimatedSprite"); 
+	if(value == 400): 
+		BONUS = get_node("/root/Game_Window/Grid/400pts_AnimatedSprite"); 
+	if(value == 500): 
+		BONUS = get_node("/root/Game_Window/Grid/500pts_AnimatedSprite"); 
+		
+	_score = _score + value + bonus;
+	get_parent().get_node("BottomUI/Bottom_Center_RTL").set_text(String(_score)); 
+	BONUS.set_frame(1); 
+	BONUS.play();  
+	return(_score);
+########################################################################################
+
 func update_score(pcs_matched, _score, position_of_match): 
 	var BONUS = 0; 
 	#default value for matches
 	value = 100;
 	bonus = 0; 
 	BONUS = get_node("/root/Game_Window/Grid/100pts_AnimatedSprite");
-	print(BONUS);
+	#print(BONUS);
 	
 	#control to increment bonus based on number of piece matched.
 	if(pcs_matched == 4):
 		value = 200; 
 		BONUS = get_node("/root/Game_Window/Grid/200pts_AnimatedSprite");
-		print(BONUS);
+		#print(BONUS);
 	if(pcs_matched == 5):
 		value = 300; 
 		BONUS = get_node("/root/Game_Window/Grid/300pts_AnimatedSprite");
-		print(BONUS);
+		#print(BONUS);
 	if(pcs_matched == 6):
 		value = 400; 
 		BONUS = get_node("/root/Game_Window/Grid/400pts_AnimatedSprite");
-		print(BONUS);
+		#print(BONUS);
 	if(pcs_matched == 7):
 		value = 500; 
 		BONUS = get_node("/root/Game_Window/Grid/500pts_AnimatedSprite");	
-		print(BONUS); 
+		#print(BONUS); 
 		
 	_score = _score + value + bonus;
 	get_parent().get_node("BottomUI/Bottom_Center_RTL").set_text(String(_score)); 
 	BONUS.set_frame(1);
-	BONUS.set_position(Vector2(position_of_match)); 
+	print(position_of_match);
+	BONUS.set_position(position_of_match); 
 	BONUS.play();  
 	return(_score);
+
+func update_shots_on_goal_player_1(pcs_matched, shots_on_goal_player_1): 
+	print(pcs_matched);
+	print(shots_on_goal_player_1);	
+	#control to increment
+	if(pcs_matched > 2): 		
+		shots_on_goal_player_1 = shots_on_goal_player_1 +1;
+		get_parent().get_node("TopUI/Colum_Left/VBoxContainer_ScoreBoard_R2_Left/HBoxContainer/RTL_ShotsOnGoal_Left").set_text(String(shots_on_goal_player_1));  
+	return(shots_on_goal_player_1);
+
 
 func scoreboard_update(): 	
 	pass;
@@ -313,90 +428,97 @@ func _on_TextureButton_pressed():
 	
 func _read_level_specs():
 	var PARENT = get_parent();
+	print(PARENT); 
 	var NODE = PARENT.get_node("LevelSpecsNode");
-	var LevelSpecs_LineEntryCount = NODE.LevelSpecs_matrix.size()
-	print("LevelSpecs_LineEntryCount: ", LevelSpecs_LineEntryCount);	
+	print(NODE); 
+	print(Global); 
+	var LevelSpecs_LineEntryCount = Global.LevelSpecs_matrix.size()
+	#print("LevelSpecs_LineEntryCount: ", LevelSpecs_LineEntryCount);	
 	for l in range(LevelSpecs_LineEntryCount):
-		print("l: ",l);
-		print("level: ",level);
+		#print("l: ",l);
+		#print("level: ",level);
 		 
-		var LevelSpecs_Array = NODE.LevelSpecs_matrix[l];
-		print("LevelSpecs_Array: ",LevelSpecs_Array);
+		var LevelSpecs_Array = Global.LevelSpecs_matrix[l];
+		#print("LevelSpecs_Array: ",LevelSpecs_Array);
 		 
 		var LevelSpecs_EntryCount = LevelSpecs_Array.size();
-		print("LevelSpecs_EntryCount: ",LevelSpecs_EntryCount);
+		#print("LevelSpecs_EntryCount: ",LevelSpecs_EntryCount);
 		 
 		var test_level = level;
-		print("test_level: ",test_level);
+		#print("test_level: ",test_level);
 		
 		if LevelSpecs_EntryCount > 2:
-			print("LevelSpecs_EntryCount: ",LevelSpecs_EntryCount); 
+			#print("LevelSpecs_EntryCount: ",LevelSpecs_EntryCount); 
 			test_level = LevelSpecs_Array[1];
 			test_level = int(test_level);
-			print("test_level: ",test_level);
+			#print("test_level: ",test_level);
 			
 		if test_level == level:
 			for n in range(LevelSpecs_EntryCount):
-				print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
+				#print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
 				if n > 0:
 					if test_level == level:
 						match n:
 							0:
-								id = int(LevelSpecs_Array[n]);
+								Global.LS_id = int(LevelSpecs_Array[n]);
 							1:
 								var temp_level= int(LevelSpecs_Array[n]);
-							2:	
-								width = int(LevelSpecs_Array[n]);
+							2:
+								Global.LS_width = int(LevelSpecs_Array[n]);
 							3:
-								height= int(LevelSpecs_Array[n]);
+								Global.LS_height= int(LevelSpecs_Array[n]);
 							4:
-								goal= int(LevelSpecs_Array[n]);
+								Global.goal= int(LevelSpecs_Array[n]);
 							5:
-								if goal == 1:
-									points_1 = int(LevelSpecs_Array[n]);
-								if goal == 2:
-									points_2 = int(LevelSpecs_Array[n]);
-								if goal == 3:
-									points_3 = int(LevelSpecs_Array[n]);
+								if Global.goal == 1:
+									Global.points_1 = int(LevelSpecs_Array[n]);
+								if Global.goal == 2:
+									Global.points_2 = int(LevelSpecs_Array[n]);
+								if Global.goal == 3:
+									Global.points_3 = int(LevelSpecs_Array[n]);
 							6: 
-								if goal == 1:
-									minutes_1 = int(LevelSpecs_Array[n]);
-								if goal == 2:
-									minutes_2 = int(LevelSpecs_Array[n]);
-								if goal == 3:
-									minutes_3 = int(LevelSpecs_Array[n]);							
+								if Global.goal == 1:
+									Global.minutes_1 = int(LevelSpecs_Array[n]);
+									Global.minutes = Global.minutes_1;
+								if Global.goal == 2:
+									Global.minutes_2 = int(LevelSpecs_Array[n]);
+									Global.minutes = Global.minutes_2;
+								if Global.goal == 3:
+									Global.minutes_3 = int(LevelSpecs_Array[n]);
+									Global.minutes = Global.minutes_3;
 							7:
-								if goal == 1:
-									turns_1 = int(LevelSpecs_Array[n]);
-								if goal == 2:
-									turns_2 = int(LevelSpecs_Array[n]);
-								if goal == 3:
-									turns_3 = int(LevelSpecs_Array[n]); 
+								if Global.goal == 1:
+									Global.turns_1 = int(LevelSpecs_Array[n]);
+								if Global.goal == 2:
+									Global.turns_2 = int(LevelSpecs_Array[n]);
+								if Global.goal == 3:
+									Global.turns_3 = int(LevelSpecs_Array[n]); 
 							8:
-								if goal == 1:
-									color_1 = int(LevelSpecs_Array[n]);
-								if goal == 2:
-									color_2 = int(LevelSpecs_Array[n]);
-								if goal == 3:
-									color_3 = int(LevelSpecs_Array[n]); 
+								if Global.goal == 1:
+									Global.color_1 = int(LevelSpecs_Array[n]);
+								if Global.goal == 2:
+									Global.color_2 = int(LevelSpecs_Array[n]);
+								if Global.goal == 3:
+									Global.color_3 = int(LevelSpecs_Array[n]); 
 							9:
-								if goal == 1:
-									type_1 = int(LevelSpecs_Array[n]);
-								if goal == 2:
-									type_2 = int(LevelSpecs_Array[n]);
-								if goal == 3:
-									type_3 = int(LevelSpecs_Array[n]); 
+								if Global.goal == 1:
+									Global.type_1 = int(LevelSpecs_Array[n]);
+								if Global.goal == 2:
+									Global.type_2 = int(LevelSpecs_Array[n]);
+								if Global.goal == 3:
+									Global.type_3 = int(LevelSpecs_Array[n]); 
 							10:
-								if goal == 1:
-									reward_1 = int(LevelSpecs_Array[n]);
-								if goal == 2:
-									reward_2 = int(LevelSpecs_Array[n]);
-								if goal == 3:
-									reward_3 = int(LevelSpecs_Array[n]); 
+								if Global.goal == 1:
+									Global.reward_1 = int(LevelSpecs_Array[n]);
+								if Global.goal == 2:
+									Global.reward_2 = int(LevelSpecs_Array[n]);
+								if Global.goal == 3:
+									Global.reward_3 = int(LevelSpecs_Array[n]); 
 							11:
-								if goal == 1:
-									amount_1 = int(LevelSpecs_Array[n]);
-								if goal == 2:
-									amount_2 = int(LevelSpecs_Array[n]);
-								if goal == 3:
-									amount_3 = int(LevelSpecs_Array[n]); 
+								if Global.goal == 1:
+									Global.amount_1 = int(LevelSpecs_Array[n]);
+								if Global.goal == 2:
+									Global.amount_2 = int(LevelSpecs_Array[n]);
+								if Global.goal == 3:
+									Global.amount_3 = int(LevelSpecs_Array[n]); 
+	

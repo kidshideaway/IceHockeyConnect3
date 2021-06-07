@@ -1,4 +1,6 @@
 extends Control
+
+onready var Global = get_node("/root/Global");  
  
 # Called when the node enters the scene tree for the first time.
 func _ready():
