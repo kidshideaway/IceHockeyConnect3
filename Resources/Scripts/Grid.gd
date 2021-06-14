@@ -281,67 +281,108 @@ func fill_columns():
 
 # In progress started 5/23/2021 -- implementing level goals and completion routine. 
 func check_goal_progress(_score): 
-	var BONUS = 0; 
+	var POPUP = 0; 
 	#default value for matches
 	value = 100;
 	bonus = 0; 
-	BONUS = get_node("/root/Game_Window/Grid/100pts_AnimatedSprite");
+	POPUP = get_node("/root/Game_Window/Grid/100pts_AnimatedSprite");
 	#print(BONUS);
    
-	if Global.goal == 1:
-		Global.points_1
-		Global.minutes_1
-		Global.turns_1
-		Global.color_1
-		Global.type_1
-		Global.reward_1
-		Global.amount_1
-		if (Global.turns_1 <= Global.shots_on_goals):
-			value = Global.amount_3;
+	if Global.goal == 1: 
+		# Used to set the timer = Global.minutes_1 
+		# Used to set the bonus piece color = Global.color_1 
+
+		# Used to set the point total to achieve = Global.points_1
 		if (Global.points_1 <= Global.total_score):
-			value = Global.amount_1;
-	if Global.goal == 2:
-		Global.points_2
-		Global.minutes_2
-		Global.turns_2
-		Global.color_2
-		Global.type_2
-		Global.reward_2
-		Global.amount_2
-		if (Global.turns_2 <= Global.shots_on_goals):
-			value = Global.amount_3;
+			if (Global.type_1 == "points"):
+				bonus = Global.amount_1; 
+				_score = _score + value + bonus;
+			if (Global.type_1 == "coins"):
+				Global.coppercoins = Global.coppercoins + Global.reward_1;
+				#TODO - parse out for score board next
+			# Win Panel
+			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
+				
+		# Used to set the point number of actions = Global.turns_2
+		if (Global.turns_1 <= Global.shots_on_goals):
+			if (Global.type_1 == "points"):
+				bonus = Global.reward_1;
+				_score = _score + value + bonus; 
+			if (Global.type_1 == "coins"):
+				Global.coppercoins = Global.coppercoins + Global.reward_1;
+				#TODO - parse out for score board next
+			# Win Panel
+			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
+			
+		# Win Panel
+		POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
+		
+	if Global.goal == 2: 
+		# Used to set the timer = Global.minutes_2 
+		# Used to set the bonus piece color = Global.color_2 
+		
+		# Used to set the point total to achieve = Global.points_2
 		if (Global.points_2 <= Global.total_score):
-			value = Global.amount_2;
-	if Global.goal == 3:
-		Global.points_3
-		Global.minutes_3
-		Global.turns_3
-		Global.color_3
-		Global.type_3
-		Global.reward_3
-		Global.amount_3
-		if (Global.turns_3 <= Global.shots_on_goals):
-			value = Global.amount_3;
+			if (Global.type_2 == "points"):
+				bonus = Global.amount_2; 
+				_score = _score + value + bonus;
+			if (Global.type_2 == "coins"):
+				Global.coppercoins = Global.coppercoins + Global.reward_2;
+				#TODO - parse out for score board next
+			# Win Panel
+			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
+				
+		# Used to set the point number of actions = Global.turns_2
+		if (Global.turns_2 <= Global.shots_on_goals):
+			if (Global.type_2 == "points"):
+				bonus = Global.reward_2;
+				_score = _score + value + bonus; 
+			if (Global.type_2 == "coins"):
+				Global.coppercoins = Global.coppercoins + Global.reward_2;
+				#TODO - parse out for score board next
+			# Win Panel
+			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
+			
+		# Win Panel
+		POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
+		
+	if Global.goal == 3: 
+		# Used to set the timer = Global.minutes_3 
+		# Used to set the bonus piece color = Global.color_3 
+
+		# Used to set the point total to achieve = Global.points_1
 		if (Global.points_3 <= Global.total_score):
-			value = Global.amount_3;
-			         
-			  
-	bonus = 0; 
-	if(value == 100): 
-		BONUS = get_node("/root/Game_Window/Grid/100pts_AnimatedSprite");  
-	if(value == 200): 
-		BONUS = get_node("/root/Game_Window/Grid/200pts_AnimatedSprite"); 
-	if(value == 300): 
-		BONUS = get_node("/root/Game_Window/Grid/300pts_AnimatedSprite"); 
-	if(value == 400): 
-		BONUS = get_node("/root/Game_Window/Grid/400pts_AnimatedSprite"); 
-	if(value == 500): 
-		BONUS = get_node("/root/Game_Window/Grid/500pts_AnimatedSprite"); 
+			if (Global.type_3 == "points"):
+				bonus = Global.amount_3; 
+				_score = _score + value + bonus;
+			if (Global.type_3 == "coins"):
+				Global.coppercoins = Global.coppercoins + Global.reward_3;
+				#TODO - parse out for score board next
+			# Win Panel
+			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
+				
+		# Used to set the point number of actions = Global.turns_2
+		if (Global.turns_3 <= Global.shots_on_goals):
+			if (Global.type_3 == "points"):
+				bonus = Global.reward_3;
+				_score = _score + value + bonus; 
+			if (Global.type_3 == "coins"):
+				Global.coppercoins = Global.coppercoins + Global.reward_3;
+				#TODO - parse out for score board next
+			# Win Panel
+			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
+			   
+	# Game Over Panel
+		POPUP = get_node("/root/Game_Window/Grid/GameOver_Panel_AnimatedSprite");  
+	# Win Panel
+		POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
+	# Paused Panel
+		POPUP = get_node("/root/Game_Window/Grid/Pause_Panel_AnimatedSprite"); 
 		
 	_score = _score + value + bonus;
 	get_parent().get_node("BottomUI/Bottom_Center_RTL").set_text(String(_score)); 
-	BONUS.set_frame(1); 
-	BONUS.play();  
+	POPUP.set_frame(1); 
+	POPUP.play();  
 	return(_score);
 ########################################################################################
 

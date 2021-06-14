@@ -33,10 +33,12 @@ var silvercoins_dig_thousands = 0;
 var silvercoins_dig_hundreds = 0;
 var silvercoins_dig_tens = 0;
 var silvercoins_dig_ones = 0;
+var silvercoins = 0;
 var coppercoins_dig_thousands = 0;
 var coppercoins_dig_hundreds = 0;
 var coppercoins_dig_tens = 0;
 var coppercoins_dig_ones = 0;
+var coppercoins = 0;
 var timer_dig_min_tens = 0;
 var timer_dig_min_ones = 0;
 var timer_dig_sec_tens = 0;
@@ -130,10 +132,12 @@ func _ready():
 	print(silvercoins_dig_hundreds);
 	print(silvercoins_dig_tens);
 	print(silvercoins_dig_ones ); # Prints n entry	 	
+	print(silvercoins ); # Prints n entry	 	
 	print(coppercoins_dig_thousands);
 	print(coppercoins_dig_hundreds);
 	print(coppercoins_dig_tens);
 	print(coppercoins_dig_ones ); # Prints n entry	 	
+	print(coppercoins ); # Prints n entry	 	
 	print(timer_dig_min_tens);
 	print(timer_dig_min_ones);
 	print(timer_dig_sec_tens);

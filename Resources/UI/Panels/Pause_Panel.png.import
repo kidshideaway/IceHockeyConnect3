@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pause Panel.png-65ef6f52a70aa8c98f37ff9b83a1eb04.stex"
+path="res://.import/Pause_Panel.png-41933f60f76ec595ef4341053b21b60a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/UI/Panels/Pause Panel.png"
-dest_files=[ "res://.import/Pause Panel.png-65ef6f52a70aa8c98f37ff9b83a1eb04.stex" ]
+source_file="res://Resources/UI/Panels/Pause_Panel.png"
+dest_files=[ "res://.import/Pause_Panel.png-41933f60f76ec595ef4341053b21b60a.stex" ]
 
 [params]
 
