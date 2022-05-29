@@ -1,0 +1,4 @@
+#Sat May 28 20:31:34 EDT 2022
+base.0=Y\:\\Erica\\Dev_Portfolio\\GoDot_IceHockeyConnect3\\android\\build\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

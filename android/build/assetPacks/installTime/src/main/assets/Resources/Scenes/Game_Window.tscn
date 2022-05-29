@@ -1,0 +1,634 @@
+[gd_scene load_steps=144 format=2]
+
+[ext_resource path="res://Resources/Scripts/Game_Window.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Scripts/LevelSpecsNode.gd" type="Script" id=2]
+[ext_resource path="res://Resources/UI/Backgrounds/Texture-264.jpg" type="Texture" id=3]
+[ext_resource path="res://Resources/UI/TopUv2_BG.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Resources/UI/BottomUIButton.png" type="Texture" id=6]
+[ext_resource path="res://Resources/UI/BottomUIButtonDarker.png" type="Texture" id=7]
+[ext_resource path="res://Resources/UI/BottomUIButtonHighlighted.png" type="Texture" id=8]
+[ext_resource path="res://Resources/UI/BottomUIButtonDisabled.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Scripts/Grid.gd" type="Script" id=10]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_001.png" type="Texture" id=11]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_002.png" type="Texture" id=12]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_003.png" type="Texture" id=13]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_004.png" type="Texture" id=14]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_005.png" type="Texture" id=15]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_006.png" type="Texture" id=16]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_007.png" type="Texture" id=17]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_008.png" type="Texture" id=18]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_009.png" type="Texture" id=19]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_010.png" type="Texture" id=20]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_011.png" type="Texture" id=21]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_012.png" type="Texture" id=22]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_013.png" type="Texture" id=23]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_014.png" type="Texture" id=24]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_015.png" type="Texture" id=25]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_016.png" type="Texture" id=26]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_017.png" type="Texture" id=27]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_018.png" type="Texture" id=28]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_019.png" type="Texture" id=29]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_020.png" type="Texture" id=30]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_021.png" type="Texture" id=31]
+[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_022.png" type="Texture" id=32]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_001.png" type="Texture" id=33]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_002.png" type="Texture" id=34]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_003.png" type="Texture" id=35]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_004.png" type="Texture" id=36]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_005.png" type="Texture" id=37]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_006.png" type="Texture" id=38]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_007.png" type="Texture" id=39]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_008.png" type="Texture" id=40]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_009.png" type="Texture" id=41]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_010.png" type="Texture" id=42]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_011.png" type="Texture" id=43]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_012.png" type="Texture" id=44]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_013.png" type="Texture" id=45]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_014.png" type="Texture" id=46]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_015.png" type="Texture" id=47]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_016.png" type="Texture" id=48]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_017.png" type="Texture" id=49]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_018.png" type="Texture" id=50]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_019.png" type="Texture" id=51]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_020.png" type="Texture" id=52]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_021.png" type="Texture" id=53]
+[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_022.png" type="Texture" id=54]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_001.png" type="Texture" id=55]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_002.png" type="Texture" id=56]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_003.png" type="Texture" id=57]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_004.png" type="Texture" id=58]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_005.png" type="Texture" id=59]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_006.png" type="Texture" id=60]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_007.png" type="Texture" id=61]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_008.png" type="Texture" id=62]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_009.png" type="Texture" id=63]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_010.png" type="Texture" id=64]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_011.png" type="Texture" id=65]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_012.png" type="Texture" id=66]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_013.png" type="Texture" id=67]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_014.png" type="Texture" id=68]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_015.png" type="Texture" id=69]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_016.png" type="Texture" id=70]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_017.png" type="Texture" id=71]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_018.png" type="Texture" id=72]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_019.png" type="Texture" id=73]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_020.png" type="Texture" id=74]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_021.png" type="Texture" id=75]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_022.png" type="Texture" id=76]
+[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_023.png" type="Texture" id=77]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_021.png" type="Texture" id=78]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_022.png" type="Texture" id=79]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_001.png" type="Texture" id=80]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_002.png" type="Texture" id=81]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_003.png" type="Texture" id=82]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_004.png" type="Texture" id=83]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_005.png" type="Texture" id=84]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_006.png" type="Texture" id=85]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_007.png" type="Texture" id=86]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_008.png" type="Texture" id=87]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_009.png" type="Texture" id=88]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_010.png" type="Texture" id=89]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_011.png" type="Texture" id=90]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_012.png" type="Texture" id=91]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_013.png" type="Texture" id=92]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_014.png" type="Texture" id=93]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_015.png" type="Texture" id=94]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_016.png" type="Texture" id=95]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_017.png" type="Texture" id=96]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_018.png" type="Texture" id=97]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_019.png" type="Texture" id=98]
+[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_020.png" type="Texture" id=99]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_001.png" type="Texture" id=100]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_002.png" type="Texture" id=101]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_003.png" type="Texture" id=102]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_004.png" type="Texture" id=103]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_005.png" type="Texture" id=104]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_006.png" type="Texture" id=105]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_007.png" type="Texture" id=106]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_008.png" type="Texture" id=107]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_009.png" type="Texture" id=108]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_010.png" type="Texture" id=109]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_011.png" type="Texture" id=110]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_012.png" type="Texture" id=111]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_013.png" type="Texture" id=112]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_014.png" type="Texture" id=113]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_015.png" type="Texture" id=114]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_016.png" type="Texture" id=115]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_017.png" type="Texture" id=116]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_018.png" type="Texture" id=117]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_019.png" type="Texture" id=118]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_020.png" type="Texture" id=119]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_021.png" type="Texture" id=120]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_022.png" type="Texture" id=121]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_023.png" type="Texture" id=122]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_024.png" type="Texture" id=123]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_025.png" type="Texture" id=124]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_026.png" type="Texture" id=125]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_027.png" type="Texture" id=126]
+[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_028.png" type="Texture" id=127]
+[ext_resource path="res://Resources/Scripts/GameTimer.gd" type="Script" id=128]
+[ext_resource path="res://Resources/Sounds/Pause.wav" type="AudioStream" id=129]
+
+[sub_resource type="DynamicFont" id=1]
+use_mipmaps = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 25
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+font_data = SubResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+use_mipmaps = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 40
+font_data = SubResource( 9 )
+
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
+
+[sub_resource type="DynamicFont" id=12]
+size = 25
+font_data = SubResource( 11 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 46
+outline_color = Color( 0.937255, 0.580392, 0.956863, 1 )
+use_mipmaps = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ null, ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), null, null ],
+"loop": false,
+"name": "400_score",
+"speed": 14.0
+}, {
+"frames": [ null, ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), null, null ],
+"loop": false,
+"name": "300_score",
+"speed": 14.0
+}, {
+"frames": [ null, ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 78 ), ExtResource( 79 ), null, null, null ],
+"loop": false,
+"name": "200_score",
+"speed": 14.0
+}, {
+"frames": [ null, ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), null, null ],
+"loop": false,
+"name": "500_score",
+"speed": 14.0
+}, {
+"frames": [ null, ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), null, null, null, null ],
+"loop": false,
+"name": "100_score",
+"speed": 14.0
+} ]
+
+[node name="Game_Window" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="LevelSpecsNode" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_left = -16.0
+margin_top = -18.0
+margin_right = 616.0
+margin_bottom = 911.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="TopUI" type="TextureRect" parent="."]
+margin_left = 5.57213
+margin_top = 9.40246
+margin_right = 600.572
+margin_bottom = 218.402
+texture = ExtResource( 4 )
+
+[node name="Colum_Left" type="VBoxContainer" parent="TopUI"]
+margin_left = 61.4364
+margin_top = 17.0
+margin_right = 242.436
+margin_bottom = 202.0
+rect_min_size = Vector2( 300, 100 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer_ScoreBoard_R2_Left" type="VBoxContainer" parent="TopUI/Colum_Left"]
+margin_right = 300.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 100, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_Label_ShotsOnGoal" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_R2_Left"]
+margin_right = 300.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 100, 26 )
+custom_fonts/normal_font = SubResource( 1 )
+tab_size = 6
+text = "Shots On Goal"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_R2_Left"]
+margin_top = 30.0
+margin_right = 300.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 145, 45 )
+
+[node name="RTL_ShotsOnGoal_Left" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_R2_Left/HBoxContainer"]
+margin_right = 150.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 150, 45 )
+custom_colors/default_color = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/selection_color = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/font_color_selected = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/font_color_shadow = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+visible_characters = 4
+text = "0000"
+scroll_active = false
+
+[node name="VBoxContainer_ScoreBoard_Left" type="VBoxContainer" parent="TopUI/Colum_Left"]
+margin_top = 79.0
+margin_right = 300.0
+margin_bottom = 173.0
+rect_min_size = Vector2( 180, 75 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_LevelScoreLabel" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left"]
+margin_right = 300.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 145, 30 )
+custom_fonts/normal_font = SubResource( 5 )
+visible_characters = 12
+tab_size = 12
+text = "Score"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBC_Silver" type="HBoxContainer" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left"]
+margin_top = 34.0
+margin_right = 300.0
+margin_bottom = 94.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 300, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_LevelScore" type="RichTextLabel" parent="TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver"]
+margin_right = 300.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+rect_clip_content = false
+custom_colors/default_color = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/selection_color = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/font_color_selected = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/font_color_shadow = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_fonts/normal_font = SubResource( 7 )
+visible_characters = 10
+tab_size = 10
+text = "0000000000"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopUI"]
+margin_left = 199.219
+margin_top = 9.52441
+margin_right = 219.219
+margin_bottom = 84.5244
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colum_Middle" type="VBoxContainer" parent="TopUI"]
+margin_left = 218.025
+margin_top = 14.1733
+margin_right = 398.025
+margin_bottom = 137.173
+rect_min_size = Vector2( 180, 75 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer_ScoreBoard_Middle" type="VBoxContainer" parent="TopUI/Colum_Middle"]
+margin_right = 180.0
+margin_bottom = 55.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle"]
+margin_right = 180.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 160, 55 )
+
+[node name="TIMER_Digit_Minutes" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 60, 55 )
+custom_fonts/normal_font = SubResource( 8 )
+visible_characters = 4
+text = "00
+"
+scroll_active = false
+
+[node name="TIMER_Digit_COLON" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
+margin_left = 64.0
+margin_right = 84.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 20, 55 )
+custom_fonts/normal_font = SubResource( 10 )
+visible_characters = 1
+tab_size = 1
+text = ":"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TIMER_Digit_Seconds" type="RichTextLabel" parent="TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
+margin_left = 88.0
+margin_right = 163.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 75, 55 )
+custom_fonts/normal_font = SubResource( 10 )
+visible_characters = 2
+tab_size = 2
+text = "00"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colum_Right" type="VBoxContainer" parent="TopUI"]
+margin_left = 400.301
+margin_top = 14.5782
+margin_right = 585.301
+margin_bottom = 194.579
+rect_min_size = Vector2( 185, 180 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer_ScoreBoard_Right" type="VBoxContainer" parent="TopUI/Colum_Right"]
+margin_right = 185.0
+margin_bottom = 94.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_ScoreGoal_Label" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right"]
+margin_right = 185.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 145, 30 )
+custom_fonts/normal_font = SubResource( 12 )
+visible_characters = 12
+tab_size = 12
+text = "Goal"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBC_ScoreGoal" type="HBoxContainer" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right"]
+margin_top = 34.0
+margin_right = 185.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 135, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_ScoreToAcheve" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_Right/HBC_ScoreGoal"]
+margin_right = 160.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 160, 60 )
+custom_colors/default_color = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/selection_color = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/font_color_selected = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/font_color_shadow = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_fonts/normal_font = SubResource( 7 )
+visible_characters = 4
+text = "0000"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer_ScoreBoard_R2_Right" type="VBoxContainer" parent="TopUI/Colum_Right"]
+margin_top = 98.0
+margin_right = 185.0
+margin_bottom = 175.0
+rect_min_size = Vector2( 70, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_Label_SecondsGoal" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_R2_Right"]
+margin_right = 185.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 90, 30 )
+custom_fonts/normal_font = SubResource( 1 )
+tab_size = 6
+text = "SECONDS"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RTL_SecondstoBeat" type="RichTextLabel" parent="TopUI/Colum_Right/VBoxContainer_ScoreBoard_R2_Right"]
+margin_top = 34.0
+margin_right = 185.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 60, 43 )
+custom_colors/default_color = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/selection_color = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/font_color_selected = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_colors/font_color_shadow = Color( 0.709804, 0.937255, 0.698039, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+visible_characters = 4
+text = "0000"
+scroll_active = false
+
+[node name="BottomUI" type="TextureRect" parent="."]
+margin_left = 4.66064
+margin_top = 800.0
+margin_right = 587.661
+margin_bottom = 892.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton_Left" type="TextureButton" parent="."]
+margin_top = 800.0
+margin_right = 208.0
+margin_bottom = 892.0
+rect_min_size = Vector2( 200, 92 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom_LEFT_RTL" type="RichTextLabel" parent="TextureButton_Left"]
+margin_left = 15.0
+margin_top = 5.767
+margin_right = 195.0
+margin_bottom = 77.767
+rect_min_size = Vector2( 180, 0 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/normal_font = SubResource( 13 )
+visible_characters = 6
+tab_size = 6
+text = " MENU"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton_Right" type="TextureButton" parent="."]
+margin_left = 386.865
+margin_top = 800.0
+margin_right = 594.865
+margin_bottom = 892.0
+rect_min_size = Vector2( 200, 92 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom_RIGHT_RTL" type="RichTextLabel" parent="TextureButton_Right"]
+margin_left = 16.4163
+margin_top = 5.76727
+margin_right = 166.416
+margin_bottom = 77.7673
+rect_min_size = Vector2( 170, 0 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_fonts/normal_font = SubResource( 13 )
+visible_characters = 6
+tab_size = 6
+text = "   NEW"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="Node2D" parent="."]
+position = Vector2( 10, 10 )
+script = ExtResource( 10 )
+width = 6
+height = 6
+x_start = 64
+y_start = 650
+offset = 64
+
+[node name="100pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
+position = Vector2( 246.902, 692.846 )
+z_index = 1000
+frames = SubResource( 14 )
+animation = "100_score"
+
+[node name="200pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
+position = Vector2( 246.902, 692.846 )
+z_index = 1000
+frames = SubResource( 14 )
+animation = "200_score"
+
+[node name="300pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
+position = Vector2( 246.902, 692.846 )
+z_index = 1000
+frames = SubResource( 14 )
+animation = "300_score"
+
+[node name="400pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
+position = Vector2( 246.902, 692.846 )
+z_index = 1000
+frames = SubResource( 14 )
+animation = "400_score"
+
+[node name="500pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
+position = Vector2( 246.902, 692.846 )
+z_index = 1000
+frames = SubResource( 14 )
+animation = "500_score"
+
+[node name="Destroy_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Collapse_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Fill_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="MatchCheck_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="UndoDriver_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Timer" type="Node2D" parent="."]
+script = ExtResource( 128 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 129 )
+
+[connection signal="pressed" from="TextureButton_Left" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureButton_Right" to="." method="_on_TextureButton_pressed"]
+[connection signal="timeout" from="Destroy_Timer" to="Grid" method="_on_Destroy_Timer_timeout"]
+[connection signal="timeout" from="Collapse_Timer" to="Grid" method="_on_Collapse_Timer_timeout"]
+[connection signal="timeout" from="Fill_Timer" to="Grid" method="_on_Fill_Timer_timeout"]
+[connection signal="timeout" from="MatchCheck_Timer" to="Grid" method="_on_MatchCheck_Timer_timeout"]
+[connection signal="timeout" from="UndoDriver_Timer" to="Grid" method="_on_UndoDriver_Timer_timeout"]

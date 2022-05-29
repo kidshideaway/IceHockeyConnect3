@@ -7,10 +7,7 @@ var matched = false;
 onready var Global = get_node("/root/Global");  
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	#print(color);
-	#print(matched);
-	#print(Global);
+func _ready(): 
 	Move_Tween = get_node("Move_Tween");
 
 func move(target):

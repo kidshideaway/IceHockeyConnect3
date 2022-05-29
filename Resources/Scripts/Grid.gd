@@ -33,6 +33,8 @@ export (int) var id;
 export (int) var level = 1;
  
 # Touch variables
+var touch_pos = Vector2()
+var touch_hold = false
 var first_touch = Vector2(0,0);
 var final_touch = Vector2(0,0);
 var controlling = false;
@@ -43,41 +45,18 @@ var max_num_pieces_per_level = 4;
 func _ready(): 
 	print(active_level)
 	randomize();
-	_read_level_specs();
-	print("Goals: ") 
-	print(Global.LS_id) 
-	print("Size: ") 
-	print(Global.LS_width) 
-	print(Global.LS_height) 
-	print(Global.goal) # Prints n entry
-	print("Points: ") # Prints n entry
-	print(Global.points_1) # Prints n entry
-	print(Global.points_2) # Prints n entry
-	print(Global.points_3) # Prints n entry
-	print("Minutes: ") # Prints n entry
-	print(Global.minutes_1) # Prints n entry
-	print(Global.minutes_2) # Prints n entry
-	print(Global.minutes_3) # Prints n entry
-	print("Turns: ") # Prints n entry
-	print(Global.turns_1) # Prints n entry
-	print(Global.turns_2) # Prints n entry
-	print(Global.turns_3) # Prints n entry
-	print("Type: ") # Prints n entry
-	print(Global.type_1) # Prints n entry
-	print(Global.type_2) # Prints n entry
-	print(Global.type_3) # Prints n entry
-	print("Color: ") # Prints n entry
-	print(Global.color_1) # Prints n entry
-	print(Global.color_2) # Prints n entry
-	print(Global.color_3) # Prints n entry
-	print("Reward: ") # Prints n entry
-	print(Global.reward_1) # Prints n entry
-	print(Global.reward_2) # Prints n entry
-	print(Global.reward_3) # Prints n entry
-	print("Amount: ") # Prints n entry
-	print(Global.amount_1) # Prints n entry
-	print(Global.amount_2) # Prints n entry
-	print(Global.amount_3) # Prints n entry
+	_read_level_specs();	
+	print("Goals: ", Global.LS_id)
+	print("Size: Width: ", Global.LS_width) 
+	print("Size: Height: ", Global.LS_height)  
+	print("Goal: Name: ", 		Global.level_round_goal)   
+	print("Points: Goal 1: ", Global.level_round_points)   
+	print("Minutes: Goal 1: ", Global.level_round_minutes)  
+	print("Turns: Goal 1: ", Global.level_round_turns)  
+	print("Type: Goal 1: ", Global.level_round_type)  
+	print("Color: Goal 1: ", Global.level_round_color)  
+	print("Reward: Goal 1: ", Global.level_round_reward)  
+	print("Amount: Goal 1: ", Global.level_round_amount)      
 	all_pieces = make_2d_array();
 	spawn_pieces(); 
 
@@ -135,7 +114,24 @@ func is_in_grid_single(grid_position):
 			return true;
 	return false;
 
-func touch_input(): 
+func touch_input(event):
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			touch_hold = true
+			touch_pos = event.position
+			if is_in_grid_single( pixel_to_grid( (touch_pos.x), (touch_pos.y) ) ): 
+				first_touch = pixel_to_grid( (touch_pos.x), (touch_pos.y ) ); 
+				controlling = true;
+		else:
+			touch_hold = false
+			if is_in_grid_single( pixel_to_grid( (touch_pos.x), (touch_pos.y) ) ) && controlling == true:
+				controlling = false;
+				final_touch = pixel_to_grid( (touch_pos.x), (touch_pos.y ) ); 
+				touch_difference(first_touch, final_touch);
+	elif event is InputEventScreenDrag:
+		touch_pos = event.position	
+
+func mouse_input(): 			
 	if Input.is_action_just_pressed("ui_touch"):
 		if is_in_grid_single(pixel_to_grid( (get_global_mouse_position().x), (get_global_mouse_position().y) )): 
 			first_touch = pixel_to_grid( (get_global_mouse_position().x), (get_global_mouse_position().y) ); 
@@ -196,7 +192,11 @@ func touch_difference(grid_1, grid_2):
 			swap_pieces(grid_1.x, grid_1.y, Vector2(0,-1));
 
 func _process(delta):
-	touch_input();
+	mouse_input();
+
+func _input (event):
+	touch_input(event);
+	
 
 func find_matches():
 	var matchcheck = 0;
@@ -243,7 +243,7 @@ func destroy_matched():
 	get_parent().get_node("Fill_Timer").start();
 	get_parent().get_node("MatchCheck_Timer").start();
 	score = update_score(num_pieces_destroyed, score, position_of_match);
-	Global.shots_on_goal_player_1 = update_shots_on_goal_player_1(num_pieces_destroyed, Global.shots_on_goal_player_1);
+	Global.shots_on_goal = update_shots_on_goal(num_pieces_destroyed, Global.shots_on_goal);
 	pass;  
 
 func clear_2d_array(): 
@@ -280,110 +280,9 @@ func fill_columns():
 				all_pieces[i][j] = piece;
 
 # In progress started 5/23/2021 -- implementing level goals and completion routine. 
-func check_goal_progress(_score): 
-	var POPUP = 0; 
-	#default value for matches
-	value = 100;
-	bonus = 0; 
-	POPUP = get_node("/root/Game_Window/Grid/100pts_AnimatedSprite");
-	#print(BONUS);
-   
-	if Global.goal == 1: 
-		# Used to set the timer = Global.minutes_1 
-		# Used to set the bonus piece color = Global.color_1 
-
-		# Used to set the point total to achieve = Global.points_1
-		if (Global.points_1 <= Global.total_score):
-			if (Global.type_1 == "points"):
-				bonus = Global.amount_1; 
-				_score = _score + value + bonus;
-			if (Global.type_1 == "coins"):
-				Global.coppercoins = Global.coppercoins + Global.reward_1;
-				#TODO - parse out for score board next
-			# Win Panel
-			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
-				
-		# Used to set the point number of actions = Global.turns_2
-		if (Global.turns_1 <= Global.shots_on_goals):
-			if (Global.type_1 == "points"):
-				bonus = Global.reward_1;
-				_score = _score + value + bonus; 
-			if (Global.type_1 == "coins"):
-				Global.coppercoins = Global.coppercoins + Global.reward_1;
-				#TODO - parse out for score board next
-			# Win Panel
-			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
-			
-		# Win Panel
-		POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
-		
-	if Global.goal == 2: 
-		# Used to set the timer = Global.minutes_2 
-		# Used to set the bonus piece color = Global.color_2 
-		
-		# Used to set the point total to achieve = Global.points_2
-		if (Global.points_2 <= Global.total_score):
-			if (Global.type_2 == "points"):
-				bonus = Global.amount_2; 
-				_score = _score + value + bonus;
-			if (Global.type_2 == "coins"):
-				Global.coppercoins = Global.coppercoins + Global.reward_2;
-				#TODO - parse out for score board next
-			# Win Panel
-			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
-				
-		# Used to set the point number of actions = Global.turns_2
-		if (Global.turns_2 <= Global.shots_on_goals):
-			if (Global.type_2 == "points"):
-				bonus = Global.reward_2;
-				_score = _score + value + bonus; 
-			if (Global.type_2 == "coins"):
-				Global.coppercoins = Global.coppercoins + Global.reward_2;
-				#TODO - parse out for score board next
-			# Win Panel
-			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
-			
-		# Win Panel
-		POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
-		
-	if Global.goal == 3: 
-		# Used to set the timer = Global.minutes_3 
-		# Used to set the bonus piece color = Global.color_3 
-
-		# Used to set the point total to achieve = Global.points_1
-		if (Global.points_3 <= Global.total_score):
-			if (Global.type_3 == "points"):
-				bonus = Global.amount_3; 
-				_score = _score + value + bonus;
-			if (Global.type_3 == "coins"):
-				Global.coppercoins = Global.coppercoins + Global.reward_3;
-				#TODO - parse out for score board next
-			# Win Panel
-			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
-				
-		# Used to set the point number of actions = Global.turns_2
-		if (Global.turns_3 <= Global.shots_on_goals):
-			if (Global.type_3 == "points"):
-				bonus = Global.reward_3;
-				_score = _score + value + bonus; 
-			if (Global.type_3 == "coins"):
-				Global.coppercoins = Global.coppercoins + Global.reward_3;
-				#TODO - parse out for score board next
-			# Win Panel
-			POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
-			   
-	# Game Over Panel
-		POPUP = get_node("/root/Game_Window/Grid/GameOver_Panel_AnimatedSprite");  
-	# Win Panel
-		POPUP = get_node("/root/Game_Window/Grid/Win_Panel_AnimatedSprite"); 
-	# Paused Panel
-		POPUP = get_node("/root/Game_Window/Grid/Pause_Panel_AnimatedSprite"); 
-		
-	_score = _score + value + bonus;
-	get_parent().get_node("BottomUI/Bottom_Center_RTL").set_text(String(_score)); 
-	POPUP.set_frame(1); 
-	POPUP.play();  
-	return(_score);
+func check_goal_progress(_score):  
+	var BONUS = 0; 
+	return(BONUS);
 ########################################################################################
 
 func update_score(pcs_matched, _score, position_of_match): 
@@ -413,21 +312,18 @@ func update_score(pcs_matched, _score, position_of_match):
 		#print(BONUS); 
 		
 	_score = _score + value + bonus;
-	get_parent().get_node("BottomUI/Bottom_Center_RTL").set_text(String(_score)); 
-	BONUS.set_frame(1);
-	print(position_of_match);
+	get_parent().get_node("TopUI/Colum_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver/RTL_LevelScore").set_text(String(_score)); 
+	BONUS.set_frame(1); 
 	BONUS.set_position(position_of_match); 
 	BONUS.play();  
 	return(_score);
 
-func update_shots_on_goal_player_1(pcs_matched, shots_on_goal_player_1): 
-	print(pcs_matched);
-	print(shots_on_goal_player_1);	
+func update_shots_on_goal(pcs_matched, shots_on_goal):  
 	#control to increment
 	if(pcs_matched > 2): 		
-		shots_on_goal_player_1 = shots_on_goal_player_1 +1;
-		get_parent().get_node("TopUI/Colum_Left/VBoxContainer_ScoreBoard_R2_Left/HBoxContainer/RTL_ShotsOnGoal_Left").set_text(String(shots_on_goal_player_1));  
-	return(shots_on_goal_player_1);
+		shots_on_goal = shots_on_goal + 1;
+		get_parent().get_node("TopUI/Colum_Left/VBoxContainer_ScoreBoard_R2_Left/HBoxContainer/RTL_ShotsOnGoal_Left").set_text(String(shots_on_goal));  
+	return(shots_on_goal);
 
 
 func scoreboard_update(): 	
@@ -468,35 +364,33 @@ func _on_TextureButton_pressed():
 	pass # Replace with function body.	
 	
 func _read_level_specs():
-	var PARENT = get_parent();
-	print(PARENT); 
-	var NODE = PARENT.get_node("LevelSpecsNode");
-	print(NODE); 
-	print(Global); 
+	var PARENT = get_parent(); 
+	var NODE = PARENT.get_node("LevelSpecsNode"); 	
+	
 	var LevelSpecs_LineEntryCount = Global.LevelSpecs_matrix.size()
-	#print("LevelSpecs_LineEntryCount: ", LevelSpecs_LineEntryCount);	
+	print("LevelSpecs_LineEntryCount: ", LevelSpecs_LineEntryCount);	
 	for l in range(LevelSpecs_LineEntryCount):
-		#print("l: ",l);
-		#print("level: ",level);
+		print("l: ",l);
+		print("level: ",level);
 		 
 		var LevelSpecs_Array = Global.LevelSpecs_matrix[l];
-		#print("LevelSpecs_Array: ",LevelSpecs_Array);
+		print("LevelSpecs_Array: ",LevelSpecs_Array);
 		 
 		var LevelSpecs_EntryCount = LevelSpecs_Array.size();
-		#print("LevelSpecs_EntryCount: ",LevelSpecs_EntryCount);
+		print("LevelSpecs_EntryCount: ",LevelSpecs_EntryCount);
 		 
 		var test_level = level;
-		#print("test_level: ",test_level);
+		print("test_level: ",test_level);
 		
 		if LevelSpecs_EntryCount > 2:
-			#print("LevelSpecs_EntryCount: ",LevelSpecs_EntryCount); 
+			print("LevelSpecs_EntryCount: ",LevelSpecs_EntryCount); 
 			test_level = LevelSpecs_Array[1];
 			test_level = int(test_level);
-			#print("test_level: ",test_level);
+			print("test_level: ",test_level);
 			
 		if test_level == level:
 			for n in range(LevelSpecs_EntryCount):
-				#print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
+				print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
 				if n > 0:
 					if test_level == level:
 						match n:
@@ -509,57 +403,19 @@ func _read_level_specs():
 							3:
 								Global.LS_height= int(LevelSpecs_Array[n]);
 							4:
-								Global.goal= int(LevelSpecs_Array[n]);
-							5:
-								if Global.goal == 1:
-									Global.points_1 = int(LevelSpecs_Array[n]);
-								if Global.goal == 2:
-									Global.points_2 = int(LevelSpecs_Array[n]);
-								if Global.goal == 3:
-									Global.points_3 = int(LevelSpecs_Array[n]);
+								Global.level_round_goal= int(LevelSpecs_Array[n]);
+							5: 
+								Global.level_round_points = int(LevelSpecs_Array[n]);								
 							6: 
-								if Global.goal == 1:
-									Global.minutes_1 = int(LevelSpecs_Array[n]);
-									Global.minutes = Global.minutes_1;
-								if Global.goal == 2:
-									Global.minutes_2 = int(LevelSpecs_Array[n]);
-									Global.minutes = Global.minutes_2;
-								if Global.goal == 3:
-									Global.minutes_3 = int(LevelSpecs_Array[n]);
-									Global.minutes = Global.minutes_3;
+								Global.level_round_minutes = int(LevelSpecs_Array[n]); 
 							7:
-								if Global.goal == 1:
-									Global.turns_1 = int(LevelSpecs_Array[n]);
-								if Global.goal == 2:
-									Global.turns_2 = int(LevelSpecs_Array[n]);
-								if Global.goal == 3:
-									Global.turns_3 = int(LevelSpecs_Array[n]); 
+								Global.level_round_turns = int(LevelSpecs_Array[n]);
 							8:
-								if Global.goal == 1:
-									Global.color_1 = int(LevelSpecs_Array[n]);
-								if Global.goal == 2:
-									Global.color_2 = int(LevelSpecs_Array[n]);
-								if Global.goal == 3:
-									Global.color_3 = int(LevelSpecs_Array[n]); 
+								Global.level_round_color = int(LevelSpecs_Array[n]);
 							9:
-								if Global.goal == 1:
-									Global.type_1 = int(LevelSpecs_Array[n]);
-								if Global.goal == 2:
-									Global.type_2 = int(LevelSpecs_Array[n]);
-								if Global.goal == 3:
-									Global.type_3 = int(LevelSpecs_Array[n]); 
+								Global.level_round_type = int(LevelSpecs_Array[n]);
 							10:
-								if Global.goal == 1:
-									Global.reward_1 = int(LevelSpecs_Array[n]);
-								if Global.goal == 2:
-									Global.reward_2 = int(LevelSpecs_Array[n]);
-								if Global.goal == 3:
-									Global.reward_3 = int(LevelSpecs_Array[n]); 
+								Global.level_round_reward = int(LevelSpecs_Array[n]);
 							11:
-								if Global.goal == 1:
-									Global.amount_1 = int(LevelSpecs_Array[n]);
-								if Global.goal == 2:
-									Global.amount_2 = int(LevelSpecs_Array[n]);
-								if Global.goal == 3:
-									Global.amount_3 = int(LevelSpecs_Array[n]); 
-	
+								Global.level_round_amount = int(LevelSpecs_Array[n]);
+

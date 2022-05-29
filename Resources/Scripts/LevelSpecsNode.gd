@@ -14,22 +14,29 @@ var file_LevelSpecs = path_SharedDBs + "levelspecs.csv"
 func _ready(): 
 	var delim = ","
 	var newLineDelim = "\n"
-	#print(Global)
-	
+	#print(Global)	
 	## open and read files  
-	#print(file_LevelSpecs)
 	Global.LevelSpecs  = loadDB_(file_LevelSpecs)
 	var LevelSpecs_Lines  = Global.LevelSpecs.split(newLineDelim, true, 0)
+	#print("LevelSpecs_Lines: ", LevelSpecs_Lines)
+	
 	var LevelSpecs_LineEntryCount = LevelSpecs_Lines.size()
-	for l in range(LevelSpecs_LineEntryCount):
+	#print("LevelSpecs_LineEntryCount: ", LevelSpecs_LineEntryCount)
+	
+	for l in range(LevelSpecs_LineEntryCount):		
+		#print("l",l)		
 		Global.LevelSpecs_matrix.append([])
 		Global.LevelSpecs_Array = LevelSpecs_Lines[l].split(delim, true, 0)
+		#print("Global.LevelSpecs_Array: ", Global.LevelSpecs_Array)
 		var LevelSpecs_EntryCount = Global.LevelSpecs_Array.size()
+		#print("LevelSpecs_EntryCount: ", LevelSpecs_EntryCount)
 		for n in range(LevelSpecs_EntryCount):
+			#print("n: ", n)
 			#id,level,width,height,goal,points,minutes,turns,color,type,reward,amount
 			#print(String(l) + ":" + String(n) + ":" + Global.LevelSpecs_Array[n]) # Prints n entry		
 			Global.LevelSpecs_matrix[l].append(Global.LevelSpecs_Array[n])
-	saveDB_(Global.LevelSpecs, file_LevelSpecs)
+			print("Global.LevelSpecs_Array[n]: ", Global.LevelSpecs_Array[n])
+			saveDB_(Global.LevelSpecs, file_LevelSpecs)
 	
 	
 func loadDB_(fileName):
@@ -52,5 +59,4 @@ func loadFile( fileName):
 	file.close()
 	return content
 	
-	 
 #icehockey_team_database.gd_csv

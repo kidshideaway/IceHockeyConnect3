@@ -5,10 +5,8 @@ onready var Global = get_node("/root/Global");
 onready var AlarmBell = preload("res://Resources/Sounds/Pause.wav")
 onready var Player = get_node("AudioStreamPlayer2D"); 
 
-onready var RTL_MINUTES_TENS = get_node("TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer/TIMER_Digit_Minutes_Tens");
-onready var RTL_MINUTES_ONES = get_node("TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer/TIMER_Digit_Minutes_Ones");
-onready var RTL_SECONDS_TENS = get_node("TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer/TIMER_Digit_Seconds_Tens");
-onready var RTL_SECONDS_ONES = get_node("TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer/TIMER_Digit_Seconds_Ones");
+onready var TIMER_Digit_Minutes = get_node("TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer/TIMER_Digit_Minutes");
+onready var TIMER_Digit_Seconds = get_node("TopUI/Colum_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer/TIMER_Digit_Seconds"); 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,31 +25,11 @@ func update_timer():
 			Global.seconds = Global.seconds -1;
 	else:
 		Global.seconds = Global.seconds + 1;
-	
-	var placeholder_a = 0;
-	var placeholder_b = 0;	
-	var placeholder_c = 0;
-	var placeholder_d = 0; 
-	
-	if Global.minutes > 9:
-		placeholder_a = int(Global.minutes/10) 
-		placeholder_b = int(Global.minutes - (placeholder_a*10)) 
-	else:		 
-		placeholder_a = 0; 
-		placeholder_b = int(Global.minutes - placeholder_a) 
 		
-	if Global.seconds > 9:	
-		placeholder_c = int(Global.seconds/10) 
-		placeholder_d = int(Global.seconds - (placeholder_c*10)) 
-	else:
-		placeholder_c = 0; 
-		placeholder_d = int(Global.seconds - placeholder_c) 
-	
-	print(placeholder_a , ":" , placeholder_b , ":" , placeholder_c , ":" ,  placeholder_d); 
-	RTL_MINUTES_TENS.set_text(str(placeholder_a).pad_zeros(1));
-	RTL_MINUTES_ONES.set_text(str(placeholder_b).pad_zeros(1));
-	RTL_SECONDS_TENS.set_text(str(placeholder_c).pad_zeros(1)); 
-	RTL_SECONDS_ONES.set_text(str(placeholder_d).pad_zeros(1)); 
+		
+	#print(Global.minutes , ":" , Global.seconds); 
+	TIMER_Digit_Minutes.set_text(str(Global.minutes).pad_zeros(2));
+	TIMER_Digit_Seconds.set_text(str(Global.seconds).pad_zeros(2)); 
 	
 	if(Global.seconds <= 00):
 		if(Global.minutes <= 00):
