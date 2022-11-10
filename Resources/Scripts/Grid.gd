@@ -191,7 +191,7 @@ func touch_difference(grid_1, grid_2):
 		elif difference.y < 0:
 			swap_pieces(grid_1.x, grid_1.y, Vector2(0,-1));
 
-func _process(delta):
+func _process(_delta):
 	mouse_input();
 
 func _input (event):
@@ -352,7 +352,8 @@ func _on_Fill_Timer_timeout():
 	pass;
 
 func _on_MatchCheck_Timer_timeout():
-	var matchcheck = find_matches();	 
+	var matchcheck = find_matches();	  
+	return matchcheck;
 
 func _on_UndoDriver_Timer_timeout(): 
 	#print("Function: Undo Driver Timer. ");
@@ -365,7 +366,7 @@ func _on_TextureButton_pressed():
 	
 func _read_level_specs():
 	var PARENT = get_parent(); 
-	var NODE = PARENT.get_node("LevelSpecsNode"); 	
+	var _NODE = PARENT.get_node("LevelSpecsNode"); 	
 	
 	var LevelSpecs_LineEntryCount = Global.LevelSpecs_matrix.size()
 	print("LevelSpecs_LineEntryCount: ", LevelSpecs_LineEntryCount);	
@@ -397,7 +398,7 @@ func _read_level_specs():
 							0:
 								Global.LS_id = int(LevelSpecs_Array[n]);
 							1:
-								var temp_level= int(LevelSpecs_Array[n]);
+								var _temp_level= int(LevelSpecs_Array[n]);
 							2:
 								Global.LS_width = int(LevelSpecs_Array[n]);
 							3:

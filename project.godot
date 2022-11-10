@@ -10,25 +10,27 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
 
 config/name="IceHockeyConnect3"
-run/main_scene="res://Resources/Scenes/Game_Window.tscn"
+config/description="Hat Trick is an Ice Hockey themed Match 3 casual game. Available on pc, android, and the web."
+run/main_scene="res://Resources/Scenes/TitleScreenNode.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Resources/Scripts/global.gd"
 GameTimer="*res://Resources/Scripts/GameTimer.gd"
-GameMenu="*res://Resources/Scripts/GameMenu.gd"
 Grid="*res://Resources/Scripts/Grid.gd"
-LevelSpecsNode="*res://Resources/Scripts/LevelSpecsNode.gd"
-OptionsGUI="*res://Resources/Scripts/OptionsGUI.gd"
 Piece="*res://Resources/Scripts/Piece.gd"
-ScoreGUI="*res://Resources/Scripts/ScoreGUI.gd"
+LevelSpecsNode="*res://Resources/Scripts/LevelSpecsNode.gd"
+GameMenuNode="*res://Resources/Scripts/GameMenuNode.gd"
+GameWindowNode="*res://Resources/Scripts/GameWindowNode.gd"
+TitleScreenNode="*res://Resources/Scripts/TitleScreenNode.gd"
+OptionsGUINode="*res://Resources/Scripts/OptionsGUINode.gd"
+ScoreGUINode="*res://Resources/Scripts/ScoreGUINode.gd"
 
 [display]
 
@@ -49,7 +51,7 @@ import/open_asset_import/use_fbx=false
 
 ui_select={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":3,"pressure":0.0,"pressed":false,"script":null)
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
@@ -90,6 +92,6 @@ quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
-quality/2d/use_pixel_snap=true
-vram_compression/import_etc=true
 2d/snapping/use_gpu_pixel_snap=true
+vram_compression/import_etc=true
+quality/2d/use_pixel_snap=true

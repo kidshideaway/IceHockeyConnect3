@@ -1,0 +1,165 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Resources/UI/Backgrounds/Texture-_Ice_NormalLevel.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Scripts/ScoreGUINode.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Fonts/TTF/OnestMedium1602-hint.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonFocused.png" type="Texture" id=4]
+[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonPressed.png" type="Texture" id=5]
+[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonDefault.png" type="Texture" id=6]
+[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonHover.png" type="Texture" id=7]
+[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonDisabled.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="ScoreGUINode" type="Node"]
+
+[node name="ScoreGUI" type="Control" parent="."]
+margin_right = 632.0
+margin_bottom = 929.0
+script = ExtResource( 2 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScoreGUI"]
+margin_right = 632.0
+margin_bottom = 929.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreGUI"]
+margin_left = 125.0
+margin_right = 500.0
+margin_bottom = 900.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="ScoreGUI/VBoxContainer"]
+margin_top = 223.0
+margin_right = 375.0
+margin_bottom = 277.0
+grow_horizontal = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
+custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "High Scores"
+align = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ScoreGUI/VBoxContainer"]
+margin_top = 287.0
+margin_right = 375.0
+margin_bottom = 287.0
+
+[node name="Label2" type="Label" parent="ScoreGUI/VBoxContainer"]
+margin_top = 297.0
+margin_right = 375.0
+margin_bottom = 351.0
+grow_horizontal = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
+custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Score 1"
+align = 1
+uppercase = true
+
+[node name="Label3" type="Label" parent="ScoreGUI/VBoxContainer"]
+margin_top = 361.0
+margin_right = 375.0
+margin_bottom = 415.0
+grow_horizontal = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
+custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Score 2"
+align = 1
+uppercase = true
+
+[node name="Label4" type="Label" parent="ScoreGUI/VBoxContainer"]
+margin_top = 425.0
+margin_right = 375.0
+margin_bottom = 479.0
+grow_horizontal = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
+custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Score 3"
+align = 1
+uppercase = true
+
+[node name="Label5" type="Label" parent="ScoreGUI/VBoxContainer"]
+margin_top = 489.0
+margin_right = 375.0
+margin_bottom = 543.0
+grow_horizontal = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
+custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Score 4"
+align = 1
+uppercase = true
+
+[node name="Label6" type="Label" parent="ScoreGUI/VBoxContainer"]
+margin_top = 553.0
+margin_right = 375.0
+margin_bottom = 607.0
+grow_horizontal = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
+custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Score 5"
+align = 1
+uppercase = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="ScoreGUI/VBoxContainer"]
+margin_top = 617.0
+margin_right = 375.0
+margin_bottom = 617.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreGUI/VBoxContainer"]
+margin_top = 627.0
+margin_right = 375.0
+margin_bottom = 677.0
+alignment = 1
+
+[node name="ReturnToMenuButton" type="TextureButton" parent="ScoreGUI/VBoxContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 50.0
+grow_horizontal = 2
+rect_min_size = Vector2( 300, 46 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
+texture_focused = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="ScoreGUI/VBoxContainer/VBoxContainer/ReturnToMenuButton"]
+margin_left = -1.75018
+margin_top = 5.86725
+margin_right = 298.25
+margin_bottom = 51.8672
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
+custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "MAIN MENU"
+align = 1
+
+[connection signal="pressed" from="ScoreGUI/VBoxContainer/VBoxContainer/ReturnToMenuButton" to="ScoreGUI" method="_on_ReturnToMenuButton_pressed"]
