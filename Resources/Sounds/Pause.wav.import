@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Pause.wav-feaaaca55d243df99d961b1c8b5f7cdc.sample"
+type="AudioStreamWAV"
+uid="uid://b4u3b8sjyfbo7"
+path="res://.godot/imported/Pause.wav-feaaaca55d243df99d961b1c8b5f7cdc.sample"
 
 [deps]
 
 source_file="res://Resources/Sounds/Pause.wav"
-dest_files=[ "res://.import/Pause.wav-feaaaca55d243df99d961b1c8b5f7cdc.sample" ]
+dest_files=["res://.godot/imported/Pause.wav-feaaaca55d243df99d961b1c8b5f7cdc.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

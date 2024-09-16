@@ -1,674 +1,1003 @@
-[gd_scene load_steps=146 format=2]
+[gd_scene load_steps=129 format=3 uid="uid://ceoren2dfdmdd"]
 
-[ext_resource path="res://Resources/Scripts/GameWindowNode.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Scripts/LevelSpecsNode.gd" type="Script" id=2]
-[ext_resource path="res://Resources/UI/Backgrounds/Texture-_Ice_NormalLevel.png" type="Texture" id=3]
-[ext_resource path="res://Resources/UI/Buttons/TopUv2_BG.png" type="Texture" id=4]
-[ext_resource path="res://Resources/Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Resources/UI/Buttons/BottomUIButtonDefault.png" type="Texture" id=6]
-[ext_resource path="res://Resources/UI/Buttons/BottomUIButtonPressed.png" type="Texture" id=7]
-[ext_resource path="res://Resources/UI/Buttons/BottomUIButtonHover.png" type="Texture" id=8]
-[ext_resource path="res://Resources/UI/Buttons/BottomUIButtonDisabled.png" type="Texture" id=9]
-[ext_resource path="res://Resources/UI/Buttons/BottomUIButtonFocused.png" type="Texture" id=10]
-[ext_resource path="res://Resources/Scripts/Grid.gd" type="Script" id=11]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_001.png" type="Texture" id=12]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_002.png" type="Texture" id=13]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_003.png" type="Texture" id=14]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_004.png" type="Texture" id=15]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_005.png" type="Texture" id=16]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_006.png" type="Texture" id=17]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_007.png" type="Texture" id=18]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_008.png" type="Texture" id=19]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_009.png" type="Texture" id=20]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_010.png" type="Texture" id=21]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_011.png" type="Texture" id=22]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_012.png" type="Texture" id=23]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_013.png" type="Texture" id=24]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_014.png" type="Texture" id=25]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_015.png" type="Texture" id=26]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_016.png" type="Texture" id=27]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_017.png" type="Texture" id=28]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_018.png" type="Texture" id=29]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_019.png" type="Texture" id=30]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_020.png" type="Texture" id=31]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_021.png" type="Texture" id=32]
-[ext_resource path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_022.png" type="Texture" id=33]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_001.png" type="Texture" id=34]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_002.png" type="Texture" id=35]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_003.png" type="Texture" id=36]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_004.png" type="Texture" id=37]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_005.png" type="Texture" id=38]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_006.png" type="Texture" id=39]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_007.png" type="Texture" id=40]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_008.png" type="Texture" id=41]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_009.png" type="Texture" id=42]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_010.png" type="Texture" id=43]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_011.png" type="Texture" id=44]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_012.png" type="Texture" id=45]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_013.png" type="Texture" id=46]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_014.png" type="Texture" id=47]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_015.png" type="Texture" id=48]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_016.png" type="Texture" id=49]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_017.png" type="Texture" id=50]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_018.png" type="Texture" id=51]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_019.png" type="Texture" id=52]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_020.png" type="Texture" id=53]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_021.png" type="Texture" id=54]
-[ext_resource path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_022.png" type="Texture" id=55]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_001.png" type="Texture" id=56]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_002.png" type="Texture" id=57]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_003.png" type="Texture" id=58]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_004.png" type="Texture" id=59]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_005.png" type="Texture" id=60]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_006.png" type="Texture" id=61]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_007.png" type="Texture" id=62]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_008.png" type="Texture" id=63]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_009.png" type="Texture" id=64]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_010.png" type="Texture" id=65]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_011.png" type="Texture" id=66]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_012.png" type="Texture" id=67]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_013.png" type="Texture" id=68]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_014.png" type="Texture" id=69]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_015.png" type="Texture" id=70]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_016.png" type="Texture" id=71]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_017.png" type="Texture" id=72]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_018.png" type="Texture" id=73]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_019.png" type="Texture" id=74]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_020.png" type="Texture" id=75]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_021.png" type="Texture" id=76]
-[ext_resource path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_022.png" type="Texture" id=77]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_001.png" type="Texture" id=78]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_002.png" type="Texture" id=79]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_003.png" type="Texture" id=80]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_004.png" type="Texture" id=81]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_005.png" type="Texture" id=82]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_006.png" type="Texture" id=83]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_007.png" type="Texture" id=84]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_008.png" type="Texture" id=85]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_009.png" type="Texture" id=86]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_010.png" type="Texture" id=87]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_011.png" type="Texture" id=88]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_012.png" type="Texture" id=89]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_013.png" type="Texture" id=90]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_014.png" type="Texture" id=91]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_015.png" type="Texture" id=92]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_016.png" type="Texture" id=93]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_017.png" type="Texture" id=94]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_018.png" type="Texture" id=95]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_019.png" type="Texture" id=96]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_020.png" type="Texture" id=97]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_021.png" type="Texture" id=98]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_022.png" type="Texture" id=99]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_023.png" type="Texture" id=100]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_024.png" type="Texture" id=101]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_025.png" type="Texture" id=102]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_026.png" type="Texture" id=103]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_027.png" type="Texture" id=104]
-[ext_resource path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_028.png" type="Texture" id=105]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_001.png" type="Texture" id=106]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_002.png" type="Texture" id=107]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_003.png" type="Texture" id=108]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_004.png" type="Texture" id=109]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_005.png" type="Texture" id=110]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_006.png" type="Texture" id=111]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_007.png" type="Texture" id=112]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_008.png" type="Texture" id=113]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_009.png" type="Texture" id=114]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_010.png" type="Texture" id=115]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_011.png" type="Texture" id=116]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_012.png" type="Texture" id=117]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_013.png" type="Texture" id=118]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_014.png" type="Texture" id=119]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_015.png" type="Texture" id=120]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_016.png" type="Texture" id=121]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_017.png" type="Texture" id=122]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_018.png" type="Texture" id=123]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_019.png" type="Texture" id=124]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_020.png" type="Texture" id=125]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_021.png" type="Texture" id=126]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_022.png" type="Texture" id=127]
-[ext_resource path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_023.png" type="Texture" id=128]
-[ext_resource path="res://Resources/Scripts/GameTimer.gd" type="Script" id=129]
-[ext_resource path="res://Resources/Sounds/Pause.wav" type="AudioStream" id=130]
+[ext_resource type="Script" path="res://Resources/Scripts/GameWindowNode.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://baouvxjbg7tr5" path="res://Resources/UI/Backgrounds/Texture-_Ice_NormalLevel.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dv83dmy34fwwy" path="res://Resources/UI/Buttons/OptionsMenuUIButtonDefault.png" id="3_srogm"]
+[ext_resource type="Texture2D" uid="uid://dwewwbssdp78f" path="res://Resources/UI/Buttons/TopUv2_BG.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://m31sngi1vv7c" path="res://Resources/UI/Buttons/OptionsMenuUIButtonPressed.png" id="4_2hqjd"]
+[ext_resource type="Texture2D" uid="uid://bonitegrkh6nh" path="res://Resources/UI/Buttons/OptionsMenuUIButtonHover.png" id="5_wvque"]
+[ext_resource type="Texture2D" uid="uid://bcd2omk5o68vy" path="res://Resources/UI/Buttons/OptionsMenuUIButtonDisabled.png" id="6_diy2x"]
+[ext_resource type="Texture2D" uid="uid://bwbp6ba4ygve" path="res://Resources/UI/Buttons/OptionsMenuUIButtonFocused.png" id="7_1xfad"]
+[ext_resource type="Texture2D" uid="uid://iuiiu24uf8q6" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_001.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://b1ctumk4nhvj2" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_002.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://dikl5fakwn2dn" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_003.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://b6p1klx78yn3c" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_004.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://f3k0upaymntb" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_005.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://b5771wc4nsrwy" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_006.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://dn3mmskvvou2b" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_007.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://ddcho7fndp6yx" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_008.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://cb1ks61axgn56" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_009.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://d1mq7e5eh4jsh" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_010.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://blgk8nu62fose" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_011.png" id="22"]
+[ext_resource type="Texture2D" uid="uid://c5e2gxr4rg87i" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_012.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://vh6qcnyra44h" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_013.png" id="24"]
+[ext_resource type="Texture2D" uid="uid://crkpk158pagkj" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_014.png" id="25"]
+[ext_resource type="Texture2D" uid="uid://683fb6nfcvt0" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_015.png" id="26"]
+[ext_resource type="Texture2D" uid="uid://dgj040fbkclka" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_016.png" id="27"]
+[ext_resource type="Texture2D" uid="uid://cqhriq2e5vssr" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_017.png" id="28"]
+[ext_resource type="Texture2D" uid="uid://bbvhu8duj40ik" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_018.png" id="29"]
+[ext_resource type="Texture2D" uid="uid://b31hyva0dtu83" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_019.png" id="30"]
+[ext_resource type="Texture2D" uid="uid://dypvses11qavk" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_020.png" id="31"]
+[ext_resource type="Texture2D" uid="uid://kxxl0116whw5" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_021.png" id="32"]
+[ext_resource type="Texture2D" uid="uid://cyl1lhsq7tff" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_022.png" id="33"]
+[ext_resource type="Texture2D" uid="uid://bufv6qw2t6lu1" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_001.png" id="34"]
+[ext_resource type="Texture2D" uid="uid://bya6qt20js81q" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_002.png" id="35"]
+[ext_resource type="Texture2D" uid="uid://5ehgj4wnhc13" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_003.png" id="36"]
+[ext_resource type="Texture2D" uid="uid://bbwiwypw87w4j" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_004.png" id="37"]
+[ext_resource type="Texture2D" uid="uid://dk5eyhsmemy5v" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_005.png" id="38"]
+[ext_resource type="Texture2D" uid="uid://dtp63d8v73qe1" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_006.png" id="39"]
+[ext_resource type="Texture2D" uid="uid://cdn7ugqo1t18c" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_007.png" id="40"]
+[ext_resource type="Texture2D" uid="uid://b8y0qn5tp44w1" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_008.png" id="41"]
+[ext_resource type="Texture2D" uid="uid://c13hngs7ok2u5" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_009.png" id="42"]
+[ext_resource type="Texture2D" uid="uid://g5kbm1j68qwl" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_010.png" id="43"]
+[ext_resource type="Texture2D" uid="uid://d2y6qw6lj4o7f" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_011.png" id="44"]
+[ext_resource type="Texture2D" uid="uid://ddx8u4ji6pf22" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_012.png" id="45"]
+[ext_resource type="Texture2D" uid="uid://drhy770lcpoe3" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_013.png" id="46"]
+[ext_resource type="Texture2D" uid="uid://c40l8d8nhw0us" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_014.png" id="47"]
+[ext_resource type="Texture2D" uid="uid://c0u7goiwb3add" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_015.png" id="48"]
+[ext_resource type="Texture2D" uid="uid://c8mdw3r5jvids" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_016.png" id="49"]
+[ext_resource type="Texture2D" uid="uid://budy7fmokq152" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_017.png" id="50"]
+[ext_resource type="Texture2D" uid="uid://c7k4ffojkljrm" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_018.png" id="51"]
+[ext_resource type="Texture2D" uid="uid://m7g0llephdcs" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_019.png" id="52"]
+[ext_resource type="Texture2D" uid="uid://3apc6uf715nt" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_020.png" id="53"]
+[ext_resource type="Texture2D" uid="uid://c1ljj74v3x161" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_021.png" id="54"]
+[ext_resource type="Texture2D" uid="uid://dgvaf367loqxg" path="res://Resources/UI/Player_Feedback/200_plus_score_Frame_022.png" id="55"]
+[ext_resource type="Texture2D" uid="uid://m2lokpy8shs3" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_001.png" id="56"]
+[ext_resource type="Texture2D" uid="uid://cggo6ltcwctkp" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_002.png" id="57"]
+[ext_resource type="Texture2D" uid="uid://ddtb7fwalp7m2" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_003.png" id="58"]
+[ext_resource type="Texture2D" uid="uid://4bmqcxqdk5ls" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_004.png" id="59"]
+[ext_resource type="Texture2D" uid="uid://1uhg17ntjc1k" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_005.png" id="60"]
+[ext_resource type="Texture2D" uid="uid://1ka8o5i7o27s" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_006.png" id="61"]
+[ext_resource type="Texture2D" uid="uid://bbehcitqrha2x" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_007.png" id="62"]
+[ext_resource type="Texture2D" uid="uid://dsaaejbpqpl2t" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_008.png" id="63"]
+[ext_resource type="Texture2D" uid="uid://t0h4ktbiadvb" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_009.png" id="64"]
+[ext_resource type="Texture2D" uid="uid://biuu1kp7u8it0" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_010.png" id="65"]
+[ext_resource type="Texture2D" uid="uid://dk82germbovb7" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_011.png" id="66"]
+[ext_resource type="Texture2D" uid="uid://bxpdpx3v5m17y" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_012.png" id="67"]
+[ext_resource type="Texture2D" uid="uid://lrklajclcdwn" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_013.png" id="68"]
+[ext_resource type="Texture2D" uid="uid://dgm1wdshadnt3" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_014.png" id="69"]
+[ext_resource type="Texture2D" uid="uid://cf07sippkffsn" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_015.png" id="70"]
+[ext_resource type="Texture2D" uid="uid://b3kpnbc1k85md" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_016.png" id="71"]
+[ext_resource type="Texture2D" uid="uid://c5hmwm5j5dpak" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_017.png" id="72"]
+[ext_resource type="Texture2D" uid="uid://b6w5chmx6acf5" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_018.png" id="73"]
+[ext_resource type="Texture2D" uid="uid://44a0kvtrmkjn" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_019.png" id="74"]
+[ext_resource type="Texture2D" uid="uid://yfn6uv2q44ug" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_020.png" id="75"]
+[ext_resource type="Texture2D" uid="uid://cjtdthpl8wh61" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_021.png" id="76"]
+[ext_resource type="Texture2D" uid="uid://cdvntct2ljtvh" path="res://Resources/UI/Player_Feedback/300_plus_score_Frame_022.png" id="77"]
+[ext_resource type="Texture2D" uid="uid://bx3pmsqaheg2d" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_001.png" id="78"]
+[ext_resource type="Texture2D" uid="uid://6xy44sqhd0wf" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_002.png" id="79"]
+[ext_resource type="Texture2D" uid="uid://bwmnj74u637bj" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_003.png" id="80"]
+[ext_resource type="Texture2D" uid="uid://bvg73r13f4cx0" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_004.png" id="81"]
+[ext_resource type="Texture2D" uid="uid://byg3mg7n671g" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_005.png" id="82"]
+[ext_resource type="Texture2D" uid="uid://b30hlgs8fhklw" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_006.png" id="83"]
+[ext_resource type="Texture2D" uid="uid://bi2ruortd0k6x" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_007.png" id="84"]
+[ext_resource type="Texture2D" uid="uid://bj4ul3kevw28l" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_008.png" id="85"]
+[ext_resource type="Texture2D" uid="uid://boad3kikx07cq" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_009.png" id="86"]
+[ext_resource type="Texture2D" uid="uid://hacsyaox6nio" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_010.png" id="87"]
+[ext_resource type="Texture2D" uid="uid://b2w3papm5aaay" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_011.png" id="88"]
+[ext_resource type="Texture2D" uid="uid://bxg44wpdb4gpv" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_012.png" id="89"]
+[ext_resource type="Texture2D" uid="uid://dag7iph84eg12" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_013.png" id="90"]
+[ext_resource type="Texture2D" uid="uid://dxnlnbcrp3vn3" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_014.png" id="91"]
+[ext_resource type="Texture2D" uid="uid://budeqlawle4vq" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_015.png" id="92"]
+[ext_resource type="Texture2D" uid="uid://bjuuf5pls3sx2" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_016.png" id="93"]
+[ext_resource type="Texture2D" uid="uid://dktm431ry05l4" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_017.png" id="94"]
+[ext_resource type="Texture2D" uid="uid://c3pr62ckpoxgt" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_018.png" id="95"]
+[ext_resource type="Texture2D" uid="uid://bqct80fvxhkvn" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_019.png" id="96"]
+[ext_resource type="Texture2D" uid="uid://cyg6yj7apavxu" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_020.png" id="97"]
+[ext_resource type="Texture2D" uid="uid://c0xmsnfesr3se" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_021.png" id="98"]
+[ext_resource type="Texture2D" uid="uid://ilj0bs1xk3na" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_022.png" id="99"]
+[ext_resource type="Texture2D" uid="uid://nq73x372sig2" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_023.png" id="100"]
+[ext_resource type="Texture2D" uid="uid://c8cupeyiim87i" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_024.png" id="101"]
+[ext_resource type="Texture2D" uid="uid://gx642hibhdw" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_025.png" id="102"]
+[ext_resource type="Texture2D" uid="uid://ctipbnj4g6kks" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_026.png" id="103"]
+[ext_resource type="Texture2D" uid="uid://cs3ig4phwjxxc" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_027.png" id="104"]
+[ext_resource type="Texture2D" uid="uid://bujk0td3yugmt" path="res://Resources/UI/Player_Feedback/500_plus_score_Frame_028.png" id="105"]
+[ext_resource type="Texture2D" uid="uid://dxcfpnbtsrcie" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_001.png" id="106"]
+[ext_resource type="Texture2D" uid="uid://ftm0tgdy6ivx" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_002.png" id="107"]
+[ext_resource type="Texture2D" uid="uid://c88op4l7cfjj3" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_003.png" id="108"]
+[ext_resource type="Texture2D" uid="uid://diekh5ky1pisw" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_004.png" id="109"]
+[ext_resource type="Texture2D" uid="uid://cat7htrjlcemx" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_005.png" id="110"]
+[ext_resource type="Texture2D" uid="uid://c3n1kfxu16edf" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_006.png" id="111"]
+[ext_resource type="Texture2D" uid="uid://b52hbr6ftbms7" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_007.png" id="112"]
+[ext_resource type="Texture2D" uid="uid://d0d4ejtatpt8m" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_008.png" id="113"]
+[ext_resource type="Texture2D" uid="uid://045d1ytbkiyt" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_009.png" id="114"]
+[ext_resource type="Texture2D" uid="uid://dm1ctjs5c5jyl" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_010.png" id="115"]
+[ext_resource type="Texture2D" uid="uid://caehgx7afiqsv" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_011.png" id="116"]
+[ext_resource type="Texture2D" uid="uid://bjf1orwwnw1cc" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_012.png" id="117"]
+[ext_resource type="Texture2D" uid="uid://xiqbtuspx3hf" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_013.png" id="118"]
+[ext_resource type="Texture2D" uid="uid://bpghf5opg3u87" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_014.png" id="119"]
+[ext_resource type="Texture2D" uid="uid://tc33affw7lhf" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_015.png" id="120"]
+[ext_resource type="Texture2D" uid="uid://i45d86we5nad" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_016.png" id="121"]
+[ext_resource type="Texture2D" uid="uid://dbfn0yilr8j0k" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_017.png" id="122"]
+[ext_resource type="Texture2D" uid="uid://i1pbsfxauoqr" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_018.png" id="123"]
+[ext_resource type="Texture2D" uid="uid://bu6sam4p5ixjb" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_019.png" id="124"]
+[ext_resource type="Texture2D" uid="uid://dtcyf3g5imrbr" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_020.png" id="125"]
+[ext_resource type="Texture2D" uid="uid://kg0qmi8nuinj" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_021.png" id="126"]
+[ext_resource type="Texture2D" uid="uid://duljef4ir1xt7" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_022.png" id="127"]
+[ext_resource type="Texture2D" uid="uid://c8mrmharll2xt" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_023.png" id="128"]
+[ext_resource type="AudioStream" uid="uid://b4u3b8sjyfbo7" path="res://Resources/Sounds/Pause.wav" id="130"]
+[ext_resource type="Texture2D" uid="uid://hy4jrlh7366y" path="res://Resources/UI/Logo/IceHockey_Logo_Ideas_PowerPlay.png" id="131_kexja"]
 
-[sub_resource type="DynamicFont" id=1]
-use_mipmaps = true
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFontData" id=2]
-font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
-
-[sub_resource type="DynamicFont" id=3]
-size = 35
-font_data = SubResource( 2 )
-
-[sub_resource type="DynamicFontData" id=4]
-font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
-
-[sub_resource type="DynamicFont" id=5]
-size = 25
-font_data = SubResource( 4 )
-
-[sub_resource type="DynamicFontData" id=6]
-font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
-
-[sub_resource type="DynamicFont" id=7]
-size = 40
-font_data = SubResource( 6 )
-
-[sub_resource type="DynamicFont" id=8]
-size = 40
-use_mipmaps = true
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFontData" id=9]
-font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
-
-[sub_resource type="DynamicFont" id=10]
-size = 40
-font_data = SubResource( 9 )
-
-[sub_resource type="DynamicFontData" id=11]
-font_path = "res://Resources/Fonts/Kenney Blocks.ttf"
-
-[sub_resource type="DynamicFont" id=12]
-size = 25
-font_data = SubResource( 11 )
-
-[sub_resource type="DynamicFontData" id=15]
-font_path = "res://Resources/Fonts/TTF/OnestMedium1602-hint.ttf"
-
-[sub_resource type="DynamicFont" id=13]
-size = 28
-outline_color = Color( 0.00784314, 0.137255, 0.203922, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = SubResource( 15 )
-
-[sub_resource type="SpriteFrames" id=14]
-animations = [ {
-"frames": [ null, ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), null, null ],
+[sub_resource type="SpriteFrames" id="14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("106")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55")
+}],
 "loop": false,
-"name": "400_score",
+"name": &"100_score",
 "speed": 14.0
 }, {
-"frames": [ null, ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), null, null ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55")
+}],
 "loop": false,
-"name": "300_score",
+"name": &"200_score",
 "speed": 14.0
 }, {
-"frames": [ null, ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), null, null ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77")
+}],
 "loop": false,
-"name": "500_score",
+"name": &"300_score",
 "speed": 14.0
 }, {
-"frames": [ null, ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 128 ), ExtResource( 54 ), ExtResource( 55 ), null, null, null, null ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33")
+}],
 "loop": false,
-"name": "100_score",
+"name": &"400_score",
 "speed": 14.0
 }, {
-"frames": [ null, ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), null, null, null ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105")
+}],
 "loop": false,
-"name": "200_score",
+"name": &"500_score",
 "speed": 14.0
-} ]
+}]
 
-[node name="GameWindowNode" type="Node2D"]
-script = ExtResource( 1 )
+[node name="Node_GameWindow" type="Node"]
+editor_description = "Primary game window. "
+script = ExtResource("1")
 
-[node name="LevelSpecsNode" type="Node" parent="."]
-script = ExtResource( 2 )
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("130")
 
-[node name="Background" type="TextureRect" parent="."]
-margin_left = -16.0
-margin_top = -15.5249
-margin_right = 616.0
-margin_bottom = 913.475
-texture = ExtResource( 3 )
-expand = true
+[node name="Node2D_GameWindow" type="Node2D" parent="."]
+
+[node name="Background_TextureRect" type="TextureRect" parent="Node2D_GameWindow"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1000.0
+texture = ExtResource("3")
+expand_mode = 1
 stretch_mode = 1
 
-[node name="TopUI" type="TextureRect" parent="."]
-margin_left = 5.57213
-margin_top = 9.40246
-margin_right = 600.572
-margin_bottom = 218.402
-texture = ExtResource( 4 )
+[node name="TopUI_TextureRect" type="TextureRect" parent="Node2D_GameWindow"]
+custom_minimum_size = Vector2(700, 300)
+offset_right = 700.0
+offset_bottom = 300.0
+texture = ExtResource("4")
 
-[node name="Column_Left" type="VBoxContainer" parent="TopUI"]
-margin_left = 61.4364
-margin_top = 17.0
-margin_right = 242.436
-margin_bottom = 202.0
-rect_min_size = Vector2( 300, 100 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Column_Left" type="VBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect"]
+layout_mode = 0
 
-[node name="VBoxContainer_ScoreBoard_R2_Left" type="VBoxContainer" parent="TopUI/Column_Left"]
-margin_right = 300.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 100, 30 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="VBoxContainer_ScoreBoard_R2_Left" type="VBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Left"]
+layout_mode = 2
 
-[node name="RTL_Label_ShotsOnGoal" type="RichTextLabel" parent="TopUI/Column_Left/VBoxContainer_ScoreBoard_R2_Left"]
-margin_right = 300.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 100, 26 )
-custom_colors/default_color = Color( 0.65098, 0.87451, 0.984314, 1 )
-custom_colors/selection_color = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_selected = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 1 )
-tab_size = 6
+[node name="RTL_Label_ShotsOnGoal" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Left/VBoxContainer_ScoreBoard_R2_Left"]
+layout_mode = 2
 text = "Shots On Goal"
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+tab_size = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopUI/Column_Left/VBoxContainer_ScoreBoard_R2_Left"]
-margin_top = 30.0
-margin_right = 300.0
-margin_bottom = 75.0
-rect_min_size = Vector2( 145, 45 )
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Left/VBoxContainer_ScoreBoard_R2_Left"]
+layout_mode = 2
 
-[node name="RTL_ShotsOnGoal_Left" type="RichTextLabel" parent="TopUI/Column_Left/VBoxContainer_ScoreBoard_R2_Left/HBoxContainer"]
-margin_right = 150.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 150, 45 )
-custom_colors/default_color = Color( 0.439216, 0.815686, 1, 1 )
-custom_colors/selection_color = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_selected = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 3 )
-visible_characters = 4
+[node name="RTL_ShotsOnGoal_Left" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Left/VBoxContainer_ScoreBoard_R2_Left/HBoxContainer"]
+layout_mode = 2
 text = "0000"
 scroll_active = false
+visible_characters = 4
 
-[node name="VBoxContainer_ScoreBoard_Left" type="VBoxContainer" parent="TopUI/Column_Left"]
-margin_top = 79.0
-margin_right = 300.0
-margin_bottom = 173.0
-rect_min_size = Vector2( 180, 75 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="VBoxContainer_ScoreBoard_Left" type="VBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Left"]
+layout_mode = 2
 
-[node name="RTL_LevelScoreLabel" type="RichTextLabel" parent="TopUI/Column_Left/VBoxContainer_ScoreBoard_Left"]
-margin_right = 300.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 145, 30 )
-custom_colors/default_color = Color( 0.65098, 0.87451, 0.984314, 1 )
-custom_colors/selection_color = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_selected = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 5 )
-visible_characters = 12
-tab_size = 12
+[node name="RTL_LevelScoreLabel" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Left/VBoxContainer_ScoreBoard_Left"]
+layout_mode = 2
 text = "Score"
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+tab_size = 12
+visible_characters = 12
+visible_ratio = 2.4
 
-[node name="HBC_Silver" type="HBoxContainer" parent="TopUI/Column_Left/VBoxContainer_ScoreBoard_Left"]
-margin_top = 34.0
-margin_right = 300.0
-margin_bottom = 94.0
-grow_horizontal = 0
-grow_vertical = 0
-rect_min_size = Vector2( 300, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HBC_Silver" type="HBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Left/VBoxContainer_ScoreBoard_Left"]
+layout_mode = 2
 
-[node name="RTL_LevelScore" type="RichTextLabel" parent="TopUI/Column_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver"]
-margin_right = 300.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 300, 60 )
-rect_clip_content = false
-custom_colors/default_color = Color( 0.439216, 0.815686, 1, 1 )
-custom_colors/selection_color = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_selected = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 7 )
-visible_characters = 10
-tab_size = 10
+[node name="RTL_LevelScore" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Left/VBoxContainer_ScoreBoard_Left/HBC_Silver"]
+layout_mode = 2
 text = "0000000000"
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+tab_size = 10
+visible_characters = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TopUI"]
-margin_left = 199.219
-margin_top = 9.52441
-margin_right = 219.219
-margin_bottom = 84.5244
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect"]
+layout_mode = 0
 
-[node name="Column_Middle" type="VBoxContainer" parent="TopUI"]
-margin_left = 218.025
-margin_top = 14.1733
-margin_right = 398.025
-margin_bottom = 137.173
-rect_min_size = Vector2( 180, 75 )
+[node name="Column_Middle" type="VBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect"]
+layout_mode = 0
 
-[node name="VBoxContainer_ScoreBoard_Middle" type="VBoxContainer" parent="TopUI/Column_Middle"]
-margin_right = 180.0
-margin_bottom = 55.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="VBoxContainer_ScoreBoard_Middle" type="VBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Middle"]
+layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopUI/Column_Middle/VBoxContainer_ScoreBoard_Middle"]
-margin_right = 180.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 160, 55 )
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Middle/VBoxContainer_ScoreBoard_Middle"]
+layout_mode = 2
 
-[node name="TIMER_Digit_Minutes" type="RichTextLabel" parent="TopUI/Column_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
-margin_right = 60.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 60, 55 )
-custom_fonts/normal_font = SubResource( 8 )
-visible_characters = 4
+[node name="TIMER_Digit_Minutes" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
+layout_mode = 2
 text = "00
 "
 scroll_active = false
+visible_characters = 4
 
-[node name="TIMER_Digit_COLON" type="RichTextLabel" parent="TopUI/Column_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
-margin_left = 64.0
-margin_right = 84.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 20, 55 )
-custom_fonts/normal_font = SubResource( 10 )
-visible_characters = 1
-tab_size = 1
+[node name="TIMER_Digit_COLON" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
+layout_mode = 2
 text = ":"
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+tab_size = 1
+visible_characters = 1
 
-[node name="TIMER_Digit_Seconds" type="RichTextLabel" parent="TopUI/Column_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
-margin_left = 88.0
-margin_right = 163.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 75, 55 )
-custom_fonts/normal_font = SubResource( 10 )
-visible_characters = 2
-tab_size = 2
+[node name="TIMER_Digit_Seconds" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer"]
+layout_mode = 2
 text = "00"
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+tab_size = 2
+visible_characters = 2
 
-[node name="Column_Right" type="VBoxContainer" parent="TopUI"]
-margin_left = 400.301
-margin_top = 14.5782
-margin_right = 585.301
-margin_bottom = 194.579
-rect_min_size = Vector2( 185, 180 )
+[node name="Column_Right" type="VBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect"]
+layout_mode = 0
 
-[node name="VBoxContainer_ScoreBoard_Right" type="VBoxContainer" parent="TopUI/Column_Right"]
-margin_right = 185.0
-margin_bottom = 94.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="VBoxContainer_ScoreBoard_Right" type="VBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Right"]
+layout_mode = 2
 
-[node name="RTL_ScoreGoal_Label" type="RichTextLabel" parent="TopUI/Column_Right/VBoxContainer_ScoreBoard_Right"]
-margin_right = 185.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 145, 30 )
-custom_colors/default_color = Color( 0.65098, 0.87451, 0.984314, 1 )
-custom_colors/selection_color = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_selected = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 12 )
-visible_characters = 12
-tab_size = 12
+[node name="RTL_ScoreGoal_Label" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Right/VBoxContainer_ScoreBoard_Right"]
+layout_mode = 2
 text = "Goal"
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+tab_size = 12
+visible_characters = 12
+visible_ratio = 3.0
 
-[node name="HBC_ScoreGoal" type="HBoxContainer" parent="TopUI/Column_Right/VBoxContainer_ScoreBoard_Right"]
-margin_top = 34.0
-margin_right = 185.0
-margin_bottom = 94.0
-rect_min_size = Vector2( 135, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HBC_ScoreGoal" type="HBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Right/VBoxContainer_ScoreBoard_Right"]
+layout_mode = 2
 
-[node name="RTL_ScoreToAcheve" type="RichTextLabel" parent="TopUI/Column_Right/VBoxContainer_ScoreBoard_Right/HBC_ScoreGoal"]
-margin_right = 160.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 160, 60 )
-custom_colors/default_color = Color( 0.439216, 0.815686, 1, 1 )
-custom_colors/selection_color = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_selected = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 7 )
-visible_characters = 4
+[node name="RTL_ScoreToAcheve" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Right/VBoxContainer_ScoreBoard_Right/HBC_ScoreGoal"]
+layout_mode = 2
 text = "0000"
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+visible_characters = 4
 
-[node name="VBoxContainer_ScoreBoard_R2_Right" type="VBoxContainer" parent="TopUI/Column_Right"]
-margin_top = 98.0
-margin_right = 185.0
-margin_bottom = 175.0
-rect_min_size = Vector2( 70, 30 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="VBoxContainer_ScoreBoard_R2_Right" type="VBoxContainer" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Right"]
+layout_mode = 2
 
-[node name="RTL_Label_SecondsGoal" type="RichTextLabel" parent="TopUI/Column_Right/VBoxContainer_ScoreBoard_R2_Right"]
-margin_right = 185.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 90, 30 )
-custom_colors/default_color = Color( 0.65098, 0.87451, 0.984314, 1 )
-custom_colors/selection_color = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_selected = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 1 )
-tab_size = 6
+[node name="RTL_Label_SecondsGoal" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Right/VBoxContainer_ScoreBoard_R2_Right"]
+layout_mode = 2
 text = "SECONDS"
 scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+tab_size = 6
 
-[node name="RTL_SecondstoBeat" type="RichTextLabel" parent="TopUI/Column_Right/VBoxContainer_ScoreBoard_R2_Right"]
-margin_top = 34.0
-margin_right = 185.0
-margin_bottom = 77.0
-rect_min_size = Vector2( 60, 43 )
-custom_colors/default_color = Color( 0.439216, 0.815686, 1, 1 )
-custom_colors/selection_color = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_selected = Color( 0.239216, 0.447059, 0.54902, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 3 )
-visible_characters = 4
+[node name="RTL_SecondstoBeat" type="RichTextLabel" parent="Node2D_GameWindow/TopUI_TextureRect/Column_Right/VBoxContainer_ScoreBoard_R2_Right"]
+layout_mode = 2
 text = "0000"
 scroll_active = false
+visible_characters = 4
 
-[node name="TextureButton_Menu" type="TextureButton" parent="."]
-margin_left = 3.40767
-margin_top = 798.128
-margin_right = 103.408
-margin_bottom = 898.128
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 8 )
-texture_disabled = ExtResource( 9 )
-texture_focused = ExtResource( 10 )
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D_GameWindow"]
+custom_minimum_size = Vector2(700, 200)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 877.0
+offset_right = 848.0
+offset_bottom = 1077.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
 
-[node name="RTL_Menu_Button" type="RichTextLabel" parent="TextureButton_Menu"]
-modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
-self_modulate = Color( 0.0352941, 0.529412, 0.768627, 1 )
-margin_left = 6.16649
-margin_top = 26.6412
-margin_right = 97.1665
-margin_bottom = 76.6412
-rect_min_size = Vector2( 91, 50 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_colors/default_color = Color( 0.0313726, 0.67451, 0.992157, 1 )
-custom_colors/selection_color = Color( 0.0352941, 0.529412, 0.768627, 1 )
-custom_colors/font_color_selected = Color( 0.00784314, 0.352941, 0.521569, 1 )
-custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
-custom_fonts/normal_font = SubResource( 13 )
-visible_characters = 6
-tab_size = 6
+[node name="TextureButton_MainMenu" type="TextureButton" parent="Node2D_GameWindow/HBoxContainer"]
+custom_minimum_size = Vector2(275, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+shortcut_in_tooltip = false
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Node2D_GameWindow/HBoxContainer/TextureButton_MainMenu"]
+layout_mode = 0
+offset_right = 301.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 32
 text = "MENU"
-scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="TextureButton_Exit" type="TextureButton" parent="."]
-margin_left = 498.529
-margin_top = 798.128
-margin_right = 598.529
-margin_bottom = 898.128
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 8 )
-texture_disabled = ExtResource( 9 )
-texture_focused = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TextureButton_Start" type="TextureButton" parent="Node2D_GameWindow/HBoxContainer"]
+custom_minimum_size = Vector2(275, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+shortcut_in_tooltip = false
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="RTL_Exit_Button" type="RichTextLabel" parent="TextureButton_Exit"]
-modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
-self_modulate = Color( 0.0352941, 0.529412, 0.768627, 1 )
-margin_left = 18.7066
-margin_top = 28.5496
-margin_right = 103.707
-margin_bottom = 78.5496
-rect_min_size = Vector2( 85, 50 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_colors/default_color = Color( 0.0313726, 0.67451, 0.992157, 1 )
-custom_colors/selection_color = Color( 0.0352941, 0.529412, 0.768627, 1 )
-custom_colors/font_color_selected = Color( 0.00784314, 0.352941, 0.521569, 1 )
-custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
-custom_fonts/normal_font = SubResource( 13 )
-tab_size = 6
+[node name="Label" type="Label" parent="Node2D_GameWindow/HBoxContainer/TextureButton_Start"]
+layout_mode = 0
+offset_right = 301.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 32
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton_Exit" type="TextureButton" parent="Node2D_GameWindow/HBoxContainer"]
+custom_minimum_size = Vector2(275, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+shortcut_in_tooltip = false
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Node2D_GameWindow/HBoxContainer/TextureButton_Exit"]
+layout_mode = 0
+offset_right = 301.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 32
 text = "EXIT"
-scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="TextureButton_New" type="TextureButton" parent="."]
-margin_left = 249.899
-margin_top = 799.646
-margin_right = 349.899
-margin_bottom = 899.646
-rect_min_size = Vector2( 100, 100 )
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 8 )
-texture_disabled = ExtResource( 9 )
-texture_focused = ExtResource( 10 )
+[node name="Node2D_TitleScreen" type="Node2D" parent="."]
+visible = false
 
-[node name="RTL_New_Button" type="RichTextLabel" parent="TextureButton_New"]
-modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
-self_modulate = Color( 0.0352941, 0.529412, 0.768627, 1 )
-margin_left = 15.6741
-margin_top = 27.6263
-margin_right = 85.6741
-margin_bottom = 77.6263
-rect_min_size = Vector2( 70, 50 )
-size_flags_horizontal = 7
-size_flags_vertical = 7
-custom_colors/default_color = Color( 0.0313726, 0.67451, 0.992157, 1 )
-custom_colors/selection_color = Color( 0.0352941, 0.529412, 0.768627, 1 )
-custom_colors/font_color_selected = Color( 0.00784314, 0.352941, 0.521569, 1 )
-custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
-custom_fonts/normal_font = SubResource( 13 )
-visible_characters = 6
-tab_size = 6
-text = "NEW"
-scroll_active = false
+[node name="Background_TextureRect" type="TextureRect" parent="Node2D_TitleScreen"]
+offset_right = 700.0
+offset_bottom = 1010.0
+texture = ExtResource("3")
+stretch_mode = 1
 
-[node name="Grid" type="Node2D" parent="."]
-position = Vector2( 10, 10 )
-script = ExtResource( 11 )
-width = 6
-height = 6
-x_start = 64
-y_start = 650
-offset = 64
+[node name="Logo_TextureRect" type="TextureRect" parent="Node2D_TitleScreen/Background_TextureRect"]
+custom_minimum_size = Vector2(600, 230)
+layout_mode = 0
+offset_top = 123.0
+offset_right = 700.0
+offset_bottom = 362.0
+texture = ExtResource("131_kexja")
 
-[node name="100pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
-position = Vector2( 246.902, 692.846 )
+[node name="TextureButton_TS_Start" type="TextureButton" parent="Node2D_TitleScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = 475.0
+offset_right = 500.0
+offset_bottom = 525.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+shortcut_in_tooltip = false
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_TitleScreen/TextureButton_TS_Start"]
+layout_mode = 0
+offset_right = 301.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 32
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D_GameMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Node2D_GameMenu"]
+offset_right = 300.0
+offset_bottom = 280.0
+texture = ExtResource("3")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Node2D_GameMenu"]
+offset_right = 94.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer2"]
+layout_mode = 2
+text = "Game Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D_GameMenu"]
+offset_right = 300.0
+offset_bottom = 270.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Node2D_GameMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/PlayButton"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+
+[node name="DraftButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/DraftButton"]
+layout_mode = 0
+offset_right = 302.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 32
+text = "SCORES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoresButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/ScoresButton"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 302.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 32
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/SettingsButton"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 32
+text = "SCORES"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ExitGameButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/ExitGameButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 32
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Node2D_OptionsMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Node2D_OptionsMenu"]
+texture = ExtResource("3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D_OptionsMenu"]
+offset_left = -31.0
+offset_right = 31.0
+offset_bottom = 27.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Node2D_OptionsMenu/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="MarginContainer" type="MarginContainer" parent="Node2D_OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReturnToMenuButton2" type="TextureButton" parent="Node2D_OptionsMenu"]
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_OptionsMenu/ReturnToMenuButton2"]
+layout_mode = 0
+grow_horizontal = 2
+text = "MAIN MENU"
+
+[node name="Node2D_Grid" type="Node2D" parent="."]
+visible = false
+position = Vector2(10, 10)
+
+[node name="100pts_AnimatedSprite" type="AnimatedSprite2D" parent="Node2D_Grid"]
 z_index = 1000
-frames = SubResource( 14 )
-animation = "100_score"
+position = Vector2(246.902, 692.846)
+sprite_frames = SubResource("14")
+animation = &"100_score"
 
-[node name="200pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
-position = Vector2( 246.902, 692.846 )
+[node name="200pts_AnimatedSprite" type="AnimatedSprite2D" parent="Node2D_Grid"]
 z_index = 1000
-frames = SubResource( 14 )
-animation = "200_score"
+position = Vector2(246.902, 692.846)
+sprite_frames = SubResource("14")
+animation = &"200_score"
 
-[node name="300pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
-position = Vector2( 246.902, 692.846 )
+[node name="300pts_AnimatedSprite" type="AnimatedSprite2D" parent="Node2D_Grid"]
 z_index = 1000
-frames = SubResource( 14 )
-animation = "300_score"
+position = Vector2(246.902, 692.846)
+sprite_frames = SubResource("14")
+animation = &"300_score"
 
-[node name="400pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
-position = Vector2( 246.902, 692.846 )
+[node name="400pts_AnimatedSprite" type="AnimatedSprite2D" parent="Node2D_Grid"]
 z_index = 1000
-frames = SubResource( 14 )
-animation = "400_score"
+position = Vector2(246.902, 692.846)
+sprite_frames = SubResource("14")
+animation = &"400_score"
 
-[node name="500pts_AnimatedSprite" type="AnimatedSprite" parent="Grid"]
-position = Vector2( 246.902, 692.846 )
+[node name="500pts_AnimatedSprite" type="AnimatedSprite2D" parent="Node2D_Grid"]
 z_index = 1000
-frames = SubResource( 14 )
-animation = "500_score"
+position = Vector2(246.902, 692.846)
+sprite_frames = SubResource("14")
+animation = &"500_score"
 
-[node name="Destroy_Timer" type="Timer" parent="."]
+[node name="Node2D_Timer" type="Node2D" parent="."]
+visible = false
+
+[node name="Destroy_Timer" type="Timer" parent="Node2D_Timer"]
 wait_time = 0.5
 one_shot = true
 
-[node name="Collapse_Timer" type="Timer" parent="."]
+[node name="Collapse_Timer" type="Timer" parent="Node2D_Timer"]
 wait_time = 0.5
 one_shot = true
 
-[node name="Fill_Timer" type="Timer" parent="."]
+[node name="Fill_Timer" type="Timer" parent="Node2D_Timer"]
 wait_time = 0.5
 one_shot = true
 
-[node name="MatchCheck_Timer" type="Timer" parent="."]
+[node name="MatchCheck_Timer" type="Timer" parent="Node2D_Timer"]
 wait_time = 0.5
 one_shot = true
 
-[node name="UndoDriver_Timer" type="Timer" parent="."]
+[node name="UndoDriver_Timer" type="Timer" parent="Node2D_Timer"]
 wait_time = 0.5
 one_shot = true
 
-[node name="Timer" type="Node2D" parent="."]
-script = ExtResource( 129 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 130 )
-
-[connection signal="pressed" from="TextureButton_Menu" to="." method="_on_TextureButton_Menu_pressed"]
-[connection signal="pressed" from="TextureButton_Exit" to="." method="_on_TextureButton_Exit_pressed"]
-[connection signal="pressed" from="TextureButton_New" to="." method="_on_TextureButton_New_pressed"]
-[connection signal="timeout" from="Destroy_Timer" to="Grid" method="_on_Destroy_Timer_timeout"]
-[connection signal="timeout" from="Collapse_Timer" to="Grid" method="_on_Collapse_Timer_timeout"]
-[connection signal="timeout" from="Fill_Timer" to="Grid" method="_on_Fill_Timer_timeout"]
-[connection signal="timeout" from="MatchCheck_Timer" to="Grid" method="_on_MatchCheck_Timer_timeout"]
-[connection signal="timeout" from="UndoDriver_Timer" to="Grid" method="_on_UndoDriver_Timer_timeout"]
+[connection signal="timeout" from="Node2D_Timer/Destroy_Timer" to="Node2D_Grid" method="_on_Destroy_Timer_timeout"]
+[connection signal="timeout" from="Node2D_Timer/Collapse_Timer" to="Node2D_Grid" method="_on_Collapse_Timer_timeout"]
+[connection signal="timeout" from="Node2D_Timer/Fill_Timer" to="Node2D_Grid" method="_on_Fill_Timer_timeout"]
+[connection signal="timeout" from="Node2D_Timer/MatchCheck_Timer" to="Node2D_Grid" method="_on_MatchCheck_Timer_timeout"]
+[connection signal="timeout" from="Node2D_Timer/UndoDriver_Timer" to="Node2D_Grid" method="_on_UndoDriver_Timer_timeout"]

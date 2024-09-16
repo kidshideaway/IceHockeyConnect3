@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/EnemyDie.wav-377e7dca0a2d878b9287b88577c4a82c.sample"
+type="AudioStreamWAV"
+uid="uid://bwleuo6eq2swp"
+path="res://.godot/imported/EnemyDie.wav-377e7dca0a2d878b9287b88577c4a82c.sample"
 
 [deps]
 
 source_file="res://Resources/Sounds/EnemyDie.wav"
-dest_files=[ "res://.import/EnemyDie.wav-377e7dca0a2d878b9287b88577c4a82c.sample" ]
+dest_files=["res://.godot/imported/EnemyDie.wav-377e7dca0a2d878b9287b88577c4a82c.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

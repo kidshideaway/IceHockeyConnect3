@@ -1,152 +1,65 @@
 extends Node2D
-
-onready var parent =  get_tree().get_root().get_node(".") 
-onready var Global = parent.get_node("Global");  
-onready var GameWindowNode = parent.get_node("GameWindowNode"); 
-onready var OptionsGUINode = parent.get_node("OptionsGUINode");  
-onready var GameMenuNode = parent.get_node("GameMenuNode");  
-onready var ScoreGUINode = parent.get_node("ScoreGUINode"); 
-
-################## Audio Files ##########################
-onready var AlarmBell = preload("res://Resources/Sounds/Pause.wav")
-onready var Player = 0 
-onready var TIMER_Digit_Minutes = 0
-onready var TIMER_Digit_Seconds = 0
-
-# Called when the node enters the scene tree for the first time.
-func _ready(): 
-	print("parent", parent) 	
-		
-	var TEST_GameWindowNode = parent.get_node("GameWindowNode")
-	print("TEST_GameWindowNode", TEST_GameWindowNode)
+ 
+func _ready():   
+	# make the main game window visible
+	var node_self = get_node("GameWindowContainer/GameWindow_Node2d");
+	if node_self != null:
+		make_visible( node_self );
+	
+	# make the title window visible
+	node_self = get_node("GameWindowContainer/Node2D_TitleScreen");
+	if node_self != null:
+		make_visible( node_self );
+	pass;
 	 
-	var TEST_TopUI = TEST_GameWindowNode.get_node("TopUI")
-	print("TEST_TopUI", TEST_TopUI)	
-	
-	var TEST_Player1 = TEST_GameWindowNode.get_node("AudioStreamPlayer2D"); 
-	if TEST_Player1 != null:
-		Player = TEST_Player1
-
-	var Player2 = parent.get_node("GameWindowNode/AudioStreamPlayer2D"); 
-	if Player2 != null:
-		Player = Player2	 
-		
-	var TEST_Colum_Middle = TEST_TopUI.get_node("Column_Middle")
-	print("TEST_Colum_Middle", TEST_Colum_Middle)
-	
-	var TEST_Column_Left = TEST_TopUI.get_node("Column_Left")
-	print("TEST_Column_Left", TEST_Column_Left)
-	
-	var TEST_Column_Right = TEST_TopUI.get_node("Column_Right")
-	print("TEST_Column_Right", TEST_Column_Right)
-	
-	var TEST_VBoxContainer = TEST_Colum_Middle.get_node("VBoxContainer_ScoreBoard_Middle")
-	print("TEST_VBoxContainer", TEST_VBoxContainer)
-	
-	var TEST_HBoxContainer = TEST_VBoxContainer.get_node("HBoxContainer") 
-	print("TEST_HBoxContainer", TEST_HBoxContainer)
-	
-	TIMER_Digit_Minutes = TEST_HBoxContainer.get_node("TIMER_Digit_Minutes");
-	print("TIMER_Digit_Minutes", TIMER_Digit_Minutes)
-	
-	TIMER_Digit_Seconds = TEST_HBoxContainer.get_node("TIMER_Digit_Seconds"); 
-	print("TIMER_Digit_Seconds", TIMER_Digit_Seconds)
-	 
-	pass # Replace with function body.
-	
-func update_timer(): 
-	if check_visiblity() == 1:	
-		if Global.timesup == 0:
-			if Global.seconds < 1:
-				Global.minutes = Global.minutes - 1;
-				Global.seconds = 59;
-			else:
-				Global.seconds = Global.seconds -1;
-		else:
-			Global.seconds = Global.seconds + 1;
-		print("Global Time: ",Global.minutes , ":" , Global.seconds); 
-		print("Global Time: ",str(Global.minutes).pad_zeros(2), ":" , str(Global.seconds).pad_zeros(2)); 
-		print("Timer: ",TIMER_Digit_Minutes , ":" , TIMER_Digit_Seconds); 
-		TIMER_Digit_Minutes.set_text(1);
-		TIMER_Digit_Seconds.set_text(1); 
-	
-		if(Global.seconds <= 00):
-			if(Global.minutes <= 00):
-				play_alarm_bell();
-				Global.timesup = 1;
-				
-		if(Global.minutes <=0):
-			if(Global.timesup == 1):
-				if(Global.seconds >= Global.end_buffer):
-					make_invisible();
-					ScoreGUINode.make_visible();				
-					#do nothing, end clock
-				
-		if(Global.minutes <=0):
-			if(Global.seconds <=0 ):
-				make_invisible();
-				ScoreGUINode.make_visible();
-				#do nothing, end clock
-	pass
-
 func _process(delta):
-	Global.time += delta
-	if Global.time > Global.TIME_PERIOD: 
-		update_timer();
-		Global.time = 0;
-	pass
+	pass;
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_Q:
-			get_tree().quit();
-
-func play_alarm_bell(): 
-	Player.stream = AlarmBell
-	Player.play()
-		
-func make_visible():  	
-	self.show();	
-	var check = self.check_visiblity(); 
+	pass;
+	
+	
+func make_visible(_NodeSelf):  	
+	_NodeSelf.show();	
+	var check = check_visiblity(_NodeSelf); 
+	var node_name = _NodeSelf.name;
 	if(check == 1):
-		print("GameWindowNode set to show. ");
+		print(node_name, " set to visible(show). ");
 	else:
-		get_node("GameWindowNode").show();
-		var check2 = self.check_visiblity(); 
-		if(check2 == 1):
-			print("GameWindowNode set to show. ");
+		print(node_name, " set to invisible(hide). ");
+	pass;  
 		
-func make_invisible(): 
-	self.hide();	
-	var check = self.check_visiblity(); 
+func make_invisible(_NodeSelf): 
+	_NodeSelf.hide();	
+	var check = check_visiblity(_NodeSelf); 
+	var node_name = _NodeSelf.name;
 	if(check == 0):
-		print("GameWindowNode set to hide. ");
+		print(node_name, " set to invisible(hide). ");
 	else:
-		get_node("GameWindowNode").hide();
-		var check2 = self.check_visiblity(); 
-		if(check2 == 0):
-			print("GameWindowNode set to hide. ");
-
-func check_visiblity():
-	if self.visible:
+		print(node_name, " set to visible(show). ");
+	pass; 
+	
+		
+func check_visiblity(_NodeSelf):
+	if _NodeSelf.visible:
 		return(1)
 	else:
 		return(0)
+	pass; 
+
+func _on_PlayButton_pressed():
 	pass;
 
+func _on_DraftButton_pressed():
+	pass;
 
-func _on_TextureButton_Menu_pressed():
-	make_invisible();
-	ScoreGUINode.make_visible();
-	pass # Replace with function body.
+func _on_ScoresButton_pressed():
+	pass;
 
+func _on_SettingsButton_pressed():
+	pass;
 
-func _on_TextureButton_Exit_pressed():
+func _on_ExitGameButton_pressed(): 
 	get_tree().quit();	
 	pass # Replace with function body.
-
-
-func _on_TextureButton_New_pressed(): 
-	var Grid = get_node("Grid")
-	Grid._on_TextureButton_pressed();
-	pass # Replace with function body.
+	   
