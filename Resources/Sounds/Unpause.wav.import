@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Unpause.wav-d76b1ef896c27341419645670a6b6f27.sample"
+type="AudioStreamWAV"
+uid="uid://b50oc4kxsq7rc"
+path="res://.godot/imported/Unpause.wav-d76b1ef896c27341419645670a6b6f27.sample"
 
 [deps]
 
 source_file="res://Resources/Sounds/Unpause.wav"
-dest_files=[ "res://.import/Unpause.wav-d76b1ef896c27341419645670a6b6f27.sample" ]
+dest_files=["res://.godot/imported/Unpause.wav-d76b1ef896c27341419645670a6b6f27.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -1,12 +1,12 @@
 extends Node2D
 
-onready var Global = get_node("/root/Global");  
-onready var TitleScreenNode = get_node("/root/TitleScreenNode");  
-onready var GameWindowNode = get_node("/root/GameWindowNode");  
-onready var GameMenuNode = get_node("/root/GameMenuNode"); 
-onready var OptionsGUINode = get_node("/root/OptionsGUINode"); 
-onready var ScoreGUINode = get_node("/root/ScoreGUINode"); 
- 
+@onready var Global = get_node("/root/Global");  
+@onready var TitleScreenNode = get_node("/root/TitleScreenNode");  
+@onready var GameWindowNode = get_node("/root/GameWindowNode");  
+@onready var GameMenuNode = get_node("/root/GameMenuNode"); 
+@onready var OptionsGUINode = get_node("/root/OptionsGUINode"); 
+@onready var ScoreGUINode = get_node("/root/ScoreGUINode"); 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	make_visible();
@@ -40,7 +40,7 @@ func check_visiblity():
 		return(1)
 	else:
 		return(0)
-	pass;
+	#pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

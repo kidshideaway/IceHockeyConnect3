@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var Global = get_node("/root/Global");  
+@onready var Global = get_node("/root/Global");  
 
 # variables for pieces
 var possible_pieces = [
@@ -20,17 +20,17 @@ var possible_pieces = [
 var all_pieces = [];
 
 ################### Grid Variables ########################## 
-export (int) var width =4;
-export (int) var height =4;
-export (int) var x_start;
-export (int) var y_start;
-export (int) var offset =1;
-export (int) var score;
-export (int) var value;
-export (int) var bonus;
-export (int) var active_level;
-export (int) var id;
-export (int) var level = 1;
+@export var width: int = 4;
+@export var height: int = 4;
+@export var x_start: int = 0;
+@export var y_start: int = 0;
+@export var offset: int = 1;
+@export var score: int = 0;
+@export var value: int = 0;
+@export var bonus: int = 0;
+@export var active_level: int = 0;
+@export var id: int = 0;
+@export var level: int = 0;
  
 # Touch variables
 var touch_pos = Vector2()
@@ -49,7 +49,7 @@ func _ready():
 	print("Goals: ", Global.LS_id)
 	print("Size: Width: ", Global.LS_width) 
 	print("Size: Height: ", Global.LS_height)  
-	print("Goal: Name: ", 		Global.level_round_goal)   
+	print("Goal: Name: ", Global.level_round_goal)   
 	print("Points: Goal 1: ", Global.level_round_points)   
 	print("Minutes: Goal 1: ", Global.level_round_minutes)  
 	print("Turns: Goal 1: ", Global.level_round_turns)  
@@ -71,13 +71,14 @@ func make_2d_array():
 func spawn_pieces():
 	for i in width:
 		for j in height:
-			var rand = floor(rand_range(0,max_num_pieces_per_level));
-			var piece = possible_pieces[rand].instance();
+			var rand = floor(randf_range(0,max_num_pieces_per_level));
+			var piece = possible_pieces[rand];
 			var loops = 0;
-			while ( match_at(i,j, piece.color) && loops < 100):
-				rand = floor(rand_range(0, max_num_pieces_per_level));
+			while ( match_at(i,j, piece.coloris() ) && loops < 100):
+				rand = floor(randf_range(0, max_num_pieces_per_level));
 				loops += 1;
-				piece = possible_pieces[rand].instance();
+				piece = possible_pieces[rand];
+				
 			add_child(piece);
 			piece.position = grid_to_pixel(i,j);
 			all_pieces[i][j] = piece;
@@ -90,11 +91,11 @@ func grid_to_pixel(column, row):
 func match_at(i, j, color): 
 	if i > 1:
 		if all_pieces[i-1][j] != null && all_pieces[i-2][j] != null:
-			if all_pieces[i-1][j].color == color && all_pieces[i-2][j]. color == color:
+			if all_pieces[i-1][j].coloris() == color && all_pieces[i-2][j].coloris() == color:
 				return true;
 	if j > 1:
 		if all_pieces[i][j-1] != null && all_pieces[i][j-2] != null:
-			if all_pieces[i][j-1].color == color && all_pieces[i][j-2]. color == color:
+			if all_pieces[i][j-1].coloris() == color && all_pieces[i][j-2].coloris() == color:
 				return true;
 
 func pixel_to_grid(pixel_x, pixel_y):
@@ -167,7 +168,7 @@ func undo_move(column, row, direction):
 	t.set_one_shot(true);
 	self.add_child(t);
 	t.start();  
-	yield(t, "timeout");
+	await t.timeout;
 	t.queue_free();  
 	var b_column = column + direction.x; 
 	var b_row = row + direction.y;
@@ -267,11 +268,11 @@ func fill_columns():
 	for i in width:
 		for j in height:
 			if all_pieces[i][j] == null:
-				var rand = floor(rand_range(0,max_num_pieces_per_level));
+				var rand = floor(randf_range(0,max_num_pieces_per_level));
 				var piece = possible_pieces[rand].instance();
 				var loops = 0;
 				while ( match_at(i,j, piece.color) && loops < 100):
-					rand = floor(rand_range(0, max_num_pieces_per_level));
+					rand = floor(randf_range(0, max_num_pieces_per_level));
 					loops += 1;
 					piece = possible_pieces[rand].instance();
 				# instance that piece from the array 
@@ -391,7 +392,7 @@ func _read_level_specs():
 			
 		if test_level == level:
 			for n in range(LevelSpecs_EntryCount):
-				print(String(l) + ":" + String(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
+				print(str(l) + ":" + str(n) + ":" + LevelSpecs_Array[n]) # Prints n entry
 				if n > 0:
 					if test_level == level:
 						match n:

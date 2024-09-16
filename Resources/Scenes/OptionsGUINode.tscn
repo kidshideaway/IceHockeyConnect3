@@ -1,83 +1,78 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://315p3kigxnna"]
 
-[ext_resource path="res://Resources/Scripts/OptionsGUINode.gd" type="Script" id=1]
-[ext_resource path="res://Resources/UI/Backgrounds/Texture-_Ice_NormalLevel.png" type="Texture" id=2]
-[ext_resource path="res://Resources/Fonts/TTF/OnestMedium1602-hint.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Resources/Fonts/TTF/OnestBlack1602-hint.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonFocused.png" type="Texture" id=5]
-[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonPressed.png" type="Texture" id=6]
-[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonDisabled.png" type="Texture" id=7]
-[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonDefault.png" type="Texture" id=8]
-[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonHover.png" type="Texture" id=9]
-
-[sub_resource type="DynamicFont" id=1]
-size = 50
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 30
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 3 )
+[ext_resource type="Script" path="res://Resources/Scripts/OptionsGUINode.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cubjf0gyklvwt" path="res://Resources/UI/Backgrounds/Texture-_Ice_NormalLevel.png" id="2"]
+[ext_resource type="FontFile" uid="uid://b1h2x5rgymgn6" path="res://Resources/Fonts/WOFF/OnestBlack1602-hint.woff" id="3_bqeqp"]
+[ext_resource type="Texture2D" uid="uid://c0ol0okqyqxeu" path="res://Resources/UI/Buttons/OptionsMenuUIButtonFocused.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dkargd1hymkwo" path="res://Resources/UI/Buttons/OptionsMenuUIButtonPressed.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dw2edi0ouapfg" path="res://Resources/UI/Buttons/OptionsMenuUIButtonDisabled.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://dvrmbpru75vmk" path="res://Resources/UI/Buttons/OptionsMenuUIButtonDefault.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://bqirqdk5i7y5v" path="res://Resources/UI/Buttons/OptionsMenuUIButtonHover.png" id="9"]
 
 [node name="OptionsGUINode" type="Node"]
 
 [node name="OptionsGUI" type="Control" parent="."]
-margin_right = 632.0
-margin_bottom = 929.0
-script = ExtResource( 1 )
+layout_mode = 3
+anchors_preset = 0
+offset_right = 600.0
+offset_bottom = 900.0
+script = ExtResource("1")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="OptionsGUI"]
-margin_right = 632.0
-margin_bottom = 929.0
-texture = ExtResource( 2 )
+custom_minimum_size = Vector2(600, 900)
+layout_mode = 0
+texture = ExtResource("2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionsGUI"]
-margin_top = 17.0
-margin_right = 603.0
-margin_bottom = 817.0
+custom_minimum_size = Vector2(600, 900)
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 900.0
 grow_horizontal = 2
-custom_constants/separation = 19
 
 [node name="Label" type="Label" parent="OptionsGUI/VBoxContainer"]
-margin_right = 603.0
-margin_bottom = 65.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_outline_modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
-custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_minimum_size = Vector2(600, 50)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("3_bqeqp")
+theme_override_font_sizes/font_size = 50
 text = "Options"
-align = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="OptionsGUI/VBoxContainer"]
-margin_top = 84.0
-margin_right = 603.0
-margin_bottom = 84.0
+custom_minimum_size = Vector2(600, 25)
+layout_mode = 2
 
-[node name="ReturnToMenuButton2" type="TextureButton" parent="OptionsGUI"]
-margin_left = 175.0
-margin_top = 829.0
-margin_right = 475.0
-margin_bottom = 879.0
-grow_horizontal = 2
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 9 )
-texture_disabled = ExtResource( 7 )
-texture_focused = ExtResource( 5 )
+[node name="ReturnToMenuButton2" type="TextureButton" parent="OptionsGUI/VBoxContainer"]
+custom_minimum_size = Vector2(600, 75)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("8")
+texture_pressed = ExtResource("6")
+texture_hover = ExtResource("9")
+texture_disabled = ExtResource("7")
+texture_focused = ExtResource("5")
+stretch_mode = 3
 
-[node name="Label" type="Label" parent="OptionsGUI/ReturnToMenuButton2"]
-margin_top = 5.94604
-margin_right = 300.0
-margin_bottom = 45.946
+[node name="Label" type="Label" parent="OptionsGUI/VBoxContainer/ReturnToMenuButton2"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_left = 150.0
+offset_top = 10.0
+offset_right = 450.0
+offset_bottom = 60.0
 grow_horizontal = 2
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_outline_modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
-custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
-custom_fonts/font = SubResource( 2 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("3_bqeqp")
+theme_override_font_sizes/font_size = 25
 text = "MAIN MENU"
-align = 1
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="OptionsGUI/ReturnToMenuButton2" to="OptionsGUI" method="_on_ReturnToMenuButton2_pressed"]
+[connection signal="pressed" from="OptionsGUI/VBoxContainer/ReturnToMenuButton2" to="OptionsGUI" method="_on_ReturnToMenuButton2_pressed"]

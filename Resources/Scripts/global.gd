@@ -1,6 +1,6 @@
 extends Node
 
-onready var Global = get_node("/root/Global"); 
+@onready var Global = get_node("/root/Global"); 
 
 var LEVELSPECNODE = load("res://Resources/Scripts/LevelSpecsNode.gd"); 
 var goal_points = 0;

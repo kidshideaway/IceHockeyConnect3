@@ -1,132 +1,99 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=3 uid="uid://cch5f0oox3yq0"]
 
-[ext_resource path="res://Resources/UI/Backgrounds/Texture-_Ice_NormalLevel.png" type="Texture" id=1]
-[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonFocused.png" type="Texture" id=2]
-[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonPressed.png" type="Texture" id=3]
-[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonDefault.png" type="Texture" id=4]
-[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonHover.png" type="Texture" id=5]
-[ext_resource path="res://Resources/UI/Buttons/OptionsMenuUIButtonDisabled.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Scripts/TitleScreenNode.gd" type="Script" id=7]
-
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://Resources/Fonts/TTF/OnestBlack1602-hint.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-size = 200
-outline_size = 4
-outline_color = Color( 0, 0.0196078, 0.027451, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = SubResource( 1 )
-
-[sub_resource type="DynamicFontData" id=3]
-font_path = "res://Resources/Fonts/TTF/OnestMedium1602-hint.ttf"
-
-[sub_resource type="DynamicFont" id=4]
-size = 40
-outline_size = 1
-outline_color = Color( 0, 0.0196078, 0.027451, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = SubResource( 3 )
-
-[sub_resource type="DynamicFontData" id=5]
-font_path = "res://Resources/Fonts/TTF/OnestMedium1602-hint.ttf"
-
-[sub_resource type="DynamicFont" id=6]
-size = 50
-outline_size = 2
-outline_color = Color( 0.00784314, 0.352941, 0.521569, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = SubResource( 5 )
+[ext_resource type="Texture2D" uid="uid://cubjf0gyklvwt" path="res://Resources/UI/Backgrounds/Texture-_Ice_NormalLevel.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://c0ol0okqyqxeu" path="res://Resources/UI/Buttons/OptionsMenuUIButtonFocused.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dkargd1hymkwo" path="res://Resources/UI/Buttons/OptionsMenuUIButtonPressed.png" id="3"]
+[ext_resource type="FontFile" uid="uid://bte4qy82n8i2y" path="res://Resources/Fonts/TTF/OnestBlack1602-hint.ttf" id="3_636lc"]
+[ext_resource type="Texture2D" uid="uid://dvrmbpru75vmk" path="res://Resources/UI/Buttons/OptionsMenuUIButtonDefault.png" id="4"]
+[ext_resource type="FontFile" uid="uid://b1h2x5rgymgn6" path="res://Resources/Fonts/WOFF/OnestBlack1602-hint.woff" id="4_66gu6"]
+[ext_resource type="Texture2D" uid="uid://bqirqdk5i7y5v" path="res://Resources/UI/Buttons/OptionsMenuUIButtonHover.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dw2edi0ouapfg" path="res://Resources/UI/Buttons/OptionsMenuUIButtonDisabled.png" id="6"]
+[ext_resource type="Script" path="res://Resources/Scripts/TitleScreenNode.gd" id="7"]
 
 [node name="TitleScreenNode" type="Node"]
 
 [node name="TitleScreen" type="Control" parent="."]
+custom_minimum_size = Vector2(600, 900)
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 32.0
-margin_bottom = 29.0
-rect_min_size = Vector2( 632, 929 )
-script = ExtResource( 7 )
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7")
 
 [node name="TextureRect" type="TextureRect" parent="TitleScreen"]
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 657.0
-margin_bottom = 952.0
-rect_min_size = Vector2( 632, 929 )
-texture = ExtResource( 1 )
+custom_minimum_size = Vector2(600, 900)
+layout_mode = 0
+offset_right = 667.0
+offset_bottom = 962.0
+texture = ExtResource("1")
 stretch_mode = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="TitleScreen"]
-modulate = Color( 0.0313726, 0.67451, 0.992157, 1 )
-margin_left = -20.0
-margin_right = 612.0
-margin_bottom = 526.0
-rect_min_size = Vector2( 632, 300 )
-rect_clip_content = false
-custom_colors/default_color = Color( 1, 1, 1, 1 )
-custom_colors/selection_color = Color( 0.0313726, 0.67451, 0.992157, 1 )
-custom_colors/font_color_selected = Color( 0.00784314, 0.137255, 0.203922, 1 )
-custom_colors/font_color_shadow = Color( 0, 0.0196078, 0.027451, 1 )
-custom_fonts/normal_font = SubResource( 2 )
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/normal_font = ExtResource("3_636lc")
+theme_override_font_sizes/normal_font_size = 200
 bbcode_enabled = true
-bbcode_text = "[center]Hat
-Trick[/center]"
-tab_size = 20
-text = "Hat
-Trick"
+text = "  Hat
+ Trick"
 scroll_active = false
+tab_size = 20
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TitleScreen"]
-margin_left = 4.0
-margin_top = 573.0
-margin_right = 591.0
-margin_bottom = 732.0
-custom_colors/default_color = Color( 0.0352941, 0.529412, 0.768627, 1 )
-custom_colors/selection_color = Color( 0.00784314, 0.352941, 0.521569, 1 )
-custom_colors/font_color_selected = Color( 0.00784314, 0.137255, 0.203922, 1 )
-custom_colors/font_color_shadow = Color( 0, 0.0196078, 0.027451, 1 )
-custom_fonts/normal_font = SubResource( 4 )
+custom_minimum_size = Vector2(600, 50)
+layout_mode = 0
+offset_top = 500.0
+offset_right = 600.0
+offset_bottom = 550.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/normal_font = ExtResource("4_66gu6")
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-bbcode_text = "[center] AN ICE HOCKEY THEMED MATCH 3 GAME 
-[/center]"
+text = "    AN ICE HOCKEY THEMED MATCH 3 GAME "
 tab_size = 24
-text = " AN ICE HOCKEY THEMED MATCH 3 GAME 
-"
 
 [node name="TextureButton_Start" type="TextureButton" parent="TitleScreen"]
-margin_left = 150.0
-margin_top = 829.0
-margin_right = 450.0
-margin_bottom = 894.0
-shortcut_in_tooltip = false
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 0
+offset_left = 150.0
+offset_top = 550.0
+offset_right = 450.0
+offset_bottom = 600.0
 action_mode = 0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 3 )
-texture_hover = ExtResource( 5 )
-texture_disabled = ExtResource( 6 )
-texture_focused = ExtResource( 2 )
-expand = true
+shortcut_in_tooltip = false
+texture_normal = ExtResource("4")
+texture_pressed = ExtResource("3")
+texture_hover = ExtResource("5")
+texture_disabled = ExtResource("6")
+texture_focused = ExtResource("2")
+script = ExtResource("7")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TitleScreen/TextureButton_Start"]
-margin_left = 13.7551
-margin_top = -0.775391
-margin_right = 288.755
-margin_bottom = 74.2246
-rect_clip_content = false
-custom_colors/default_color = Color( 1, 1, 1, 1 )
-custom_colors/selection_color = Color( 0.0352941, 0.529412, 0.768627, 1 )
-custom_colors/font_color_selected = Color( 0.00784314, 0.352941, 0.521569, 1 )
-custom_colors/font_color_shadow = Color( 0.00784314, 0.137255, 0.203922, 1 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 60.0
+theme_override_colors/default_color = Color(0.988235, 0.988235, 0.988235, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/normal_font = ExtResource("4_66gu6")
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
-bbcode_text = "[center]START[/center]"
-visible_characters = 6
-tab_size = 6
 text = "START"
 scroll_active = false
+tab_size = 6
+visible_characters = 6
+visible_ratio = 1.2
 
 [connection signal="pressed" from="TitleScreen/TextureButton_Start" to="TitleScreen" method="_on_TextureButton_Start_pressed"]

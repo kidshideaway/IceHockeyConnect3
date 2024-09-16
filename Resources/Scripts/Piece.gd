@@ -1,35 +1,38 @@
 extends Node2D 
 
-onready var parent =  get_tree().get_root().get_node(".") 
-onready var Global = parent.get_node("Global");  
-onready var GameWindowNode = parent.get_node("GameWindowNode"); 
-onready var PieceNode = parent.get_node("Piece"); 
-onready var Move_Tween = parent.get_node("Piece/Move_Tween"); 
-onready var Reg_Blue_Piece = parent.get_node("Reg_Blue_Piece");   
-onready var Reg_Chartuse_Piece = parent.get_node("Reg_Chartuse_Piece");  
-onready var Reg_Green_Piece = parent.get_node("Reg_Green_Piece");  
-onready var Reg_LiteGreen_Piece = parent.get_node("Reg_LiteGreen_Piece");  
-onready var Reg_LiteOrange_Piece = parent.get_node("Reg_LiteOrange_Piece");  
-onready var Reg_LitePink_Piece = parent.get_node("Reg_LitePink_Piece");  
-onready var Reg_Orange_Piece = parent.get_node("Reg_Orange_Piece");  
-onready var Reg_Pink_Piece = parent.get_node("Reg_Pink_Piece");  
-onready var Reg_Purple_Piece = parent.get_node("Reg_Purple_Piece");  
-onready var Reg_Rainbow_Piece = parent.get_node("Reg_Rainbow_Piece");  
-onready var Reg_Yellow_Piece = parent.get_node("Reg_Yellow_Piece");   
+@onready var parent = get_node("/root");  
+@onready var Global = get_node("/root/Global");    
+@onready var GameWindowNode = parent.get_node("GameWindowNode"); 
+@onready var PieceNode = parent.get_node("Piece");  
+@onready var Reg_Blue_Piece = parent.get_node("Reg_Blue_Piece");   
+@onready var Reg_Chartuse_Piece = parent.get_node("Reg_Chartuse_Piece");  
+@onready var Reg_Green_Piece = parent.get_node("Reg_Green_Piece");  
+@onready var Reg_LiteGreen_Piece = parent.get_node("Reg_LiteGreen_Piece");  
+@onready var Reg_LiteOrange_Piece = parent.get_node("Reg_LiteOrange_Piece");  
+@onready var Reg_LitePink_Piece = parent.get_node("Reg_LitePink_Piece");  
+@onready var Reg_Orange_Piece = parent.get_node("Reg_Orange_Piece");  
+@onready var Reg_Pink_Piece = parent.get_node("Reg_Pink_Piece");  
+@onready var Reg_Purple_Piece = parent.get_node("Reg_Purple_Piece");  
+@onready var Reg_Rainbow_Piece = parent.get_node("Reg_Rainbow_Piece");  
+@onready var Reg_Yellow_Piece = parent.get_node("Reg_Yellow_Piece");   
 
-export (String) var color; 
+@export var color: String; 
 var matched = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
 	print("parent", parent) 	 
 	print("GameWindowNode", GameWindowNode)
-	print("PieceNode", PieceNode)	 
-	Move_Tween = PieceNode.get_node("Move_Tween")
-	print("Move_Tween", Move_Tween)	
+	print("PieceNode", PieceNode)	   
+	print("PieceNode", PieceNode)	
 
-func move(target):
+func move(target):	
+	var Move_Tween = get_tree().create_tween()
+	#Move_Tween.tween_property(self, "modulate", Color.RED, 1)
+	#Move_Tween.tween_property(self, "scale", Vector2(), 1) 
+	#Move_Tween.tween_property(self, "position", Vector2(0, 0), 1)
 	Move_Tween.interpolate_property(self, "position", position, target, .3, Tween.TRANS_SINE, Tween.EASE_OUT);
+	Move_Tween.tween_callback(move)
 	Move_Tween.start();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,5 +40,10 @@ func move(target):
 #	pass
 func dim():
 	var sprite = get_node("Sprite");
-	sprite.modulate = Color(1,1,1,.5);
+	sprite.modulate = Color(1,1,1,.5); 
 	pass;
+
+func coloris():
+	var sprite = get_node("Sprite"); 
+	var ColorData = sprite.get_node("metadata/color")
+	return(ColorData) 

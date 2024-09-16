@@ -1,57 +1,34 @@
 extends Node2D
+@onready var parent = get_node("/root");  
+@onready var Global = get_node("/root/Global");  
+@onready var TitleScreenNode = get_node("/root/TitleScreenNode");  
+@onready var GameWindowNode = get_node("/root/GameWindowNode");  
+@onready var GameMenuNode = get_node("/root/GameMenuNode"); 
+@onready var OptionsGUINode = get_node("/root/OptionsGUINode"); 
+@onready var ScoreGUINode = get_node("/root/ScoreGUINode"); 
 
-onready var parent =  get_tree().get_root().get_node(".") 
-onready var Global = parent.get_node("Global");  
-onready var GameWindowNode = parent.get_node("GameWindowNode"); 
-onready var OptionsGUINode = parent.get_node("OptionsGUINode");  
-onready var GameMenuNode = parent.get_node("GameMenuNode");  
-onready var ScoreGUINode = parent.get_node("ScoreGUINode"); 
+#@export var parent =  get_tree().get_root().get_node("GameWindowNode") 
+#@export var Global = parent.get_node("Global");  
+#@export var GameWindowNode = parent.get_node("GameWindowNode"); 
+#@export var OptionsGUINode = parent.get_node("OptionsGUINode");  
+#@export var GameMenuNode = parent.get_node("GameMenuNode");  
+#@export var ScoreGUINode = parent.get_node("ScoreGUINode"); 
 
 ################## Audio Files ##########################
-onready var AlarmBell = preload("res://Resources/Sounds/Pause.wav")
-onready var Player = 0 
-onready var TIMER_Digit_Minutes = 0
-onready var TIMER_Digit_Seconds = 0
+@export var AlarmBell = preload("res://Resources/Sounds/Pause.wav")
+@export var Player = 0 
+@export var TIMER_Digit_Minutes = "0";
+@onready var VIZ_TIMER_D_M = get_node("TopUI/Column_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer/TIMER_Digit_Minutes")
+@export var TIMER_Digit_Seconds = "0";
+@onready var VIZ_TIMER_D_S = get_node("TopUI/Column_Middle/VBoxContainer_ScoreBoard_Middle/HBoxContainer/TIMER_Digit_Seconds")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): 
 	print("parent", parent) 	
-		
-	var TEST_GameWindowNode = parent.get_node("GameWindowNode")
-	print("TEST_GameWindowNode", TEST_GameWindowNode)
-	 
-	var TEST_TopUI = TEST_GameWindowNode.get_node("TopUI")
-	print("TEST_TopUI", TEST_TopUI)	
-	
-	var TEST_Player1 = TEST_GameWindowNode.get_node("AudioStreamPlayer2D"); 
-	if TEST_Player1 != null:
-		Player = TEST_Player1
-
 	var Player2 = parent.get_node("GameWindowNode/AudioStreamPlayer2D"); 
 	if Player2 != null:
 		Player = Player2	 
-		
-	var TEST_Colum_Middle = TEST_TopUI.get_node("Column_Middle")
-	print("TEST_Colum_Middle", TEST_Colum_Middle)
-	
-	var TEST_Column_Left = TEST_TopUI.get_node("Column_Left")
-	print("TEST_Column_Left", TEST_Column_Left)
-	
-	var TEST_Column_Right = TEST_TopUI.get_node("Column_Right")
-	print("TEST_Column_Right", TEST_Column_Right)
-	
-	var TEST_VBoxContainer = TEST_Colum_Middle.get_node("VBoxContainer_ScoreBoard_Middle")
-	print("TEST_VBoxContainer", TEST_VBoxContainer)
-	
-	var TEST_HBoxContainer = TEST_VBoxContainer.get_node("HBoxContainer") 
-	print("TEST_HBoxContainer", TEST_HBoxContainer)
-	
-	TIMER_Digit_Minutes = TEST_HBoxContainer.get_node("TIMER_Digit_Minutes");
-	print("TIMER_Digit_Minutes", TIMER_Digit_Minutes)
-	
-	TIMER_Digit_Seconds = TEST_HBoxContainer.get_node("TIMER_Digit_Seconds"); 
-	print("TIMER_Digit_Seconds", TIMER_Digit_Seconds)
-	 
 	pass # Replace with function body.
 	
 func update_timer(): 
@@ -64,11 +41,12 @@ func update_timer():
 				Global.seconds = Global.seconds -1;
 		else:
 			Global.seconds = Global.seconds + 1;
+			
 		print("Global Time: ",Global.minutes , ":" , Global.seconds); 
 		print("Global Time: ",str(Global.minutes).pad_zeros(2), ":" , str(Global.seconds).pad_zeros(2)); 
-		print("Timer: ",TIMER_Digit_Minutes , ":" , TIMER_Digit_Seconds); 
-		TIMER_Digit_Minutes.set_text(1);
-		TIMER_Digit_Seconds.set_text(1); 
+		VIZ_TIMER_D_M.set_text(Global.minutes)
+		VIZ_TIMER_D_S.set_text(Global.seconds)
+		print("Timer: ",TIMER_Digit_Minutes , ":" , TIMER_Digit_Seconds); 	
 	
 		if(Global.seconds <= 00):
 			if(Global.minutes <= 00):
@@ -132,7 +110,7 @@ func check_visiblity():
 		return(1)
 	else:
 		return(0)
-	pass;
+	#pass;
 
 
 func _on_TextureButton_Menu_pressed():

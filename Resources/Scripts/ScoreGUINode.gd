@@ -1,7 +1,7 @@
 extends Control
 
-onready var Global = get_node("/root/Global");  
-onready var GameMenuNode = get_node("/root/GameMenuNode");  
+@onready var Global = get_node("/root/Global");  
+@onready var GameMenuNode = get_node("/root/GameMenuNode");  
  
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,7 +45,7 @@ func check_visiblity():
 	else:
 		print("Not Visible!")
 		return(0) 
-	pass;
+	#pass;
 
 
 func _on_ReturnToMenuButton_pressed():

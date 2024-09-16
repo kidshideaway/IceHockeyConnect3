@@ -2,11 +2,15 @@
 
 importer="csv_translation"
 type="Translation"
-valid=false
+uid="uid://dipdak6ogutg1"
 
 [deps]
 
+files=["res://Resources/SharedDB/levelspecs.level.translation", "res://Resources/SharedDB/levelspecs.width.translation", "res://Resources/SharedDB/levelspecs.height.translation", "res://Resources/SharedDB/levelspecs.round.translation", "res://Resources/SharedDB/levelspecs.points.translation", "res://Resources/SharedDB/levelspecs.minutes.translation", "res://Resources/SharedDB/levelspecs.turns.translation", "res://Resources/SharedDB/levelspecs.color.translation", "res://Resources/SharedDB/levelspecs.type.translation", "res://Resources/SharedDB/levelspecs.reward.translation", "res://Resources/SharedDB/levelspecs.amount.translation"]
+
 source_file="res://Resources/SharedDB/levelspecs.csv"
+dest_files=["res://Resources/SharedDB/levelspecs.level.translation", "res://Resources/SharedDB/levelspecs.width.translation", "res://Resources/SharedDB/levelspecs.height.translation", "res://Resources/SharedDB/levelspecs.round.translation", "res://Resources/SharedDB/levelspecs.points.translation", "res://Resources/SharedDB/levelspecs.minutes.translation", "res://Resources/SharedDB/levelspecs.turns.translation", "res://Resources/SharedDB/levelspecs.color.translation", "res://Resources/SharedDB/levelspecs.type.translation", "res://Resources/SharedDB/levelspecs.reward.translation", "res://Resources/SharedDB/levelspecs.amount.translation"]
+
 [params]
 
 compress=true

@@ -1,6 +1,6 @@
 extends Node
 
-onready var Global = get_node("/root/Global");  
+@onready var Global = get_node("/root/Global");  
 
 #####
 var path_SharedDBs = "res://Resources/SharedDB/" 
@@ -47,14 +47,12 @@ func saveDB_(content, fileName ):
 	saveFILE(content, fileName ) 
 	  
 func saveFILE(content, fileName ):
-	var file = File.new()
-	file.open(fileName, File.WRITE)
+	var file = FileAccess.open(fileName, FileAccess.WRITE)
 	file.store_string(content)
 	file.close()
 	
-func loadFile( fileName):
-	var file = File.new()
-	file.open(fileName, File.READ)
+func loadFile( fileName ):
+	var file = FileAccess.open( fileName, FileAccess.READ)
 	var content = file.get_as_text()
 	file.close()
 	return content

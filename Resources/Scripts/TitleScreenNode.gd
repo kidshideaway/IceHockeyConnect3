@@ -1,10 +1,10 @@
 extends Control 
 
-onready var Global = get_node("/root/Global");   
-onready var GameWindowNode = get_node("/root/GameWindowNode");   
-onready var OptionsGUINode = get_node("/root/OptionsGUINode");  
-onready var GameMenuNode = get_node("/root/GameMenuNode");  
-onready var ScoreGUINode = get_node("/root/ScoreGUINode"); 
+@onready var Global = get_node("/root/Global");   
+@onready var GameWindowNode = get_node("/root/GameWindowNode");   
+@onready var OptionsGUINode = get_node("/root/OptionsGUINode");  
+@onready var GameMenuNode = get_node("/root/GameMenuNode");  
+@onready var ScoreGUINode = get_node("/root/ScoreGUINode"); 
 
 
 func _ready():
@@ -43,7 +43,7 @@ func check_visiblity():
 		return(1)
 	else:
 		return(0)
-	pass;
+	#pass;
 
 func _on_TextureButton_Start_pressed():
 	print("Hello Word: Start Game")
