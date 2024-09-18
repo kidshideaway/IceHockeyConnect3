@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://ceoren2dfdmdd"]
+[gd_scene load_steps=130 format=3 uid="uid://ceoren2dfdmdd"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/GameWindowNode.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://baouvxjbg7tr5" path="res://Resources/UI/Backgrounds/Texture-_Ice_NormalLevel.png" id="3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bonitegrkh6nh" path="res://Resources/UI/Buttons/OptionsMenuUIButtonHover.png" id="5_wvque"]
 [ext_resource type="Texture2D" uid="uid://bcd2omk5o68vy" path="res://Resources/UI/Buttons/OptionsMenuUIButtonDisabled.png" id="6_diy2x"]
 [ext_resource type="Texture2D" uid="uid://bwbp6ba4ygve" path="res://Resources/UI/Buttons/OptionsMenuUIButtonFocused.png" id="7_1xfad"]
+[ext_resource type="FontFile" uid="uid://cf5qggvyj240w" path="res://Resources/Fonts/WOFF/OnestExtraBold1602-hint.woff" id="11_1rqni"]
 [ext_resource type="Texture2D" uid="uid://iuiiu24uf8q6" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_001.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://b1ctumk4nhvj2" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_002.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://dikl5fakwn2dn" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_003.png" id="14"]
@@ -521,6 +522,7 @@ script = ExtResource("1")
 stream = ExtResource("130")
 
 [node name="Node2D_GameWindow" type="Node2D" parent="."]
+visible = false
 
 [node name="Background_TextureRect" type="TextureRect" parent="Node2D_GameWindow"]
 custom_minimum_size = Vector2(700, 1000)
@@ -788,31 +790,40 @@ vertical_alignment = 1
 [node name="Node2D_GameMenu" type="Node2D" parent="."]
 visible = false
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Node2D_GameMenu"]
-offset_right = 300.0
-offset_bottom = 280.0
+[node name="Background_TextureRect5" type="TextureRect" parent="Node2D_GameMenu"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1000.0
 texture = ExtResource("3")
-metadata/_edit_use_anchors_ = true
+expand_mode = 1
+stretch_mode = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Node2D_GameMenu"]
+custom_minimum_size = Vector2(700, 200)
 offset_right = 94.0
 offset_bottom = 23.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_1rqni")
+theme_override_font_sizes/font_size = 80
 text = "Game Menu"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Node2D_GameMenu"]
-offset_right = 300.0
-offset_bottom = 270.0
+custom_minimum_size = Vector2(700, 500)
+offset_right = 700.0
+offset_bottom = 500.0
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Node2D_GameMenu/VBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 
 [node name="PlayButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("3_srogm")
 texture_pressed = ExtResource("4_2hqjd")
 texture_hover = ExtResource("5_wvque")
@@ -829,32 +840,34 @@ horizontal_alignment = 1
 vertical_alignment = 1
 max_lines_visible = 1
 
-[node name="DraftButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
+[node name="AboutUsButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("3_srogm")
 texture_pressed = ExtResource("4_2hqjd")
 texture_hover = ExtResource("5_wvque")
 texture_disabled = ExtResource("6_diy2x")
 texture_focused = ExtResource("7_1xfad")
 
-[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/DraftButton"]
+[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/AboutUsButton"]
 layout_mode = 0
 offset_right = 302.0
 offset_bottom = 52.0
 theme_override_font_sizes/font_size = 32
-text = "SCORES"
+text = "ABOUT US"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoresButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("3_srogm")
 texture_pressed = ExtResource("4_2hqjd")
 texture_hover = ExtResource("5_wvque")
 texture_disabled = ExtResource("6_diy2x")
 texture_focused = ExtResource("7_1xfad")
 
-[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/ScoresButton"]
+[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/SettingsButton"]
 layout_mode = 0
 offset_left = -2.0
 offset_top = 1.0
@@ -865,15 +878,16 @@ text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
+[node name="ScoresButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("3_srogm")
 texture_pressed = ExtResource("4_2hqjd")
 texture_hover = ExtResource("5_wvque")
 texture_disabled = ExtResource("6_diy2x")
 texture_focused = ExtResource("7_1xfad")
 
-[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/SettingsButton"]
+[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/ScoresButton"]
 layout_mode = 0
 offset_top = -1.0
 offset_right = 302.0
@@ -886,6 +900,7 @@ uppercase = true
 
 [node name="ExitGameButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("3_srogm")
 texture_pressed = ExtResource("4_2hqjd")
 texture_hover = ExtResource("5_wvque")
@@ -907,8 +922,13 @@ uppercase = true
 [node name="Node2D_OptionsMenu" type="Node2D" parent="."]
 visible = false
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Node2D_OptionsMenu"]
+[node name="Background_TextureRect4" type="TextureRect" parent="Node2D_OptionsMenu"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1000.0
 texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Node2D_OptionsMenu"]
 offset_left = -31.0
@@ -996,6 +1016,37 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
+[node name="Node2D_Scores" type="Node2D" parent="."]
+visible = false
+
+[node name="Background_TextureRect3" type="TextureRect" parent="Node2D_Scores"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1000.0
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Node2D_AboutUs" type="Node2D" parent="."]
+visible = false
+
+[node name="Background_TextureRect2" type="TextureRect" parent="Node2D_AboutUs"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1000.0
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 1
+
+[connection signal="pressed" from="Node2D_GameWindow/HBoxContainer/TextureButton_MainMenu" to="." method="_on_texture_button_main_menu_pressed"]
+[connection signal="pressed" from="Node2D_GameWindow/HBoxContainer/TextureButton_Start" to="." method="_on_texture_button_start_pressed"]
+[connection signal="pressed" from="Node2D_GameWindow/HBoxContainer/TextureButton_Exit" to="." method="_on_texture_button_exit_pressed"]
+[connection signal="pressed" from="Node2D_TitleScreen/TextureButton_TS_Start" to="." method="_on_texture_button_ts_start_pressed"]
+[connection signal="pressed" from="Node2D_GameMenu/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Node2D_GameMenu/VBoxContainer/AboutUsButton" to="." method="_on_about_us_button_pressed"]
+[connection signal="pressed" from="Node2D_GameMenu/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Node2D_GameMenu/VBoxContainer/ScoresButton" to="." method="_on_scores_button_pressed"]
+[connection signal="pressed" from="Node2D_GameMenu/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
 [connection signal="timeout" from="Node2D_Timer/Destroy_Timer" to="Node2D_Grid" method="_on_Destroy_Timer_timeout"]
 [connection signal="timeout" from="Node2D_Timer/Collapse_Timer" to="Node2D_Grid" method="_on_Collapse_Timer_timeout"]
 [connection signal="timeout" from="Node2D_Timer/Fill_Timer" to="Node2D_Grid" method="_on_Fill_Timer_timeout"]

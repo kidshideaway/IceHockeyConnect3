@@ -20,15 +20,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Resources/Scripts/global.gd"
-GameTimer="*res://Resources/Scripts/GameTimer.gd"
-Grid="*res://Resources/Scripts/Grid.gd"
 Piece="*res://Resources/Scripts/Piece.gd"
-LevelSpecsNode="*res://Resources/Scripts/LevelSpecsNode.gd"
-GameMenuNode="*res://Resources/Scripts/GameMenuNode.gd"
 GameWindowNode="*res://Resources/Scripts/GameWindowNode.gd"
-TitleScreenNode="*res://Resources/Scripts/TitleScreenNode.gd"
-OptionsGUINode="*res://Resources/Scripts/OptionsGUINode.gd"
-ScoreGUINode="*res://Resources/Scripts/ScoreGUINode.gd"
 
 [display]
 
