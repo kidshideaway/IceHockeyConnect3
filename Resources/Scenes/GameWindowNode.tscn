@@ -522,7 +522,6 @@ script = ExtResource("1")
 stream = ExtResource("130")
 
 [node name="Node2D_GameWindow" type="Node2D" parent="."]
-visible = false
 
 [node name="Background_TextureRect" type="TextureRect" parent="Node2D_GameWindow"]
 custom_minimum_size = Vector2(700, 1000)
