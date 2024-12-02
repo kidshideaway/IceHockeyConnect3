@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="HatTrick"
+config/name="HatTrickCPlus"
 config/description="Hat Trick is an Ice Hockey themed Match 3 casual game. Available on pc, android, and the web."
 config/version="1.0"
 run/main_scene="res://Resources/Scenes/GameWindowNode.tscn"

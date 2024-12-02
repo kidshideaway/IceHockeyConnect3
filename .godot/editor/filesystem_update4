@@ -1,4 +1,3 @@
 res://Resources/Scenes/GameWindowNode.tscn
+res://Resources/Scenes/Piece.tscn
 res://Resources/Scripts/GameWindowNode.gd
-res://Resources/Scripts/global.gd
-res://Resources/Scripts/output.log

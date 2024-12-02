@@ -1,19 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqphpe53ow3dm"]
+[gd_scene load_steps=3 format=3 uid="uid://cqphpe53ow3dm"]
 
-[ext_resource type="Script" path="res://Resources/Scripts/Piece.gd" id="1"]
+[ext_resource type="Script" path="res://Resources/Scripts/Piece.gd" id="1_uw681"]
+[ext_resource type="Script" path="res://Resources/Scripts/Sprite_Piece.gd" id="2_bh6pr"]
 
 [node name="Piece" type="Node2D"]
-script = ExtResource("1")
+script = ExtResource("1_uw681")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-
-[node name="Move_Tween" type="Tween" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-editor_description = ""
-script = null
+script = ExtResource("2_bh6pr")

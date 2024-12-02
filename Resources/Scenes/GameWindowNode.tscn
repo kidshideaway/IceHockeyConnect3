@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://ceoren2dfdmdd"]
+[gd_scene load_steps=131 format=3 uid="uid://ceoren2dfdmdd"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/GameWindowNode.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://baouvxjbg7tr5" path="res://Resources/UI/Backgrounds/Texture-_Ice_NormalLevel.png" id="3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bwbp6ba4ygve" path="res://Resources/UI/Buttons/OptionsMenuUIButtonFocused.png" id="7_1xfad"]
 [ext_resource type="FontFile" uid="uid://cf5qggvyj240w" path="res://Resources/Fonts/WOFF/OnestExtraBold1602-hint.woff" id="11_1rqni"]
 [ext_resource type="Texture2D" uid="uid://iuiiu24uf8q6" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_001.png" id="12"]
+[ext_resource type="FontFile" uid="uid://b14n47gtwrvha" path="res://Resources/Fonts/WOFF/OnestBold1602-hint.woff" id="12_vbdvu"]
 [ext_resource type="Texture2D" uid="uid://b1ctumk4nhvj2" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_002.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://dikl5fakwn2dn" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_003.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://b6p1klx78yn3c" path="res://Resources/UI/Player_Feedback/400_plus_score_Frame_004.png" id="15"]
@@ -519,16 +520,18 @@ editor_description = "Primary game window. "
 script = ExtResource("1")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+visible = false
 stream = ExtResource("130")
 
 [node name="Node2D_GameWindow" type="Node2D" parent="."]
+visible = false
 
 [node name="Background_TextureRect" type="TextureRect" parent="Node2D_GameWindow"]
+visible = false
 custom_minimum_size = Vector2(700, 1000)
 offset_right = 700.0
 offset_bottom = 1000.0
 texture = ExtResource("3")
-expand_mode = 1
 stretch_mode = 1
 
 [node name="TopUI_TextureRect" type="TextureRect" parent="Node2D_GameWindow"]
@@ -650,6 +653,17 @@ text = "0000"
 scroll_active = false
 visible_characters = 4
 
+[node name="Label" type="Label" parent="Node2D_GameWindow/TopUI_TextureRect"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 475.0
+offset_right = 501.0
+offset_bottom = 527.0
+theme_override_font_sizes/font_size = 32
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Node2D_GameWindow"]
 custom_minimum_size = Vector2(700, 200)
 anchors_preset = 7
@@ -685,7 +699,7 @@ stretch_mode = 4
 
 [node name="Label" type="Label" parent="Node2D_GameWindow/HBoxContainer/TextureButton_MainMenu"]
 layout_mode = 0
-offset_right = 301.0
+offset_right = 282.0
 offset_bottom = 52.0
 theme_override_font_sizes/font_size = 32
 text = "MENU"
@@ -739,224 +753,6 @@ theme_override_font_sizes/font_size = 32
 text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Node2D_TitleScreen" type="Node2D" parent="."]
-visible = false
-
-[node name="Background_TextureRect" type="TextureRect" parent="Node2D_TitleScreen"]
-offset_right = 700.0
-offset_bottom = 1010.0
-texture = ExtResource("3")
-stretch_mode = 1
-
-[node name="Logo_TextureRect" type="TextureRect" parent="Node2D_TitleScreen/Background_TextureRect"]
-custom_minimum_size = Vector2(600, 230)
-layout_mode = 0
-offset_top = 123.0
-offset_right = 700.0
-offset_bottom = 362.0
-texture = ExtResource("131_kexja")
-
-[node name="TextureButton_TS_Start" type="TextureButton" parent="Node2D_TitleScreen"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 200.0
-offset_top = 475.0
-offset_right = 500.0
-offset_bottom = 525.0
-grow_horizontal = 2
-grow_vertical = 2
-action_mode = 0
-shortcut_in_tooltip = false
-texture_normal = ExtResource("3_srogm")
-texture_pressed = ExtResource("4_2hqjd")
-texture_hover = ExtResource("5_wvque")
-texture_disabled = ExtResource("6_diy2x")
-texture_focused = ExtResource("7_1xfad")
-
-[node name="Label" type="Label" parent="Node2D_TitleScreen/TextureButton_TS_Start"]
-layout_mode = 0
-offset_right = 301.0
-offset_bottom = 52.0
-theme_override_font_sizes/font_size = 32
-text = "START"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Node2D_GameMenu" type="Node2D" parent="."]
-visible = false
-
-[node name="Background_TextureRect5" type="TextureRect" parent="Node2D_GameMenu"]
-custom_minimum_size = Vector2(700, 1000)
-offset_right = 700.0
-offset_bottom = 1000.0
-texture = ExtResource("3")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Node2D_GameMenu"]
-custom_minimum_size = Vector2(700, 200)
-offset_right = 94.0
-offset_bottom = 23.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer2"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("11_1rqni")
-theme_override_font_sizes/font_size = 80
-text = "Game Menu"
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Node2D_GameMenu"]
-custom_minimum_size = Vector2(700, 500)
-offset_right = 700.0
-offset_bottom = 500.0
-metadata/_edit_use_anchors_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="Node2D_GameMenu/VBoxContainer"]
-custom_minimum_size = Vector2(100, 150)
-layout_mode = 2
-
-[node name="PlayButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("3_srogm")
-texture_pressed = ExtResource("4_2hqjd")
-texture_hover = ExtResource("5_wvque")
-texture_disabled = ExtResource("6_diy2x")
-texture_focused = ExtResource("7_1xfad")
-
-[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/PlayButton"]
-layout_mode = 0
-offset_right = 300.0
-offset_bottom = 51.0
-theme_override_font_sizes/font_size = 32
-text = "PLAY"
-horizontal_alignment = 1
-vertical_alignment = 1
-max_lines_visible = 1
-
-[node name="AboutUsButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("3_srogm")
-texture_pressed = ExtResource("4_2hqjd")
-texture_hover = ExtResource("5_wvque")
-texture_disabled = ExtResource("6_diy2x")
-texture_focused = ExtResource("7_1xfad")
-
-[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/AboutUsButton"]
-layout_mode = 0
-offset_right = 302.0
-offset_bottom = 52.0
-theme_override_font_sizes/font_size = 32
-text = "ABOUT US"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SettingsButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("3_srogm")
-texture_pressed = ExtResource("4_2hqjd")
-texture_hover = ExtResource("5_wvque")
-texture_disabled = ExtResource("6_diy2x")
-texture_focused = ExtResource("7_1xfad")
-
-[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/SettingsButton"]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 1.0
-offset_right = 302.0
-offset_bottom = 49.0
-theme_override_font_sizes/font_size = 32
-text = "SETTINGS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScoresButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("3_srogm")
-texture_pressed = ExtResource("4_2hqjd")
-texture_hover = ExtResource("5_wvque")
-texture_disabled = ExtResource("6_diy2x")
-texture_focused = ExtResource("7_1xfad")
-
-[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/ScoresButton"]
-layout_mode = 0
-offset_top = -1.0
-offset_right = 302.0
-offset_bottom = 52.0
-theme_override_font_sizes/font_size = 32
-text = "SCORES"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="ExitGameButton" type="TextureButton" parent="Node2D_GameMenu/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("3_srogm")
-texture_pressed = ExtResource("4_2hqjd")
-texture_hover = ExtResource("5_wvque")
-texture_disabled = ExtResource("6_diy2x")
-texture_focused = ExtResource("7_1xfad")
-
-[node name="Label" type="Label" parent="Node2D_GameMenu/VBoxContainer/ExitGameButton"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = -1.0
-offset_right = 302.0
-offset_bottom = 52.0
-theme_override_font_sizes/font_size = 32
-text = "EXIT"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="Node2D_OptionsMenu" type="Node2D" parent="."]
-visible = false
-
-[node name="Background_TextureRect4" type="TextureRect" parent="Node2D_OptionsMenu"]
-custom_minimum_size = Vector2(700, 1000)
-offset_right = 700.0
-offset_bottom = 1000.0
-texture = ExtResource("3")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Node2D_OptionsMenu"]
-offset_left = -31.0
-offset_right = 31.0
-offset_bottom = 27.0
-grow_horizontal = 2
-
-[node name="Label" type="Label" parent="Node2D_OptionsMenu/VBoxContainer"]
-layout_mode = 2
-text = "Options"
-
-[node name="MarginContainer" type="MarginContainer" parent="Node2D_OptionsMenu/VBoxContainer"]
-layout_mode = 2
-
-[node name="ReturnToMenuButton2" type="TextureButton" parent="Node2D_OptionsMenu"]
-offset_left = -150.0
-offset_right = 150.0
-offset_bottom = 50.0
-grow_horizontal = 2
-texture_normal = ExtResource("3_srogm")
-texture_pressed = ExtResource("4_2hqjd")
-texture_hover = ExtResource("5_wvque")
-texture_disabled = ExtResource("6_diy2x")
-texture_focused = ExtResource("7_1xfad")
-
-[node name="Label" type="Label" parent="Node2D_OptionsMenu/ReturnToMenuButton2"]
-layout_mode = 0
-grow_horizontal = 2
-text = "MAIN MENU"
 
 [node name="Node2D_Grid" type="Node2D" parent="."]
 visible = false
@@ -1015,10 +811,343 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
-[node name="Node2D_Scores" type="Node2D" parent="."]
+[node name="Node2D_TitleMenu" type="Node2D" parent="."]
 visible = false
 
-[node name="Background_TextureRect3" type="TextureRect" parent="Node2D_Scores"]
+[node name="Background_TextureRect" type="TextureRect" parent="Node2D_TitleMenu"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1010.0
+texture = ExtResource("3")
+stretch_mode = 1
+
+[node name="Logo_TextureRect" type="TextureRect" parent="Node2D_TitleMenu"]
+custom_minimum_size = Vector2(600, 230)
+offset_top = 123.0
+offset_right = 700.0
+offset_bottom = 362.0
+texture = ExtResource("131_kexja")
+
+[node name="Button_Start" type="TextureButton" parent="Node2D_TitleMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = 475.0
+offset_right = 500.0
+offset_bottom = 525.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+shortcut_in_tooltip = false
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Button_Start_Label" type="Label" parent="Node2D_TitleMenu/Button_Start"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+
+[node name="Node2D_StartMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="Background_TextureRect5" type="TextureRect" parent="Node2D_StartMenu"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1000.0
+texture = ExtResource("3")
+stretch_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Node2D_StartMenu"]
+custom_minimum_size = Vector2(700, 100)
+offset_right = 94.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Node2D_StartMenu/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_1rqni")
+theme_override_font_sizes/font_size = 100
+text = "Hat Trick"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Node2D_StartMenu/VBoxContainer2/Label2"]
+layout_mode = 2
+offset_left = 8.0
+offset_right = 708.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("11_1rqni")
+theme_override_font_sizes/font_size = 100
+text = "Hat Trick"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D_StartMenu"]
+custom_minimum_size = Vector2(700, 500)
+offset_right = 700.0
+offset_bottom = 500.0
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Node2D_StartMenu/VBoxContainer"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Button_Play" type="TextureButton" parent="Node2D_StartMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Button_Play_Label" type="Label" parent="Node2D_StartMenu/VBoxContainer/Button_Play"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+
+[node name="Button_Load" type="TextureButton" parent="Node2D_StartMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Button_Load_Label" type="Label" parent="Node2D_StartMenu/VBoxContainer/Button_Load"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "LOAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+
+[node name="LoadSaveButton2" type="TextureButton" parent="Node2D_StartMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_StartMenu/VBoxContainer/LoadSaveButton2"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "SAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+
+[node name="AboutUsButton" type="TextureButton" parent="Node2D_StartMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_StartMenu/VBoxContainer/AboutUsButton"]
+layout_mode = 0
+offset_right = 302.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "ABOUT US"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="Node2D_StartMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_StartMenu/VBoxContainer/SettingsButton"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 302.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoresButton" type="TextureButton" parent="Node2D_StartMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_StartMenu/VBoxContainer/ScoresButton"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "SCORES"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HelpButton" type="TextureButton" parent="Node2D_StartMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_StartMenu/VBoxContainer/HelpButton"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "HELP"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ExitGameButton" type="TextureButton" parent="Node2D_StartMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_StartMenu/VBoxContainer/ExitGameButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 302.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 32
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Node2D_SettingsMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="Background_TextureRect4" type="TextureRect" parent="Node2D_SettingsMenu"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1000.0
+texture = ExtResource("3")
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D_SettingsMenu"]
+offset_left = -31.0
+offset_right = 31.0
+offset_bottom = 27.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Node2D_SettingsMenu/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="MarginContainer" type="MarginContainer" parent="Node2D_SettingsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReturnToStartMenuButton1" type="TextureButton" parent="Node2D_SettingsMenu"]
+offset_left = 5.0
+offset_top = 944.0
+offset_right = 305.0
+offset_bottom = 994.0
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_SettingsMenu/ReturnToStartMenuButton1"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D_ScoresMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="Background_TextureRect3" type="TextureRect" parent="Node2D_ScoresMenu"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1000.0
+texture = ExtResource("3")
+stretch_mode = 1
+
+[node name="ReturnToStartMenuButton2" type="TextureButton" parent="Node2D_ScoresMenu"]
+offset_left = 2.0
+offset_top = 949.0
+offset_right = 302.0
+offset_bottom = 999.0
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_ScoresMenu/ReturnToStartMenuButton2"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D_AboutMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="Background_TextureRect2" type="TextureRect" parent="Node2D_AboutMenu"]
 custom_minimum_size = Vector2(700, 1000)
 offset_right = 700.0
 offset_bottom = 1000.0
@@ -1026,28 +1155,151 @@ texture = ExtResource("3")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Node2D_AboutUs" type="Node2D" parent="."]
+[node name="ReturnToStartMenuButton3" type="TextureButton" parent="Node2D_AboutMenu"]
+offset_left = 3.0
+offset_top = 948.0
+offset_right = 303.0
+offset_bottom = 998.0
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_AboutMenu/ReturnToStartMenuButton3"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D_LoadMenu" type="Node2D" parent="."]
 visible = false
 
-[node name="Background_TextureRect2" type="TextureRect" parent="Node2D_AboutUs"]
+[node name="Background_TextureRect2" type="TextureRect" parent="Node2D_LoadMenu"]
 custom_minimum_size = Vector2(700, 1000)
 offset_right = 700.0
 offset_bottom = 1000.0
 texture = ExtResource("3")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="ReturnToStartMenuButton4" type="TextureButton" parent="Node2D_LoadMenu"]
+offset_left = 3.0
+offset_top = 948.0
+offset_right = 303.0
+offset_bottom = 998.0
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_LoadMenu/ReturnToStartMenuButton4"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D_SaveMenu" type="Node2D" parent="."]
+
+[node name="Background_TextureRect2" type="TextureRect" parent="Node2D_SaveMenu"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1000.0
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ReturnToStartMenuButton5" type="TextureButton" parent="Node2D_SaveMenu"]
+offset_left = 3.0
+offset_top = 948.0
+offset_right = 303.0
+offset_bottom = 998.0
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_SaveMenu/ReturnToStartMenuButton5"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D_HelpMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="Background_TextureRect2" type="TextureRect" parent="Node2D_HelpMenu"]
+custom_minimum_size = Vector2(700, 1000)
+offset_right = 700.0
+offset_bottom = 1000.0
+texture = ExtResource("3")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ReturnToStartMenuButton6" type="TextureButton" parent="Node2D_HelpMenu"]
+offset_left = 3.0
+offset_top = 948.0
+offset_right = 303.0
+offset_bottom = 998.0
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_HelpMenu/ReturnToStartMenuButton6"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Node2D_GameWindow/HBoxContainer/TextureButton_MainMenu" to="." method="_on_texture_button_main_menu_pressed"]
 [connection signal="pressed" from="Node2D_GameWindow/HBoxContainer/TextureButton_Start" to="." method="_on_texture_button_start_pressed"]
+[connection signal="pressed" from="Node2D_GameWindow/HBoxContainer/TextureButton_Exit" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Node2D_GameWindow/HBoxContainer/TextureButton_Exit" to="." method="_on_texture_button_exit_pressed"]
-[connection signal="pressed" from="Node2D_TitleScreen/TextureButton_TS_Start" to="." method="_on_texture_button_ts_start_pressed"]
-[connection signal="pressed" from="Node2D_GameMenu/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Node2D_GameMenu/VBoxContainer/AboutUsButton" to="." method="_on_about_us_button_pressed"]
-[connection signal="pressed" from="Node2D_GameMenu/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Node2D_GameMenu/VBoxContainer/ScoresButton" to="." method="_on_scores_button_pressed"]
-[connection signal="pressed" from="Node2D_GameMenu/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
 [connection signal="timeout" from="Node2D_Timer/Destroy_Timer" to="Node2D_Grid" method="_on_Destroy_Timer_timeout"]
 [connection signal="timeout" from="Node2D_Timer/Collapse_Timer" to="Node2D_Grid" method="_on_Collapse_Timer_timeout"]
 [connection signal="timeout" from="Node2D_Timer/Fill_Timer" to="Node2D_Grid" method="_on_Fill_Timer_timeout"]
 [connection signal="timeout" from="Node2D_Timer/MatchCheck_Timer" to="Node2D_Grid" method="_on_MatchCheck_Timer_timeout"]
 [connection signal="timeout" from="Node2D_Timer/UndoDriver_Timer" to="Node2D_Grid" method="_on_UndoDriver_Timer_timeout"]
+[connection signal="pressed" from="Node2D_TitleMenu/Button_Start" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Node2D_StartMenu/VBoxContainer/Button_Play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Node2D_StartMenu/VBoxContainer/Button_Load" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="Node2D_StartMenu/VBoxContainer/LoadSaveButton2" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Node2D_StartMenu/VBoxContainer/AboutUsButton" to="." method="_on_about_us_button_pressed"]
+[connection signal="pressed" from="Node2D_StartMenu/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Node2D_StartMenu/VBoxContainer/ScoresButton" to="." method="_on_scores_button_pressed"]
+[connection signal="pressed" from="Node2D_StartMenu/VBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="Node2D_StartMenu/VBoxContainer/ExitGameButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Node2D_StartMenu/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
+[connection signal="pressed" from="Node2D_SettingsMenu/ReturnToStartMenuButton1" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Node2D_ScoresMenu/ReturnToStartMenuButton2" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Node2D_AboutMenu/ReturnToStartMenuButton3" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Node2D_LoadMenu/ReturnToStartMenuButton4" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Node2D_SaveMenu/ReturnToStartMenuButton5" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Node2D_HelpMenu/ReturnToStartMenuButton6" to="." method="_on_start_button_pressed"]
