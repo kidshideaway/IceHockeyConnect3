@@ -1,6 +1,8 @@
+HBoxContainer
+Sprite2D
+VBoxContainer
 Node2D
 Control
-HBoxContainer
 Node
 TextureRect
 Label

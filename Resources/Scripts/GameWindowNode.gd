@@ -1,12 +1,21 @@
 extends Node
 
-# only used when creating a new save game file.
+# json initial save game file.
 var my_save_game_dict = {
-	"file_name": "hattrick_v3_save.dat",
+	"file_name_1": "hattrick_v3_save_1.dat",
+	"file_name_2": "hattrick_v3_save_2.dat",
+	"file_name_3": "hattrick_v3_save_3.dat",
 	"player_name": "player one",
 	"player_level": 0,
 	"player_score": 0,
+	"top_score_1": 0,
+	"top_score_2": 0,
+	"top_score_3": 0,
+	"top_score_4": 0,
+	"top_score_5": 0,
 }
+
+####### -- Menu Display States  -- #######
 var _title = false;
 var _start = false;
 var _settings = false;
@@ -20,6 +29,49 @@ var _timer = false;
 var _grid = false;
 var _ready_counter = 0;
 var my_script = "GameWiindowNode.gd";
+var zindex_visible = 99;
+var zindex_hidden = 1;
+
+####### -- Save Game Data  -- #######
+var file_name_1 = "hattrick_v3_save_1.dat";
+var file_name_2 = "hattrick_v3_save_2.dat";
+var file_name_3 = "hattrick_v3_save_3.dat";
+var player_name = "player one";
+var player_level = 0;
+var player_score = 0;
+var top_score_1 = 0;
+var top_score_2 = 0;
+var top_score_3 = 0;
+var top_score_4 = 0;
+var top_score_5 = 0;
+
+var is_saved_file_1 = false;
+var is_saved_file_2 = false;
+var is_saved_file_3 = false;
+
+var is_loaded_file_1 = false;
+var is_loaded_file_2 = false;
+var is_loaded_file_3 = false;
+
+var file_exists_sprite_texture = load("res://Resources/UI/Sprites/spr_gem_blue.png");
+var file_does_not_exists_sprite_texture = load("res://Resources/UI/Sprites/spr_gem_red.png");
+var file_saved_sprite_texture = load("res://Resources/UI/Sprites/spr_gem_green.png");
+var file_not_saved_sprite_texture = load("res://Resources/UI/Sprites/spr_gem_red.png");
+
+var node_path_LM_FileExists_1 = "Node2D_LoadMenu/VBoxContainer4/HBox_Slot1/Sprite2D_FileExists_1";
+var node_path_LM_FileSaved_1 = "Node2D_LoadMenu/VBoxContainer4/HBox_Slot1/Sprite2D_FileSaved_1";
+var node_path_LM_FileExists_2 = "Node2D_LoadMenu/VBoxContainer4/HBoxSlot2/Sprite2D_FileExists_2";
+var node_path_LM_FileSaved_2 = "Node2D_LoadMenu/VBoxContainer4/HBoxSlot2/Sprite2D_FileSaved_2";
+var node_path_LM_FileExists_3 = "Node2D_LoadMenu/VBoxContainer4/HBoxSlot3/Sprite2D_FileExists_3";
+var node_path_LM_FileSaved_3 = "Node2D_LoadMenu/VBoxContainer4/HBoxSlot3/Sprite2D_FileSaved_3";
+
+var node_path_SM_FileExists_1 = "Node2D_SaveMenu/VBoxContainer/HBox_Slot1/Sprite2D_FileExists_1";
+var node_path_SM_FileSaved_1 = "Node2D_SaveMenu/VBoxContainer/HBox_Slot1/Sprite2D_FileSaved_1";
+var node_path_SM_FileExists_2 = "Node2D_SaveMenu/VBoxContainer/HBoxSlot2/Sprite2D_FileExists_2";
+var node_path_SM_FileSaved_2 = "Node2D_SaveMenu/VBoxContainer/HBoxSlot2/Sprite2D_FileSaved_2";
+var node_path_SM_FileExists_3 = "Node2D_SaveMenu/VBoxContainer/HBoxSlot3/Sprite2D_FileExists_3";
+var node_path_SM_FileSaved_3 = "Node2D_SaveMenu/VBoxContainer/HBoxSlot3/Sprite2D_FileSaved_3";
+
 
 func _ready():
 	# make the title window visible
@@ -68,7 +120,6 @@ func valid_node_check(my_script, my_func, my_node):
 		print("[",my_script,"][",my_func,"][",my_node,"] ","The node is not found, has_node")
 	return(false)
 
-
 func Toggle_TitleMenu(state):
 	var my_func = "Toggle_TitleMenu";
 	var my_node = "Node2D_TitleMenu";
@@ -96,24 +147,104 @@ func Toggle_StartMenu(state):
 func Toggle_LoadMenu(state):
 	var my_func = "Toggle_LoadMenu";
 	var my_node = "Node2D_LoadMenu"
+
+	var Sprite2D_FileExists_1 = get_node(node_path_LM_FileExists_1);
+	var Sprite2D_FileExists_2 = get_node(node_path_LM_FileExists_2);
+	var Sprite2D_FileExists_3 = get_node(node_path_LM_FileExists_3);
+
+	var Sprite2D_FileSaved_1 = get_node(node_path_LM_FileSaved_1);
+	var Sprite2D_FileSaved_2 = get_node(node_path_LM_FileSaved_2);
+	var Sprite2D_FileSaved_3 = get_node(node_path_LM_FileSaved_3);
+
 	var result = valid_node_check(my_script, my_func, my_node);
 	if result == true:
 		var active_node = get_node(my_node)
 		if active_node.is_inside_tree() == true:
 			var results = VisibilityMenuActions(active_node, state);
 			print("[",my_script,"][",my_func,"][",my_node,"] ","The node is valid! [", active_node,"] [",state,"] [",results,"]");
+
+			var does_file_1_exist = _file_io_exists(file_name_1);
+			if does_file_1_exist == true:
+				Sprite2D_FileExists_1.set_texture(file_exists_sprite_texture);
+			else:
+				Sprite2D_FileExists_1.set_texture(file_does_not_exists_sprite_texture);
+			if is_saved_file_1 == true:
+				Sprite2D_FileSaved_1.set_texture(file_saved_sprite_texture);
+			else:
+				Sprite2D_FileSaved_1.set_texture(file_not_saved_sprite_texture);
+
+			var does_file_2_exist = _file_io_exists(file_name_2);
+			if does_file_2_exist == true:
+				Sprite2D_FileExists_2.set_texture(file_exists_sprite_texture);
+			else:
+				Sprite2D_FileExists_2.set_texture(file_does_not_exists_sprite_texture);
+			if is_saved_file_2 == true:
+				Sprite2D_FileSaved_2.set_texture(file_saved_sprite_texture);
+			else:
+				Sprite2D_FileSaved_2.set_texture(file_not_saved_sprite_texture);
+
+			var does_file_3_exist = _file_io_exists(file_name_3);
+			if does_file_3_exist == true:
+				Sprite2D_FileExists_3.set_texture(file_exists_sprite_texture);
+			else:
+				Sprite2D_FileExists_3.set_texture(file_does_not_exists_sprite_texture);
+			if is_saved_file_3 == true:
+				Sprite2D_FileSaved_3.set_texture(file_saved_sprite_texture);
+			else:
+				Sprite2D_FileSaved_3.set_texture(file_not_saved_sprite_texture);
+
 		else:
 			print("[",my_script,"][",my_func,"][",my_node,"] ","invalid node, is_inside_tree")
 
 func Toggle_SaveMenu(state):
 	var my_func = "Toggle_SaveMenu";
-	var my_node = "Node2D_StartMenu";
+	var my_node = "Node2D_SaveMenu";
+
+	var Sprite2D_FileExists_1 = get_node(node_path_SM_FileExists_1);
+	var Sprite2D_FileExists_2 = get_node(node_path_SM_FileExists_2);
+	var Sprite2D_FileExists_3 = get_node(node_path_SM_FileExists_3);
+
+	var Sprite2D_FileSaved_1 = get_node(node_path_SM_FileSaved_1);
+	var Sprite2D_FileSaved_2 = get_node(node_path_SM_FileSaved_2);
+	var Sprite2D_FileSaved_3 = get_node(node_path_SM_FileSaved_3);
+
 	var result = valid_node_check(my_script, my_func, my_node);
 	if result == true:
 		var active_node = get_node(my_node)
 		if active_node.is_inside_tree() == true:
 			var results = VisibilityMenuActions(active_node, state);
 			print("[",my_script,"][",my_func,"][",my_node,"] ","The node is valid! [", active_node,"] [",state,"] [",results,"]");
+
+			var does_file_1_exist = _file_io_exists(file_name_1);
+			if does_file_1_exist == true:
+				Sprite2D_FileExists_1.set_texture(file_exists_sprite_texture);
+			else:
+				Sprite2D_FileExists_1.set_texture(file_does_not_exists_sprite_texture);
+			if is_saved_file_1 == true:
+				Sprite2D_FileSaved_1.set_texture(file_saved_sprite_texture);
+			else:
+				Sprite2D_FileSaved_1.set_texture(file_not_saved_sprite_texture);
+
+			var does_file_2_exist = _file_io_exists(file_name_2);
+			if does_file_2_exist == true:
+				Sprite2D_FileExists_2.set_texture(file_exists_sprite_texture);
+			else:
+				Sprite2D_FileExists_2.set_texture(file_does_not_exists_sprite_texture);
+			if is_saved_file_2 == true:
+				Sprite2D_FileSaved_2.set_texture(file_saved_sprite_texture);
+			else:
+				Sprite2D_FileSaved_2.set_texture(file_not_saved_sprite_texture);
+
+			var does_file_3_exist = _file_io_exists(file_name_3);
+			if does_file_3_exist == true:
+				Sprite2D_FileExists_3.set_texture(file_exists_sprite_texture);
+			else:
+				Sprite2D_FileExists_3.set_texture(file_does_not_exists_sprite_texture);
+			if is_saved_file_3 == true:
+				Sprite2D_FileSaved_3.set_texture(file_saved_sprite_texture);
+			else:
+				Sprite2D_FileSaved_3.set_texture(file_not_saved_sprite_texture);
+
 		else:
 			print("[",my_script,"][",my_func,"][",my_node,"] ","invalid node, is_inside_tree")
 
@@ -215,11 +346,21 @@ func VisibilityMenuActions(Node_Self, state):
 				print("[",my_script,"][",my_func,"][",my_node,"] ","TYPE_BOOL is_visible_in_tree [", active_state,"][",state,"] toggle")
 				my_node.visible = true;
 				var active_state2 = my_node.is_visible_in_tree();
+				if my_node.z_index < zindex_visible:
+					my_node.z_index = zindex_visible
+				var parent_node = my_node.get_parent()
+				var parent_type = my_node.get_parent().get_class()
+				if parent_node is Node2D or parent_type == "Node2D":
+					var parent_active_state = parent_node.visible
+					if parent_active_state !=state:
+						parent_node.visible = state
 				return(active_state2);
 			elif active_state == true and state == false:
 				print("[",my_script,"][",my_func,"][",my_node,"] ","TYPE_BOOL is_visible_in_tree [", active_state,"][",state,"] toggle")
 				my_node.visible = false;
 				var active_state2 = my_node.is_visible_in_tree();
+				if my_node.z_index > zindex_hidden:
+					my_node.z_index = zindex_hidden
 				return(active_state2);
 			elif active_state == false and state == false:
 				#print("[",my_script,"][",my_func,"][",my_node,"] ","TYPE_BOOL is_visible_in_tree [", active_state,"][",state,"] ")
@@ -229,7 +370,6 @@ func VisibilityMenuActions(Node_Self, state):
 				return(true);
 			else:
 				print("[",my_script,"][",my_func,"][",my_node,"] ","what happened? [", active_state,"][",state,"] ")
-
 		elif typeof(state) == TYPE_STRING:
 			if state == "toggle":
 				var active_state = my_node.is_visible_in_tree();
@@ -317,6 +457,30 @@ func _on_play_button_pressed():
 	set_screen_states(_title, _start, _settings, _scores, _about, _load, _save, _help, _game, _timer, _grid);
 	pass # Replace with function body.
 
+func _on_save_file_1_button_pressed() -> void:
+	save_file_system(file_name_1);
+	pass # Replace with function body.
+
+func _on_save_file_2_button_pressed() -> void:
+	save_file_system(file_name_2);
+	pass # Replace with function body.
+
+func _on_save_file_3_button_pressed() -> void:
+	save_file_system(file_name_3);
+	pass # Replace with function body.
+
+func _on_load_file_1_button_pressed() -> void:
+	load_file_system(file_name_1);
+	pass # Replace with function body.
+
+func _on_load_file_2_button_pressed() -> void:
+	load_file_system(file_name_2);
+	pass # Replace with function body.
+
+func _on_load_file_3_button_pressed() -> void:
+	load_file_system(file_name_3);
+	pass # Replace with function body.
+
 # Game Window Buttons
 func _on_exit_button_pressed():
 	var my_func = "_on_exit_button_pressed";
@@ -402,61 +566,58 @@ func _build_save_dict(var_name, var_content):
 		print("Var does not exist: " + var_name + " | " + var_content);
 	pass
 
-
 func _file_io_exists(my_save_game_file):
 	var fileexists = FileAccess.file_exists("user://" + my_save_game_file);
 	print("Does save file exists(" + str(fileexists) + "): " + my_save_game_file);
 	return fileexists
 
+func load_file_system(file_name):
+	if file_name == "NULL":
+		file_name = my_save_game_dict["file_name"];
 
-func _on_loadfile_button_pressed() -> void:
-	# does the file exist, then load, if the file doesn't exist, create, and initialize with starter data.
-	print("Does file exist: " + my_save_game_dict["file_name"]);
-	# attempt to load existing file:
-	var fileexists = _file_io_exists( my_save_game_dict["file_name"] );
+	print("Does file exist: " + file_name);
+	var fileexists = _file_io_exists( file_name );
 
 	if fileexists:
-		print("Begin reading file: " + my_save_game_dict["file_name"]);
-		var my_file_data = _file_io_read(my_save_game_dict["file_name"]);
+		print("Begin reading file: " + file_name);
+		var my_file_data = _file_io_read(file_name);
 		_parse_file_contents(my_file_data);
-
-	# if file does not exist create the file
 	else:
-		print("Create file: " + my_save_game_dict["file_name"]);
+		print("Create file: " + file_name);
 		var format_string = """file_name:%s;player_name:%s;player_level:%s;player_score:%s;\\n""";
 		var my_file_data = format_string % [
-			my_save_game_dict["file_name"],
+			file_name,
 			my_save_game_dict["player_name"],
 			str(my_save_game_dict["player_level"]),
 			str(my_save_game_dict["player_score"])
 			];
-		_file_io_write(my_save_game_dict["file_name"], my_file_data);
+		_file_io_write(file_name, my_file_data);
 
 	pass # Replace with function body.
 
-func _on_savefile_button_pressed() -> void:
+func save_file_system(file_name):
+	if file_name == "NULL":
+		file_name = my_save_game_dict["file_name"];
 	# save file, if does not exist create, and then save.
-	print("Does file exist: " + my_save_game_dict["file_name"]);
+	print("Does file exist: " + file_name);
 	# attempt to load existing file:
-	var fileexists = _file_io_exists( my_save_game_dict["file_name"] );
+	var fileexists = _file_io_exists(file_name );
 
 	if fileexists:
-		print("Begin reading file: " + my_save_game_dict["file_name"]);
-		var my_file_data = _file_io_read(my_save_game_dict["file_name"]);
+		print("Begin reading file: " + file_name);
+		var my_file_data = _file_io_read(file_name);
 		_parse_file_contents(my_file_data);
 
 	# if file does not exist create the file
 	else:
-		print("Create file: " + my_save_game_dict["file_name"]);
+		print("Create file: " + file_name);
 		var format_string = """file_name:%s;player_name:%s;player_level:%s;player_score:%s;\\n""";
 		var my_file_data = format_string % [
-			my_save_game_dict["file_name"],
+			file_name,
 			my_save_game_dict["player_name"],
 			str(my_save_game_dict["player_level"]),
 			str(my_save_game_dict["player_score"])
 			];
-		_file_io_write(my_save_game_dict["file_name"], my_file_data);
+		_file_io_write(file_name, my_file_data);
 
 	pass # Replace with function body.
-
-

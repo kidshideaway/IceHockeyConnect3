@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://ceoren2dfdmdd"]
+[gd_scene load_steps=133 format=3 uid="uid://ceoren2dfdmdd"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/GameWindowNode.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://baouvxjbg7tr5" path="res://Resources/UI/Backgrounds/Texture-_Ice_NormalLevel.png" id="3"]
@@ -127,8 +127,10 @@
 [ext_resource type="Texture2D" uid="uid://kg0qmi8nuinj" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_021.png" id="126"]
 [ext_resource type="Texture2D" uid="uid://duljef4ir1xt7" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_022.png" id="127"]
 [ext_resource type="Texture2D" uid="uid://c8mrmharll2xt" path="res://Resources/UI/Player_Feedback/100_plus_score_Frame_023.png" id="128"]
+[ext_resource type="Texture2D" uid="uid://dn4yy7aoo21ys" path="res://Resources/UI/Sprites/spr_gem_blue.png" id="129_lo37c"]
 [ext_resource type="AudioStream" uid="uid://b4u3b8sjyfbo7" path="res://Resources/Sounds/Pause.wav" id="130"]
-[ext_resource type="Texture2D" uid="uid://hy4jrlh7366y" path="res://Resources/UI/Logo/IceHockey_Logo_Ideas_PowerPlay.png" id="131_kexja"]
+[ext_resource type="Texture2D" uid="uid://rvqxjfukhcrs" path="res://Resources/UI/Sprites/spr_gem_green.png" id="130_jwt0b"]
+[ext_resource type="Texture2D" uid="uid://cvr5u7mi5h614" path="res://Resources/UI/Sprites/spr_gem_red.png" id="130_qw0pb"]
 
 [sub_resource type="SpriteFrames" id="14"]
 animations = [{
@@ -812,7 +814,6 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Node2D_TitleMenu" type="Node2D" parent="."]
-visible = false
 
 [node name="Background_TextureRect" type="TextureRect" parent="Node2D_TitleMenu"]
 custom_minimum_size = Vector2(700, 1000)
@@ -821,12 +822,56 @@ offset_bottom = 1010.0
 texture = ExtResource("3")
 stretch_mode = 1
 
-[node name="Logo_TextureRect" type="TextureRect" parent="Node2D_TitleMenu"]
-custom_minimum_size = Vector2(600, 230)
-offset_top = 123.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D_TitleMenu/Background_TextureRect"]
+layout_mode = 0
 offset_right = 700.0
-offset_bottom = 362.0
-texture = ExtResource("131_kexja")
+offset_bottom = 400.0
+
+[node name="Title_Label_Shadow" type="Label" parent="Node2D_TitleMenu/Background_TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 96
+text = "Hat Trick"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+
+[node name="Title_Label" type="Label" parent="Node2D_TitleMenu/Background_TextureRect/VBoxContainer/Title_Label_Shadow"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 708.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 96
+text = "Hat Trick"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+
+[node name="Title_Label_Shadow2" type="Label" parent="Node2D_TitleMenu/Background_TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 40
+text = "Ice Hockey Themed Match 3 "
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
+
+[node name="Title_Label" type="Label" parent="Node2D_TitleMenu/Background_TextureRect/VBoxContainer/Title_Label_Shadow2"]
+layout_mode = 2
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 705.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 40
+text = "Ice Hockey Themed Match 3 "
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
 
 [node name="Button_Start" type="TextureButton" parent="Node2D_TitleMenu"]
 anchors_preset = 8
@@ -1179,7 +1224,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Node2D_LoadMenu" type="Node2D" parent="."]
-visible = false
 
 [node name="Background_TextureRect2" type="TextureRect" parent="Node2D_LoadMenu"]
 custom_minimum_size = Vector2(700, 1000)
@@ -1188,6 +1232,150 @@ offset_bottom = 1000.0
 texture = ExtResource("3")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Node2D_LoadMenu"]
+custom_minimum_size = Vector2(700, 100)
+offset_right = 700.0
+offset_bottom = 128.0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Node2D_LoadMenu/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_1rqni")
+theme_override_font_sizes/font_size = 100
+text = "LOAD MENU"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Node2D_LoadMenu/VBoxContainer3/Label2"]
+layout_mode = 2
+offset_left = 8.0
+offset_right = 708.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("11_1rqni")
+theme_override_font_sizes/font_size = 100
+text = "LOAD MENU"
+horizontal_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Node2D_LoadMenu"]
+offset_left = 150.0
+offset_top = 130.0
+offset_right = 550.0
+offset_bottom = 390.0
+alignment = 1
+
+[node name="HBoxSpacer0" type="HBoxContainer" parent="Node2D_LoadMenu/VBoxContainer4"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBox_Slot1" type="HBoxContainer" parent="Node2D_LoadMenu/VBoxContainer4"]
+layout_mode = 2
+
+[node name="SaveFile_1_Button" type="TextureButton" parent="Node2D_LoadMenu/VBoxContainer4/HBox_Slot1"]
+layout_mode = 2
+tooltip_text = "Save game to slot 1."
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_LoadMenu/VBoxContainer4/HBox_Slot1/SaveFile_1_Button"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "SLOT 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D_FileExists_1" type="Sprite2D" parent="Node2D_LoadMenu/VBoxContainer4/HBox_Slot1"]
+position = Vector2(325, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("129_lo37c")
+
+[node name="Sprite2D_FileSaved_1" type="Sprite2D" parent="Node2D_LoadMenu/VBoxContainer4/HBox_Slot1"]
+position = Vector2(375, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("130_qw0pb")
+
+[node name="HBoxSpacer1" type="HBoxContainer" parent="Node2D_LoadMenu/VBoxContainer4"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxSlot2" type="HBoxContainer" parent="Node2D_LoadMenu/VBoxContainer4"]
+layout_mode = 2
+
+[node name="SaveFile_2_Button" type="TextureButton" parent="Node2D_LoadMenu/VBoxContainer4/HBoxSlot2"]
+layout_mode = 2
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_LoadMenu/VBoxContainer4/HBoxSlot2/SaveFile_2_Button"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "SLOT 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D_FileExists_2" type="Sprite2D" parent="Node2D_LoadMenu/VBoxContainer4/HBoxSlot2"]
+position = Vector2(325, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("129_lo37c")
+
+[node name="Sprite2D_FileSaved_2" type="Sprite2D" parent="Node2D_LoadMenu/VBoxContainer4/HBoxSlot2"]
+position = Vector2(375, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("130_qw0pb")
+
+[node name="HBoxSpacer2" type="HBoxContainer" parent="Node2D_LoadMenu/VBoxContainer4"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxSlot3" type="HBoxContainer" parent="Node2D_LoadMenu/VBoxContainer4"]
+layout_mode = 2
+
+[node name="SaveFile_3_Button" type="TextureButton" parent="Node2D_LoadMenu/VBoxContainer4/HBoxSlot3"]
+layout_mode = 2
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_LoadMenu/VBoxContainer4/HBoxSlot3/SaveFile_3_Button"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "SLOT 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D_FileExists_3" type="Sprite2D" parent="Node2D_LoadMenu/VBoxContainer4/HBoxSlot3"]
+position = Vector2(325, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("129_lo37c")
+
+[node name="Sprite2D_FileSaved_3" type="Sprite2D" parent="Node2D_LoadMenu/VBoxContainer4/HBoxSlot3"]
+position = Vector2(375, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("130_qw0pb")
 
 [node name="ReturnToStartMenuButton4" type="TextureButton" parent="Node2D_LoadMenu"]
 offset_left = 3.0
@@ -1220,6 +1408,150 @@ offset_bottom = 1000.0
 texture = ExtResource("3")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Node2D_SaveMenu"]
+custom_minimum_size = Vector2(700, 100)
+offset_right = 700.0
+offset_bottom = 128.0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Node2D_SaveMenu/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_1rqni")
+theme_override_font_sizes/font_size = 100
+text = "Save Menu"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Node2D_SaveMenu/VBoxContainer2/Label2"]
+layout_mode = 2
+offset_left = 8.0
+offset_right = 708.0
+offset_bottom = 103.0
+theme_override_fonts/font = ExtResource("11_1rqni")
+theme_override_font_sizes/font_size = 100
+text = "Save Menu"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D_SaveMenu"]
+offset_left = 150.0
+offset_top = 130.0
+offset_right = 550.0
+offset_bottom = 288.0
+alignment = 1
+
+[node name="HBoxSpacer0" type="HBoxContainer" parent="Node2D_SaveMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBox_Slot1" type="HBoxContainer" parent="Node2D_SaveMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="SaveFile_1_Button" type="TextureButton" parent="Node2D_SaveMenu/VBoxContainer/HBox_Slot1"]
+layout_mode = 2
+tooltip_text = "Save game to slot 1."
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_SaveMenu/VBoxContainer/HBox_Slot1/SaveFile_1_Button"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "SLOT 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D_FileExists_1" type="Sprite2D" parent="Node2D_SaveMenu/VBoxContainer/HBox_Slot1"]
+position = Vector2(325, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("129_lo37c")
+
+[node name="Sprite2D_FileSaved_1" type="Sprite2D" parent="Node2D_SaveMenu/VBoxContainer/HBox_Slot1"]
+position = Vector2(375, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("130_jwt0b")
+
+[node name="HBoxSpacer1" type="HBoxContainer" parent="Node2D_SaveMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxSlot2" type="HBoxContainer" parent="Node2D_SaveMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="SaveFile_2_Button" type="TextureButton" parent="Node2D_SaveMenu/VBoxContainer/HBoxSlot2"]
+layout_mode = 2
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_SaveMenu/VBoxContainer/HBoxSlot2/SaveFile_2_Button"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "SLOT 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D_FileExists_2" type="Sprite2D" parent="Node2D_SaveMenu/VBoxContainer/HBoxSlot2"]
+position = Vector2(325, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("129_lo37c")
+
+[node name="Sprite2D_FileSaved_2" type="Sprite2D" parent="Node2D_SaveMenu/VBoxContainer/HBoxSlot2"]
+position = Vector2(375, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("130_jwt0b")
+
+[node name="HBoxSpacer2" type="HBoxContainer" parent="Node2D_SaveMenu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxSlot3" type="HBoxContainer" parent="Node2D_SaveMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="SaveFile_3_Button" type="TextureButton" parent="Node2D_SaveMenu/VBoxContainer/HBoxSlot3"]
+layout_mode = 2
+texture_normal = ExtResource("3_srogm")
+texture_pressed = ExtResource("4_2hqjd")
+texture_hover = ExtResource("5_wvque")
+texture_disabled = ExtResource("6_diy2x")
+texture_focused = ExtResource("7_1xfad")
+
+[node name="Label" type="Label" parent="Node2D_SaveMenu/VBoxContainer/HBoxSlot3/SaveFile_3_Button"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_vbdvu")
+theme_override_font_sizes/font_size = 32
+text = "SLOT 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D_FileExists_3" type="Sprite2D" parent="Node2D_SaveMenu/VBoxContainer/HBoxSlot3"]
+position = Vector2(325, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("129_lo37c")
+
+[node name="Sprite2D_FileSaved_3" type="Sprite2D" parent="Node2D_SaveMenu/VBoxContainer/HBoxSlot3"]
+position = Vector2(375, 25)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("130_jwt0b")
 
 [node name="ReturnToStartMenuButton5" type="TextureButton" parent="Node2D_SaveMenu"]
 offset_left = 3.0
@@ -1300,6 +1632,12 @@ vertical_alignment = 1
 [connection signal="pressed" from="Node2D_SettingsMenu/ReturnToStartMenuButton1" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Node2D_ScoresMenu/ReturnToStartMenuButton2" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Node2D_AboutMenu/ReturnToStartMenuButton3" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Node2D_LoadMenu/VBoxContainer4/HBox_Slot1/SaveFile_1_Button" to="." method="_on_save_file_1_button_pressed"]
+[connection signal="pressed" from="Node2D_LoadMenu/VBoxContainer4/HBoxSlot2/SaveFile_2_Button" to="." method="_on_save_file_2_button_pressed"]
+[connection signal="pressed" from="Node2D_LoadMenu/VBoxContainer4/HBoxSlot3/SaveFile_3_Button" to="." method="_on_save_file_3_button_pressed"]
 [connection signal="pressed" from="Node2D_LoadMenu/ReturnToStartMenuButton4" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Node2D_SaveMenu/VBoxContainer/HBox_Slot1/SaveFile_1_Button" to="." method="_on_save_file_1_button_pressed"]
+[connection signal="pressed" from="Node2D_SaveMenu/VBoxContainer/HBoxSlot2/SaveFile_2_Button" to="." method="_on_save_file_2_button_pressed"]
+[connection signal="pressed" from="Node2D_SaveMenu/VBoxContainer/HBoxSlot3/SaveFile_3_Button" to="." method="_on_save_file_3_button_pressed"]
 [connection signal="pressed" from="Node2D_SaveMenu/ReturnToStartMenuButton5" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Node2D_HelpMenu/ReturnToStartMenuButton6" to="." method="_on_start_button_pressed"]
