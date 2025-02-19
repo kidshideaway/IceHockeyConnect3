@@ -10,3 +10,7 @@ color = "blue"
 texture = ExtResource("2")
 metadata/color = "blue"
 metadata/_edit_pinned_properties_ = [&"metadata/color"]
+
+[node name="Move_Tween" parent="." index="1"]
+physics_interpolation_mode = 0
+auto_translate_mode = 0

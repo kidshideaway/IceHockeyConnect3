@@ -58,5 +58,3 @@ func loadFile( fileName ):
 	return content
 	
 #icehockey_team_database.gd_csv
-
-

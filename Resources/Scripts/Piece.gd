@@ -44,6 +44,12 @@ func dim():
 	pass;
 
 func coloris():
-	var sprite = get_node("Sprite"); 
-	var ColorData = sprite.get_node("metadata/color")
+	var ColorData = 0
+	var _self = "/root/Piece";
+	var child_count = get_child_count();
+	for aaa in range (0, child_count):
+		var child = get_child(aaa);
+		if child is Sprite2D:
+			print("This is a sprite");   
+			ColorData = child.get_node("metadata/color")
 	return(ColorData) 

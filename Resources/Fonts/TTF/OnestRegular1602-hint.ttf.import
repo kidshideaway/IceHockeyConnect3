@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/OnestRegular1602-hint.ttf-1d4527287f2e85eaf05
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

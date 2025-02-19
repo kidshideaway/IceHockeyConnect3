@@ -74,7 +74,7 @@ func spawn_pieces():
 			var rand = floor(randf_range(0,max_num_pieces_per_level));
 			var piece = possible_pieces[rand];
 			var loops = 0;
-			while ( match_at(i,j, piece.coloris() ) && loops < 100):
+			while ( match_at(i,j, Piece.coloris() ) && loops < 100):
 				rand = floor(randf_range(0, max_num_pieces_per_level));
 				loops += 1;
 				piece = possible_pieces[rand];
@@ -420,4 +420,3 @@ func _read_level_specs():
 								Global.level_round_reward = int(LevelSpecs_Array[n]);
 							11:
 								Global.level_round_amount = int(LevelSpecs_Array[n]);
-
